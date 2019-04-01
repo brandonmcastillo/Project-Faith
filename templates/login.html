@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+<!-- Imports macro template for form rendering -->
+{% from "macros.html" import render_field %}
+
+{% block content %}
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <p>
+    {% for field in form if field.widget.input_type != 'hidden' %}
+      {{ render_field(field) }}
+    {% endfor %}
+  </p>
+
+  <div class="has-text-centered">
+    <button type="submit" class="button is-primary">Log In</button><a href="{{ url_for('index') }}" class="button is-light">Cancel</a>
+  </div>
+</form>
+{% endblock %}
