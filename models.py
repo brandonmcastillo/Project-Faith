@@ -25,6 +25,7 @@ class User(UserMixin, Model):
                 name = name,
                 email = email,
                 password = generate_password_hash(password))
+        except IntegrityError:
             raise ValueError("create error")
 
     @classmethod
