@@ -8,11 +8,13 @@ from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 import models
 import forms
-
+from flask_assets import Environment, Bundle
 
 app = Flask(__name__, instance_relative_config=True)
-app.config.from_pyfile('flask.cfg')
 app.secret_key = 'asdfghjkl'
+assets = Environment(app)
+assets.init_app(app)
+
 
 DEBUG = True
 PORT = 8000
@@ -21,6 +23,12 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+@login_manager.user_loader
+def load_user(userid):
+    try: 
+        return models.User.get(models.User.id == userid)
+    except models.DoesNotExist:
+        return None
 
 @app.before_request
 def before_request():
@@ -44,8 +52,8 @@ def main():
     return render_template('main.html')
 
 @app.route('/articles')
-def about():
-    return render_template('articles.html')
+def articles():
+    return redirect(url_for('articles'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -61,30 +69,27 @@ def login():
                 ## creates session
                 login_user(user)
                 flash("You successfully logged in", "success")
-                return redirect(url_for('profile', username=user.username))
+                return redirect(url_for('main'))
             else:
                 flash("Your email or password doesn't match", "error")
     return render_template('login.html', form=form)
 
 @app.route('/signup', methods=('GET', 'POST'))
-def register():
+def signup():
     form = forms.SignUpForm()
     if form.validate_on_submit():
-        filename = images.save(request.files['profile_image'])
-        url = images.url(filename)
-
         models.User.create_user(
             username=form.username.data,
+            name=form.name.data,
             email=form.email.data,
-            password=form.password.data,
-            location=form.location.data,
+            password=form.password.data
         )
         
         user = models.User.get(models.User.username == form.username.data)
         login_user(user)
         name = user.username
-        flash('Thank you for signing up', 'success')
-        return redirect(url_for('profile', username=name))
+        flash('We welcome you to Faith', 'success')
+        return redirect(url_for('main'))
     return render_template('signup.html', form=form)
 
 @app.route('/logout')
@@ -97,5 +102,7 @@ def logout():
 # Initialize models when running on localhost
 if __name__ == '__main__':
     models.initialize()
+
+    
 
 app.run(debug=DEBUG, port=PORT)
