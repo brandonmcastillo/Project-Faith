@@ -1,0 +1,27 @@
+{
+  "name": "project-faith",
+  "version": "1.0.0",
+  "description": "Faith is a mental health community application created by Brandon Castillo where individuals can browse articles on mental health issues and ask questions while receiving input from other users in the community.",
+  "main": "sass/mystyles.scss",
+  "dependencies": {},
+  "devDependencies": {
+    "bulma": "^0.7.4",
+    "node-sass": "^4.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonmcastillo/Project-Faith.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonmcastillo/Project-Faith/issues"
+  },
+  "homepage": "https://github.com/brandonmcastillo/Project-Faith#readme"
+}
