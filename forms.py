@@ -6,11 +6,11 @@ from wtforms.validators import DataRequired, Regexp, ValidationError, Length, Eq
 
 def name_exists(form, field):
     if User.select().where(User.username == field.data).exists():
-        raise ValidationError("User with this username already exists")
+        raise ValidationError("User with this username already exists! Try again")
 
 def email_exists(form, field):
     if User.select().where(User.email == field.data).exists():
-        raise ValidationError("User with this email already exists")
+        raise ValidationError("User with this email already exists! Try again!")
 
 class SignUpForm(Form):
     username = StringField(
@@ -19,8 +19,8 @@ class SignUpForm(Form):
             DataRequired(),
             Regexp(
                 r'^[a-zA-Z0-9_]+$',
-                message=("Username should be one word, letters, "
-                         "numbers, and underscores only.")),
+                message=("Username should only be one word, Letters"
+                         " numbers and underscores are only allowed.")),
             name_exists
         ])
     name = StringField(
@@ -41,7 +41,7 @@ class SignUpForm(Form):
         validators=[
             DataRequired(),
             Length(min=3),
-            EqualTo('password2', message='Passwords must match')
+            EqualTo('password2', message='Passwords must match. Try again.')
         ])
     password2 = PasswordField(
         'Confirm Password',
@@ -58,3 +58,18 @@ class LoginForm(Form):
         'Password',
         validators=[DataRequired()]
         )
+
+class EditUserForm(Form):
+    name = StringField('Name')
+    email = StringField('Email')
+    password = PasswordField(
+        'Password:',
+        validators=[
+            DataRequired(),
+            Length(min=3),
+            EqualTo('password2', message='Passwords must be identical. Try again.')
+        ])
+    password2 = PasswordField(
+        'Confirm Your Password',
+        validators=[DataRequired()
+        ])
