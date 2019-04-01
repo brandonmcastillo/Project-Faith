@@ -39,9 +39,14 @@ def after_request(response):
 def index():
     return render_template('landing.html')
 
+@app.route('/main')
+def main():
+    return render_template('main.html')
+
 @app.route('/articles')
 def about():
     return render_template('articles.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
