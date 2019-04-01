@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm as Form
-from models import User, Recipe
+from models import User, Post, Reply
 from wtforms import StringField, PasswordField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Regexp, ValidationError, Length, EqualTo, Email
 
@@ -27,7 +27,6 @@ class SignUpForm(Form):
         'Name:',
         validators=[
             DataRequired(),
-            name_exists
         ])
     email = StringField(
         'Email:',
