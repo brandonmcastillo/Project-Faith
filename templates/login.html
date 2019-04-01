@@ -3,6 +3,7 @@
 {% from "macros.html" import render_field %}
 
 {% block content %}
+<div class="has-text-centered">
   <form method="POST" action="">
     {{ form.hidden_tag() }}
     <p>
@@ -11,8 +12,7 @@
     {% endfor %}
   </p>
 
-  <div class="has-text-centered">
     <button type="submit" class="button is-primary">Log In</button><a href="{{ url_for('index') }}" class="button is-light">Cancel</a>
-  </div>
-</form>
+  </form>
+</div>
 {% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+<!-- Imports macro template for form rendering -->
+{% from "macros.html" import render_field %}
+
+{% block content %}
+<div class="has-text-centered">
+  <form method="POST" action="{{ url_for('signup') }}" class="field" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    {{ render_field(field) }}
+    {% endfor %}
+
+    
+    <button type="submit" class="button is-dark">Enter!</button><a href="{{ url_for('index') }}" class="button">Cancel</a>
+  </form>
+</div>
+{% endblock %}
