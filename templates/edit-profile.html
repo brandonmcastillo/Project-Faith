@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% from "macros.html" import field_error %}
+
+
+{% block content %}
+<div class="container">
+  <div class="columns">
+      <div class="column">
+        <h2>Update Profile</h2>
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-input">
+      {{ field_error(form.name) }}
+      {{ form.name.label(class="label") }}
+      {{ form.name(class="control", value=user.name) }}
+    </div>
+    <div class="form-input">
+      {{ field_error(form.email) }}
+      {{ form.email.label(class="label") }}
+      {{ form.email(class="control", value=user.email) }}
+    </div>
+    <div class="form-input">
+      {{ field_error(form.password) }}
+      {{ form.password.label(class="label") }}
+      {{ form.password(class="control", value=user.password) }}
+    </div>
+    <div class="form-input">
+    {{ field_error(form.password2) }}
+    {{ form.password2.label(class="label") }}
+    {{ form.password2(class="control", value=user.password2) }}
+    </div>
+
+    <div class="has-text-centered">
+      <button type="submit" class="button">Save my changes</button><a href="{{ url_for('profile', username=user.username) }}" class="button is-light">Cancel</a>
+    </div>
+    </form>
+</div>
+  </div>
+</div>
+{% endblock %}

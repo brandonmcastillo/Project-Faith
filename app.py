@@ -40,25 +40,25 @@ def before_request():
 def after_request(response):
   g.db.close()
   return response
-
-
-
+  
 @app.route('/')
 def index():
     return render_template('landing.html')
 
 @app.route('/main')
+@login_required
 def main():
     return render_template('main.html')
 
 @app.route('/articles')
+@login_required
 def articles():
-    return redirect(url_for('articles'))
+    return render_template('articles.html')
 
 @app.route('/community')
+@login_required
 def community():
-    return redirect(url_for('community'))
-
+    return render_template('community.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -87,12 +87,11 @@ def signup():
             name=form.name.data,
             email=form.email.data,
             password=form.password.data
-        )
-        
+        )  
         user = models.User.get(models.User.username == form.username.data)
         login_user(user)
         name = user.username
-        flash('We welcome you to Faith', 'success')
+        flash('Welcome back to Faith', 'success')
         return redirect(url_for('main'))
     return render_template('signup.html', form=form)
 
@@ -111,14 +110,24 @@ def profile(username=None):
         return render_template('profile.html', user=user)
     return redirect(url_for('index'))
 
+@app.route('/edit-profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    user = models.User.get(current_user.id)
+    form = forms.EditUserForm()
+    if form.validate_on_submit():
+        user.name = form.name.data
+        user.email = form.email.data
+        user.password = form.password.data
+        user.save()
+        flash('Your profile has been updated.', 'success')
+        return redirect(url_for('profile', username=user.username))
+    return render_template('edit-profile.html', form=form, user=user)
 
 
 
 
-# Initialize models when running on localhost
 if __name__ == '__main__':
     models.initialize()
-
-    
 
 app.run(debug=DEBUG, port=PORT)
