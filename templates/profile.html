@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container ">
+	<div class="columns">
+		<div class="column">
+            <p><span class="title">{{ user.username }}</span></p> 
+            <p><span class="title">{{ user.name }}</span></p>
+            <p><span class="title">{{ user.email }}</span></p>
+			
+			
+
+			{% with messages = get_flashed_messages(with_categories=True) %}
+				{% if messages %}
+					{% for category, message in messages %}
+						<div class={{category}}>{{ message }}</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
