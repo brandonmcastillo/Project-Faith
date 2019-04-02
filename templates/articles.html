@@ -3,8 +3,11 @@
 {% block content %}
 
 
-<h1>Articles</h1>
-  {% for article in articles %}
-    <div>{{article"q"]}}</div>
-  {% endfor %}
+        {% for i in top_headlines %}
+        <div>{{top_headlines[i]}}</div>
+    {% endfor %}
+
+
+
 {% endblock %}
+
