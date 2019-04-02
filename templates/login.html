@@ -1,4 +1,16 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Faith</title>
+    <!-- <link rel="stylesheet" href="../css/mystyles.css"> -->
+    {% assets "scss_all" %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mystyles.css') }}">
+    {% endassets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  </head>
 <!-- Imports macro template for form rendering -->
 {% from "macros.html" import render_field %}
 
@@ -16,3 +28,8 @@
   </form>
 </div>
 {% endblock %}
+{% with messages = get_flashed_messages(with_categories=True) %} 
+          {% if messages %} 
+          {% for category, message in messages %}
+          <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
+          {% endfor %} {% endif %} {% endwith %}
