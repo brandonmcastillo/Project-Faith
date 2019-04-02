@@ -77,7 +77,7 @@ class CreatePostForm(Form):
     category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse')])
     content = StringField('content')
 
-class CreateEditForm(Form):
+class EditPostForm(Form):
     title = StringField('title')
     category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse')])
     content = StringField('content')

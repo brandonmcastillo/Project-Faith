@@ -81,6 +81,21 @@ def add_post():
     else:
         return render_template('create-post.html', form=form, user=user)
 
+@app.route('/edit-post/<postid>', methods=['GET', 'POST'])
+@login_required
+def edit_post(postid = None):
+    post = models.Post.select().where(models.Post.id == postid).get()
+    form = forms.EditPostForm()
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.category = form.category.data
+        post.content = form.content.data
+        post.save()
+
+        return redirect(url_for('community', post_id=post.id))
+    form.category.default = post.category
+    form.process()
+    return render_template('edit-post.html', form=form, post=post)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
