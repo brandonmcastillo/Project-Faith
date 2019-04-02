@@ -4,7 +4,6 @@ from flask_login import UserMixin
 from flask_bcrypt import generate_password_hash
 import datetime
 from peewee import *
-
 # Sets DATABASE variable for development
 DATABASE = SqliteDatabase('faith.db')
 

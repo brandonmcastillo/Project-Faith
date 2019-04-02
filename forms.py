@@ -3,7 +3,6 @@ from models import User, Post, Reply
 from wtforms import StringField, PasswordField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Regexp, ValidationError, Length, EqualTo, Email
 
-
 def name_exists(form, field):
     if User.select().where(User.username == field.data).exists():
         raise ValidationError("User with this username already exists! Try again")
@@ -72,3 +71,4 @@ class EditUserForm(Form):
         'Confirm Your Password',
         validators=[DataRequired()
         ])
+

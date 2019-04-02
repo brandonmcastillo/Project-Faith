@@ -8,13 +8,12 @@ from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 import models
 import forms
-from flask_assets import Environment, Bundle
+# from flask_assets import Environment, Bundle
 
 app = Flask(__name__, instance_relative_config=True)
-app.secret_key = 'asdfghjkl'
+app.secret_key = 'kattdakattdakatt'
 assets = Environment(app)
 assets.init_app(app)
-
 
 DEBUG = True
 PORT = 8000
@@ -40,7 +39,7 @@ def before_request():
 def after_request(response):
   g.db.close()
   return response
-  
+
 @app.route('/')
 def index():
     return render_template('landing.html')
@@ -123,7 +122,6 @@ def edit_profile():
         flash('Your profile has been updated.', 'success')
         return redirect(url_for('profile', username=user.username))
     return render_template('edit-profile.html', form=form, user=user)
-
 
 
 
