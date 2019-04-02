@@ -1,6 +1,6 @@
 import os
 from flask import Flask, g, request
-from flask import render_template, flash, redirect, url_for, session, escape
+from flask import render_template, flash, redirect, url_for, session, escape, request
 from flask_bcrypt import check_password_hash
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
@@ -11,6 +11,7 @@ import forms
 from flask_assets import Environment, Bundle
 from newsapi.newsapi_client import NewsApiClient
 import json
+import requests
 
 app = Flask(__name__, instance_relative_config=True)
 app.secret_key = 'kattdakattdakatt'
@@ -52,10 +53,34 @@ def main():
     return render_template('main.html')
 
 
-@app.route('/community')
+@app.route('/community', methods=['GET'])
+@app.route('/community/<postid>', methods=['GET', 'PUT'])
 @login_required
-def community():
-    return render_template('community.html')
+def community(postid=None):
+    if postid != None and request.method == 'GET':
+        post = models.Post.select().where(models.Post.id == postid).get()
+        return render_template('community.html', post=post)
+    posts = models.Post.select().limit(20)
+    return render_template('community.html', posts=posts)
+
+@app.route('/create-post', methods=['GET', 'POST'])
+@login_required
+def add_post():
+    form = forms.CreatePostForm()
+    user = g.user._get_current_object()
+    if request.method == 'POST':
+        models.Post.create(
+            title = form.title.data,
+            category = form.category.data,
+            content = form.content.data,
+            user = g.user._get_current_object()
+        )
+        post = models.Post.get(models.Post.title == form.title.data)
+        flash('You have created a post! We hope you hear from others soon!', 'success')
+        return redirect(url_for('community'))
+    else:
+        return render_template('create-post.html', form=form, user=user)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -122,16 +147,27 @@ def edit_profile():
     return render_template('edit-profile.html', form=form, user=user)
 
 
+
+
+
+
+
+
+
+
+
+
 @app.route('/https://newsapi.org/v2/top-headlines?sources=medical-news-today&apiKey=77dbc22b934c410dad8e84f2c444cffc', methods=['GET'])
 @login_required
 def articles():
     newsapi = NewsApiClient(api_key='77dbc22b934c410dad8e84f2c444cffc')
     top_headlines = newsapi.get_top_headlines(sources='medical-news-today',
-    )                                                                   
-    print(top_headlines)
+    )
+    print(top_headlines['articles'])
     return render_template('articles.html', top_headlines=top_headlines, newsapi=newsapi)
+
     
-    
+
 
 
 
