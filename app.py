@@ -55,6 +55,10 @@ def main():
 def articles():
     return redirect(url_for('articles'))
 
+@app.route('/community')
+def community():
+    return redirect(url_for('community'))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -97,6 +101,18 @@ def signup():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/profile/<username>', methods=['GET'])
+@login_required
+def profile(username=None):
+    if username != None and request.method == 'GET':
+        user = models.User.select().where(models.User.username==username).get()
+        Owner = user.alias()
+        return render_template('profile.html', user=user)
+    return redirect(url_for('index'))
+
+
+
 
 
 # Initialize models when running on localhost
