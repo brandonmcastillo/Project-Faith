@@ -14,7 +14,7 @@
   <body>
       <nav class="navbar is-info " role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
-            <a class="navbar-item" href="#">
+            <a class="navbar-item" href="{{ url_for('main') }}">
               <img src="" alt="Faith" width="112" height="28">
             </a>
         
@@ -38,10 +38,12 @@
                   </div>
                 
                 {% else %}
-                <!-- If user is logged in, show other pages -->
+                <!-- If User is logged in, display links -->
                   <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
-                 
-                
+                  <a href="{{ url_for('community') }}" class="navbar-item">Community</a>
+                  <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
+                  <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
+
                 {% endif %}
               </div>
             </div>
@@ -51,23 +53,12 @@
           {% block content %}
         
           {% endblock %}
-        
-          {% with messages = get_flashed_messages(with_categories=True) %} 
-          {% if messages %} 
-          {% for category, message in messages %}
-          <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
-          {% endfor %} {% endif %} {% endwith %}
       </main>
       <footer class="footer">
-          <nav class="navbar is-fixed-bottom navbar-end is-info" role="footer" aria-label="main navigation">
-              <div class="navbar-brand">
-                <a role="button" aria-label="menu" aria-expanded="false">
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                </a>
-              </div>
-            </nav>
+          <div class="content ">
+              <p class="has-text-right">&copy; Hangry 2019. 
+              Created and Designed by Brandon Castillo.</p>
+            </div>
         </footer>
   </body>
 </html>
