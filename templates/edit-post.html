@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Imports macro template for form rendering -->
+{% from "macros.html" import render_field %}
+
+
+<div class="has-text-centered">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <p>
+    {% for field in form if field.widget.input_type != 'hidden' %}
+      {{ render_field(field) }}
+    {% endfor %}
+  </p>
+
+    <button type="submit" class="button is-primary">Update</button><a href="{{ url_for('community') }}" class="button is-light">Cancel</a>
+  </form>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=True) %} 
+          {% if messages %} 
+          {% for category, message in messages %}
+          <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
+          {% endfor %} {% endif %} {% endwith %}
+
+{% endblock %}
