@@ -1,5 +1,7 @@
 body {
     background: $background;
+    min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 .label {
