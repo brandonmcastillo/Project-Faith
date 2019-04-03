@@ -136,7 +136,7 @@ def edit_post(postid = None):
         post.category = form.category.data
         post.content = form.content.data
         post.save()
-        return redirect(url_for('posts'))
+        return redirect(url_for('thispost', postid=post.id))
     form.category.default = post.category
     form.process()
     return render_template('edit-post.html', form=form, post=post)
@@ -155,17 +155,15 @@ def delete_post(postid=None):
 @app.route('/post/<postid>/reply', methods=['GET','POST'])
 def reply_post(postid=None):
     form = forms.CreateReplyForm()
-    user = g.user._get_current_object()
-    post = models.Post.select().where(models.Post.id == postid).get()
     if postid != None:
-        if form.validate_on_submit():
-            post.content = form.content.data
-            post.save()
-            models.Reply.create(user=user.id, post=post.id, content=post.content)
-            return render_template('postpage.html', post=post)
+            user = g.user._get_current_object()
+            post = models.Post.select().where(models.Post.id == postid).get()
+            models.Reply.create(
+                user=user.id, 
+                post=post.id, 
+                content=form.content.data)
+            return redirect(url_for('thispost', postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
-
-
 
 
 

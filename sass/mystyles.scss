@@ -3,6 +3,7 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Lato:300|Roboto');
 
+
 // Set your brand colors
 $purple: #8A4D76;
 $pink: #FA7C91;
@@ -15,7 +16,7 @@ $family-sans-serif: "Lato", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary:  #8CA2AF;
-$link: #81848C;
+$link: #8CA2AF;
 $widescreen-enabled: false;
 $fullhd-enabled: true;
 
@@ -41,11 +42,17 @@ $paragraph: 'Lato-300', sans-serif;
 $headerfont: 'Roboto', sans-serif;
 
 $navred : red;
+$box-background-color: $secondaccent;
+$box-color: $text;
 
+.post-title {
+    font-size: 2em;
+}
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/elements/box.sass";
 @import "../node_modules/bulma/sass/elements/button.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/grid/columns.sass";

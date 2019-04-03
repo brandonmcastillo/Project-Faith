@@ -44,6 +44,7 @@ class Post(Model):
     content = TextField()
     timestamp = DateTimeField(default=datetime.datetime.now())
     user = ForeignKeyField(User, backref="posts")
+
     class Meta:
         database = DATABASE
         db_table = 'post'
