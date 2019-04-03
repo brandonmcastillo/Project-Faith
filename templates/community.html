@@ -13,8 +13,8 @@
 <div class="container">
     <div class="columns">
         <div class="column is-two-thirds">
-            <h1>Questions Thread</h1>
-            <h1>Posts</h1>
+            <h1 class="title is-1 has-text-centered">Questions Thread</h1>
+            <h1 class="title is-3 has-text-centered">Recent Posts</h1>
             {% for post in posts %}
 					{% include 'apost.html' %}
 				{% endfor %}
@@ -25,8 +25,8 @@
                 {% for category, message in messages %}
                 <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
                 {% endfor %} {% endif %} {% endwith %}
-            <p>Have anything on your mind?</p>
-            <button><a href={{url_for('add_post' )}}>Create question</a></button>
+            <p>Have anything on your mind? <br>Find others who may have similar issues and give or receive advice . Share experiences with your community and remember - always be positive! - Faith Team</p>
+            <button class="button is-medium"><a href={{url_for('add_post' )}}>Create question</a></button>
         </div>
     </div>
 </div>
