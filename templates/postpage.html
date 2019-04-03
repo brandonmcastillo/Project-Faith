@@ -1,23 +1,47 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Post</h1>
-<article class="message is-primary">
-    <div class="message-header">
-        <a href={{url_for('thispost', postid=post.id)}}>{{post.title}}</a>
-
-        <p>By: {{post.user}}</p>
-    </div>
-    <div class="message-body">
-        {{post.text}}
-    </div>
+<div class="container">
+        <div class="columns">
+            <div class="column is-two-thirds">
+<div class="box">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+                <a class="post-title" href={{url_for('thispost', postid=post.id)}}>{{ post.title }}</a>
+              <p>
+                    By: {{ post.user.username}}
+                <br>
+                {{ post.content }}
+                <br>
+                Category: {{ post.category }} | {{ post.timestamp}}
+              </p>
+            </div>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" aria-label="like">
+                  <span class="icon is-small">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </article>
+      </div>
+      </div>
+<div class="is-one-third">
+   
     {% if current_user.id == post.user.id %}
 <div>
     <a href="{{ url_for('edit_post', postid=post.id)}}" class="button is-light is-small">Edit my question</a>
     <a href="{{ url_for('delete_post', postid=post.id) }}" class="button is-danger is-small">Delete</a>
 </div>
 
-</div>
+
 			{% endif %}
-</article>
+
+</div>
+</div>
+</div>
 {% endblock %}
