@@ -63,8 +63,8 @@ class Post(Model):
             
 
 class Reply(Model):
-    user = ForeignKeyField(User)
-    post = ForeignKeyField(Post)
+    user = ForeignKeyField(User, backref="user")
+    post = ForeignKeyField(Post, backref="posts")
     content = TextField()
     timestamp = DateTimeField(default=datetime.datetime.now())
     class Meta:

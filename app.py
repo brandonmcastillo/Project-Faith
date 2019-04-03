@@ -105,9 +105,11 @@ def posts(postid=None):
 @app.route('/post/<postid>', methods=['GET','POST'])
 def thispost(postid=None):
     if postid != None and request.method == 'GET':
+        print('in if')
         post = models.Post.select().where(models.Post.id == postid).get()
         user = g.user._get_current_object()
-        return render_template('postpage.html', post=post)
+        replies = models.Reply.select().where(models.Reply.post_id == postid)
+    return render_template('postpage.html', post=post, replies=replies)    
 
 @app.route('/create-post', methods=['GET', 'POST'])
 @login_required
