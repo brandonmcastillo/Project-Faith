@@ -52,6 +52,46 @@ def index():
 def main():
     return render_template('main.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = forms.LoginForm()
+    if form.validate_on_submit():
+        try:
+            user = models.User.get(models.User.email == form.email.data)
+        except models.DoesNotExist:
+            flash("Email or password not found.  Please sign up!", "error")
+        else:
+            if check_password_hash(user.password, form.password.data):
+                ## creates session
+                login_user(user)
+                flash("You successfully logged in", "success")
+                return redirect(url_for('main'))
+            else:
+                flash("Your email or password doesn't match", "error")
+    return render_template('login.html', form=form)
+
+@app.route('/signup', methods=('GET', 'POST'))
+def signup():
+    form = forms.SignUpForm()
+    if form.validate_on_submit():
+        models.User.create_user(
+            username=form.username.data,
+            name=form.name.data,
+            email=form.email.data,
+            password=form.password.data
+        )  
+        user = models.User.get(models.User.username == form.username.data)
+        login_user(user)
+        name = user.username
+        flash('Welcome back to Faith', 'success')
+        return redirect(url_for('main'))
+    return render_template('signup.html', form=form)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
 @app.route('/community', methods=['GET'])
 @app.route('/community/<postid>', methods=['GET', 'POST'])
@@ -111,46 +151,23 @@ def delete_post(postid=None):
         return redirect(url_for('posts'))
     return redirect(url_for('edit-post', postid=postid))
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = forms.LoginForm()
-    if form.validate_on_submit():
-        try:
-            user = models.User.get(models.User.email == form.email.data)
-        except models.DoesNotExist:
-            flash("Email or password not found.  Please sign up!", "error")
-        else:
-            if check_password_hash(user.password, form.password.data):
-                ## creates session
-                login_user(user)
-                flash("You successfully logged in", "success")
-                return redirect(url_for('main'))
-            else:
-                flash("Your email or password doesn't match", "error")
-    return render_template('login.html', form=form)
 
-@app.route('/signup', methods=('GET', 'POST'))
-def signup():
-    form = forms.SignUpForm()
-    if form.validate_on_submit():
-        models.User.create_user(
-            username=form.username.data,
-            name=form.name.data,
-            email=form.email.data,
-            password=form.password.data
-        )  
-        user = models.User.get(models.User.username == form.username.data)
-        login_user(user)
-        name = user.username
-        flash('Welcome back to Faith', 'success')
-        return redirect(url_for('main'))
-    return render_template('signup.html', form=form)
+@app.route('/post/<postid>/reply', methods=['GET','POST'])
+def reply_post(postid=None):
+    form = forms.CreateReplyForm()
+    user = g.user._get_current_object()
+    post = models.Post.select().where(models.Post.id == postid).get()
+    if postid != None:
+        if form.validate_on_submit():
+            post.content = form.content.data
+            post.save()
+            models.Reply.create(user=user.id, post=post.id, content=post.content)
+            return render_template('postpage.html', post=post)
+    return render_template('reply-form.html', form=form, postid=postid)
 
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('index'))
+
+
+
 
 @app.route('/profile/<username>', methods=['GET'])
 @login_required
@@ -175,17 +192,6 @@ def edit_profile():
         flash('Your profile has been updated.', 'success')
         return redirect(url_for('profile', username=user.username))
     return render_template('edit-profile.html', form=form, user=user)
-
-
-
-
-
-
-
-
-
-
-
 
 @app.route('/https://newsapi.org/v2/top-headlines?sources=medical-news-today&apiKey=77dbc22b934c410dad8e84f2c444cffc', methods=['GET'])
 @login_required
