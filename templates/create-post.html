@@ -7,7 +7,7 @@
 
 
 <div class="has-text-centered">
-  <form method="POST" action="">
+  <form method="POST" action="{{ url_for('add_post') }}">
     {{ form.hidden_tag() }}
     <p>
     {% for field in form if field.widget.input_type != 'hidden' %}
@@ -15,7 +15,7 @@
     {% endfor %}
   </p>
 
-    <button type="submit" class="button is-primary">Create</button><a href="{{ url_for('community') }}" class="button is-light">Cancel</a>
+    <button type="submit" class="button is-primary">Create</button><a href="{{ url_for('posts') }}" class="button is-light">Cancel</a>
   </form>
 </div>
 

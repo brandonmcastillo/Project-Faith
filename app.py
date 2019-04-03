@@ -54,14 +54,19 @@ def main():
 
 
 @app.route('/community', methods=['GET'])
-@app.route('/community/<postid>', methods=['GET', 'PUT'])
+@app.route('/community/<postid>', methods=['GET', 'POST'])
 @login_required
-def community(postid=None):
-    if postid != None and request.method == 'GET':
+def posts(postid=None):
+    if postid == None:
+        posts = models.Post.select().limit(10)
+        return render_template('community.html', posts=posts)
+    return render_template('community.html')
+
+@app.route('/post/<postid>', methods=['GET','POST'])
+def thispost(postid=None):
+    if postid != None:
         post = models.Post.select().where(models.Post.id == postid).get()
-        return render_template('community.html', post=post)
-    posts = models.Post.select().limit(20)
-    return render_template('community.html', posts=posts)
+        return render_template('postpage.html', post=post)
 
 @app.route('/create-post', methods=['GET', 'POST'])
 @login_required
@@ -77,7 +82,7 @@ def add_post():
         )
         post = models.Post.get(models.Post.title == form.title.data)
         flash('You have created a post! We hope you hear from others soon!', 'success')
-        return redirect(url_for('community'))
+        return redirect(url_for('posts'))
     else:
         return render_template('create-post.html', form=form, user=user)
 
@@ -91,11 +96,20 @@ def edit_post(postid = None):
         post.category = form.category.data
         post.content = form.content.data
         post.save()
-
-        return redirect(url_for('community', post_id=post.id))
+        return redirect(url_for('posts'))
     form.category.default = post.category
     form.process()
     return render_template('edit-post.html', form=form, post=post)
+
+@app.route('/delete-post/<postid>', methods=['GET','DELETE'])
+@login_required
+def delete_post(postid=None):
+    if postid != None:
+        post = models.Post.select().where(models.Post.id == postid).get()
+        delete_post = post.delete()
+        delete_post.execute()
+        return redirect(url_for('posts'))
+    return redirect(url_for('edit-post', postid=postid))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -189,5 +203,14 @@ def articles():
 
 if __name__ == '__main__':
     models.initialize()
+    try:
+        models.User.create_user(
+        username='brandon',
+        name="brandon",
+        email="brandon@gmail.com",
+        password='password'
+        )
+    except ValueError:
+        pass
 
 app.run(debug=DEBUG, port=PORT)
