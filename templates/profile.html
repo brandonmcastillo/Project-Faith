@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container ">
 	<div class="columns">
-		<div class="column">
+		<div class="column is-half">
             <h1>{{ user.username }}</h1> 
             <h3>{{ user.name }}</h3>
             <h3>{{ user.email }}</h3>
@@ -16,7 +16,12 @@
 				{% endif %}
 			{% endwith %}
         </div>
-    
+		<div class="column is-half">
+			<h1 class="title is-2">Your Questions</h1>
+				{% for post in posts %}
+				{% include 'apost.html' %}
+			{% endfor %}
+		</div>
 	</div>
 </div>
 

@@ -157,8 +157,9 @@ def logout():
 def profile(username=None):
     if username != None and request.method == 'GET':
         user = models.User.select().where(models.User.username==username).get()
+        posts = models.Post.select().where(models.Post.user == user.id)
         Owner = user.alias()
-        return render_template('profile.html', user=user)
+        return render_template('profile.html', user=user, posts=posts)
     return redirect(url_for('index'))
 
 @app.route('/edit-profile', methods=['GET', 'POST'])
