@@ -10,6 +10,7 @@
   <form method="POST" action="">
     {{ form.hidden_tag() }}
     <div class="form-input">
+      
       {{ field_error(form.name) }}
       {{ form.name.label(class="label") }}
       {{ form.name(class="control", value=user.name) }}
