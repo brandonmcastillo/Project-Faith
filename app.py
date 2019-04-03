@@ -104,8 +104,9 @@ def posts(postid=None):
 
 @app.route('/post/<postid>', methods=['GET','POST'])
 def thispost(postid=None):
-    if postid != None:
+    if postid != None and request.method == 'GET':
         post = models.Post.select().where(models.Post.id == postid).get()
+        user = g.user._get_current_object()
         return render_template('postpage.html', post=post)
 
 @app.route('/create-post', methods=['GET', 'POST'])
@@ -155,14 +156,15 @@ def delete_post(postid=None):
 @app.route('/post/<postid>/reply', methods=['GET','POST'])
 def reply_post(postid=None):
     form = forms.CreateReplyForm()
-    if postid != None:
+    if postid != None and request.method == 'POST':
             user = g.user._get_current_object()
             post = models.Post.select().where(models.Post.id == postid).get()
             models.Reply.create(
                 user=user.id, 
                 post=post.id, 
                 content=form.content.data)
-            return redirect(url_for('thispost', postid=post.id))
+            content = models.Reply.get(models.Reply.content == form.content.data)
+            return redirect(url_for('thispost', user=user, postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
 
 
