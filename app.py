@@ -109,7 +109,11 @@ def thispost(postid=None):
         post = models.Post.select().where(models.Post.id == postid).get()
         user = g.user._get_current_object()
         replies = models.Reply.select().where(models.Reply.post_id == postid)
-    return render_template('postpage.html', post=post, replies=replies)    
+        replyid = models.Reply.select().where(models.Reply.id)
+        replythread = models.ReplyThread.select().where(models.ReplyThread.reply_id == replyid)
+        return render_template('postpage.html', post=post, replies=replies, replyid=replyid, replythread=replythread)
+    else:
+        return('error')    
 
 @app.route('/create-post', methods=['GET', 'POST'])
 @login_required
@@ -201,7 +205,6 @@ def create_reply_to_reply(postid=None, replyid=None):
                 user=user.id, 
                 reply=reply.id, 
                 content=form.content.data)
-            content = models.ReplyThread.get(models.ReplyThread.content == form.content.data)
             return redirect(url_for('thispost', postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
 

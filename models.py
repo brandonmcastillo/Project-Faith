@@ -73,8 +73,8 @@ class Reply(Model):
         order_by = ('-timestamp',)
 
 class ReplyThread(Model):
-    user = ForeignKeyField(User, backref="user")
-    reply = ForeignKeyField(Reply, backref="replies")
+    user = ForeignKeyField(User, backref="replies")
+    reply = ForeignKeyField(Reply, backref="comments")
     content = TextField()
     timestamp = DateTimeField(default=datetime.datetime.now())
 
