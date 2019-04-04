@@ -169,6 +169,19 @@ def reply_post(postid=None):
             return redirect(url_for('thispost', user=user, postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
 
+@app.route('/post/<postid>/edit-reply/<replyid>', methods=['GET', 'POST'])
+def edit_reply_post(postid=None, replyid=None):
+    form = forms.EditReplyForm()
+    reply = models.Reply.select().where(models.Reply.id == replyid).get()
+    post = models.Post.select().where(models.Post.id == postid).get()
+    user = g.user._get_current_object()
+    if form.validate_on_submit():
+        reply.content = form.content.data
+        reply.save() 
+        return redirect(url_for('thispost',  user=user, postid=post.id))
+    return render_template('edit-comment.html', form=form, postid=postid, replies=reply)
+
+
 
 
 @app.route('/profile/<username>', methods=['GET'])
@@ -205,10 +218,6 @@ def articles():
     return render_template('articles.html', top_headlines=top_headlines, newsapi=newsapi)
 
     
-
-
-
-
 
 if __name__ == '__main__':
     models.initialize()

@@ -67,13 +67,13 @@
                   <br>  
                   {{ reply.timestamp }}
                 </p>
-                {% if current_user.id != post.user.id %}
+                {% if current_user.id != reply.user.id %}
                 <a href="{{ url_for('reply_post', postid=post.id)}}" class="button is-light is-small">Reply</a>
                 {% endif %}
-                {% if current_user.id == post.user.id %}
+                {% if current_user.id == reply.user.id %}
             <div>
-                <a href="{{ url_for('edit_post', postid=post.id)}}" class="button is-light is-small">Edit my question</a>
-                <a href="{{ url_for('delete_post', postid=post.id) }}" class="button is-danger is-small">Delete</a>
+                <a href="{{ url_for('edit_reply_post', postid=post.id, replyid=reply.id)}}" class="button is-light is-small">Edit my comment</a>
+                <a href="{{ url_for('delete_post', postid=post.id) }}" class="button is-danger is-small">Delete my comment</a>
             </div>
       
       

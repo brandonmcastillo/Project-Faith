@@ -84,4 +84,7 @@ class EditPostForm(Form):
 
 class CreateReplyForm(Form):
     content = StringField('content')
+
+class EditReplyForm(Form):
+    content = StringField('content')
     
