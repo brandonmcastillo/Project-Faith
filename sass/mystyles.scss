@@ -48,6 +48,9 @@ $box-color: $text;
 .post-title {
     font-size: 2em;
 }
+h1 {
+    color:white;
+}
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/utilities/_all.sass";
@@ -66,3 +69,4 @@ $box-color: $text;
 @import "../sass/_global.scss";
 @import "../sass/_landing.scss";
 @import "../sass/_main.scss";
+@import "../sass/_articles.scss";

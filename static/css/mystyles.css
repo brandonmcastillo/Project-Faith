@@ -2,6 +2,9 @@
 .post-title {
   font-size: 2em; }
 
+h1 {
+  color: white; }
+
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -4919,3 +4922,7 @@ canvas {
   position: relative;
   z-index: 2;
   color: #8CA2AF; }
+
+.title {
+  font-size: 20px;
+  color: white; }
