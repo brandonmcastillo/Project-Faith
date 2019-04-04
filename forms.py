@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm as Form
 from models import User, Post, Reply
-from wtforms import StringField, PasswordField, TextAreaField, SelectField
+from wtforms import StringField, PasswordField, TextAreaField, SelectField, TextAreaField
 from wtforms.validators import DataRequired, Regexp, ValidationError, Length, EqualTo, Email
 
 def name_exists(form, field):
@@ -80,11 +80,13 @@ class CreatePostForm(Form):
 class EditPostForm(Form):
     title = StringField('title')
     category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse')])
-    content = StringField('content')
+    content = TextAreaField('content')
+    
 
 class CreateReplyForm(Form):
     content = StringField('content')
 
 class EditReplyForm(Form):
     content = StringField('content')
+    
     

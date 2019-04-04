@@ -125,7 +125,7 @@ def add_post():
         )
         post = models.Post.get(models.Post.title == form.title.data)
         flash('You have created a post! We hope you hear from others soon!', 'success')
-        return redirect(url_for('posts'))
+        return redirect(url_for('thispost', postid=post.id))
     else:
         return render_template('create-post.html', form=form, user=user)
 
@@ -148,10 +148,10 @@ def edit_post(postid = None):
 @login_required
 def delete_post(postid=None):
     if postid != None:
-        post = models.Post.select().where(models.Post.id == postid).get()
-        delete_post = post.delete()
+        user = models.User.get(current_user.id)
+        delete_post = models.Post.delete().where(models.Post.id == postid)
         delete_post.execute()
-        return redirect(url_for('posts'))
+        return redirect(url_for('profile', username=user.username))
     return redirect(url_for('edit-post', postid=postid))
 
 
@@ -180,6 +180,14 @@ def edit_reply_post(postid=None, replyid=None):
         reply.save() 
         return redirect(url_for('thispost',  user=user, postid=post.id))
     return render_template('edit-comment.html', form=form, postid=postid, replies=reply)
+
+@app.route('/post/<postid>/delete-reply/<replyid>', methods=['GET', 'DELETE'])
+def delete_reply_post(postid=None, replyid=None):
+    if replyid != None:
+        delete_reply = models.Reply.delete().where(models.Reply.id == replyid)
+        post = models.Post.select().where(models.Post.id == postid).get()
+        delete_reply.execute()
+        return redirect(url_for('thispost',  postid=post.id))
 
 
 

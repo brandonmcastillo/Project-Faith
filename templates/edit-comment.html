@@ -3,22 +3,22 @@
 {% block content %}
 
 <!-- Imports macro template for form rendering -->
-{% from "macros.html" import render_field %}
+{% from "macros.html" import field_error %}
 
 
 <div class="has-text-centered">
   <form method="POST" action="">
     {{ form.hidden_tag() }}
-    <p>
-    {% for field in form if field.widget.input_type != 'hidden' %}
-      {{ render_field(field) }}
-    {% endfor %}
-  </p>
+    <div class="form-input">
+        {{ field_error(form.content) }}
+  
+        {{ form.content.label(class="label") }}
+        {{ form.content(class="control", value=replies.content, cols="35", rows="20") }}
+      </div>
 
     <button type="submit" class="button is-primary">Update</button><a href="{{ url_for('thispost', postid=postid) }}" class="button is-light">Cancel</a>
   </form>
 </div>
-
 
 
 {% endblock %}
