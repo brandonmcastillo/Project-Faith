@@ -52,6 +52,10 @@ def index():
 def main():
     return render_template('main.html')
 
+@app.route('/articles')
+def articles():
+    return render_template('articles.html')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = forms.LoginForm()
@@ -234,14 +238,6 @@ def edit_profile():
         return redirect(url_for('profile', username=user.username))
     return render_template('edit-profile.html', form=form, user=user)
 
-@app.route('/https://newsapi.org/v2/top-headlines?sources=medical-news-today&apiKey=77dbc22b934c410dad8e84f2c444cffc', methods=['GET'])
-@login_required
-def articles():
-    newsapi = NewsApiClient(api_key='77dbc22b934c410dad8e84f2c444cffc')
-    top_headlines = newsapi.get_top_headlines(sources='medical-news-today',
-    )
-    print(top_headlines['articles'])
-    return render_template('articles.html', top_headlines=top_headlines, newsapi=newsapi)
 
     
 
