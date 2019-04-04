@@ -189,6 +189,21 @@ def delete_reply_post(postid=None, replyid=None):
         delete_reply.execute()
         return redirect(url_for('thispost',  postid=post.id))
 
+@app.route('/post/<postid>/reply/id/<replyid>/reply', methods=['GET','POST'])
+def create_reply_to_reply(postid=None, replyid=None):
+    form = forms.CreateReplyForm()
+    reply = models.Reply.select().where(models.Reply.id == replyid).get()
+    if postid != None and reply != None and request.method == 'POST':
+            user = g.user._get_current_object()
+            reply = models.Reply.select().where(models.Reply.id == replyid).get()
+            post = models.Post.select().where(models.Post.id == postid).get()
+            models.ReplyThread.create(
+                user=user.id, 
+                reply=reply.id, 
+                content=form.content.data)
+            content = models.ReplyThread.get(models.ReplyThread.content == form.content.data)
+            return redirect(url_for('thispost', postid=post.id))
+    return render_template('reply-form.html', form=form, postid=postid)
 
 
 

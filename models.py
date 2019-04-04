@@ -72,8 +72,19 @@ class Reply(Model):
         db_table = 'reply'
         order_by = ('-timestamp',)
 
+class ReplyThread(Model):
+    user = ForeignKeyField(User, backref="user")
+    reply = ForeignKeyField(Reply, backref="replies")
+    content = TextField()
+    timestamp = DateTimeField(default=datetime.datetime.now())
+
+    class Meta:
+        database = DATABASE
+        db_table = 'reply_thread'
+        order_by = ('-timestamp',)
+
 
 def initialize():
     DATABASE.connect()
-    DATABASE.create_tables([User, Post, Reply], safe=True)
+    DATABASE.create_tables([User, Post, Reply, ReplyThread], safe=True)
     DATABASE.close()
