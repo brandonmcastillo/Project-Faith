@@ -68,10 +68,10 @@
                 <br>
                 {{ reply.timestamp.strftime('%m-%d-%Y')}}
               </p>
-              {% if current_user.id == reply.user.id %}
+            
               <a href="{{ url_for('create_reply_to_reply', postid=post.id, replyid=reply.id)}}"
-                class="button is-light is-small">Reply</a>
-              {% endif %}
+                class="button is-light is-small">Reply</a><br>
+             
               {% if current_user.id == reply.user.id %}
               <div>
                 <a href="{{ url_for('edit_reply_post', postid=post.id, replyid=reply.id)}}"
@@ -81,23 +81,26 @@
               </div>
               <h3 class="has-text-centered">
 
-                Comments:<br>
-
-                {% for comment in reply.comments %}
-
-                {{ comment.content }}
-                {{comment.user.username}}
-
-
-                <br>
-
-                {% endfor %}
+                
 
               </h3>
 
 
 
               {% endif %}
+
+              Comment Thread<br>
+
+                {% for comment in reply.comments %}
+
+                {{ comment.content }}
+                - {{comment.user.username}}
+                {{ comment.timestamp.strftime('%m-%d-%Y')}}
+
+
+                <br>
+
+                {% endfor %}
             </div>
             <nav class="level is-mobile">
               <div class="level-left">
