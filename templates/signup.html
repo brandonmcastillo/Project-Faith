@@ -15,19 +15,29 @@
 {% from "macros.html" import render_field %}
 
 {% block content %}
-<div class="has-text-centered">
-  <form method="POST" action="{{ url_for('signup') }}" class="field" enctype="multipart/form-data">
-    {{ form.hidden_tag() }}
-    {% for field in form if field.widget.input_type != 'hidden' %}
-    {{ render_field(field) }}
-    {% endfor %}
-    <button type="submit" class="button is-dark">Enter!</button><a href="{{ url_for('index') }}"
-      class="button">Cancel</a>
-  </form>
-</div>
+<div class="container has-text-centered">
+  <div class="columns">
+    <div class="column is-half signup">
+      <form method="POST" action="{{ url_for('signup') }}" class="field" enctype="multipart/form-data">
+        <h1>Register for Faith</h1>
+        {{ form.hidden_tag() }}
+        {% for field in form if field.widget.input_type != 'hidden' %}
+        {{ render_field(field) }}
+        {% endfor %}
+        <button type="submit" class="button is-dark">Enter!</button><a href="{{ url_for('index') }}"
+          class="button">Cancel</a>
+      </form>
+    </div>
+  <p>uehduefhu</p>
+
 {% endblock %}
 {% with messages = get_flashed_messages(with_categories=True) %}
 {% if messages %}
 {% for category, message in messages %}
 <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
 {% endfor %} {% endif %} {% endwith %}
+<div class="column is-half">
+ 
+</div>
+</div>
+</div>

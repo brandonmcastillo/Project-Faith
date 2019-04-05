@@ -22,29 +22,29 @@ $widescreen-enabled: false;
 $fullhd-enabled: true;
 
 // Update some of Bulma's component variables
-$body-background-color: #3A3B44;
+$body-background-color: #241F2B;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
-// Color Palette For Site
-$primary: #b0aab8;
-$info: #3b3d47;
+$primary: #899ACE;
+$info: #777B95;
 $success: #6aae6f;
 $warning: #e79d37;
 $danger: #f44336;
 
+// Color Palette For Site
 $text: #F1F2EF;
-$accent:#81848C;
-$maincolor: #8CA2AF;
-$secondaccent: #747985;
-$background: #3A3B44;
-$paragraph: 'Lato-300',
-sans-serif;
-$headerfont: 'Roboto',
-sans-serif;
+$texttwo: #2A2A41;
+$maincolor: #899ACE;
+$accent:#777B95;
+$secondaccent: #75747B;
+$background: #2A2A41;
 
-$navred : red;
+
+$paragraph: 'Lato-300',sans-serif;
+$headerfont: 'Roboto',sans-serif;
+
 $box-background-color: $secondaccent;
 $box-color: $text;
 
@@ -70,7 +70,8 @@ h1 {
 @import "../node_modules/bulma/sass/layout/section.sass";
 @import "../node_modules/bulma/sass/grid/tiles.sass";
 
-@import "../sass/_global.scss";
-@import "../sass/_landing.scss";
-@import "../sass/_main.scss";
-@import "../sass/_articles.scss";
+@import "./sass/global.scss";
+@import "./sass/landing.scss";
+@import "./sass/signup.scss";
+@import "./sass/main.scss";
+@import "./sass/articles.scss";
