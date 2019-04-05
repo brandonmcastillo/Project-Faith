@@ -1,76 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Faith</title>
-    <!-- <link rel="stylesheet" href="../css/mystyles.css"> -->
-    {% assets "scss_all" %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mystyles.css') }}">
-    {% endassets %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-  </head>
-  <body>
-      <nav class="navbar is-info " role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="{{ url_for('main') }}">
-              <img src="{{ url_for('static', filename='faith.png') }}" height="180" width="60" alt="Faith" ></img>
-           
-            </a>
-        
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-          <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-end">
-                {% if current_user.is_anonymous %}
-                <!-- If user is not logged in, show Login/Signup button -->
-                  <div class="navbar-item">
-                    <div class="buttons">
-                      <a href="{{ url_for('login') }}" class="button " title="login">Login</a>
-      
-                      <a href="{{ url_for('signup') }}" class="button" title="register">Sign Up</a>
-      
-                    </div>
-                  </div>
-                
-                {% else %}
-                <!-- If User is logged in, display links -->
-                  <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
-                  <a href="{{ url_for('posts') }}" class="navbar-item">Community</a>
-                  <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
-                  <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
 
-                {% endif %}
-              </div>
-            </div>
-        </nav>
-    <div class="container api-container">
-  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Faith</title>
+  <!-- <link rel="stylesheet" href="../css/mystyles.css"> -->
+  {% assets "scss_all" %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mystyles.css') }}">
+  {% endassets %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
+
+<body>
+  <nav class="navbar is-info " role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ url_for('main') }}">
+        <img src="{{ url_for('static', filename='faith.png') }}" height="180" width="60" alt="Faith"></img>
+
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        {% if current_user.is_anonymous %}
+        <!-- If user is not logged in, show Login/Signup button -->
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="{{ url_for('login') }}" class="button " title="login">Login</a>
+
+            <a href="{{ url_for('signup') }}" class="button" title="register">Sign Up</a>
+
+          </div>
+        </div>
+
+        {% else %}
+        <!-- If User is logged in, display links -->
+        <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
+        <a href="{{ url_for('posts') }}" class="navbar-item">Community</a>
+        <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
+        <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
+
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  <div class="container api-container">
+
+  </div>
 
 
 
-      <footer class="footer has-navbar-fixed-bottom">
-          <div class="content ">
-              <p class="has-text-centered">&copy; 
-              Created by Brandon Castillo.</p>
-            </div>
-        </footer>  
-        
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{{ url_for('static', filename="js/app.js" )}}"></script>   
-<script src="{{ url_for('static', filename="js/articles.js" )}}"></script>   
-  </body>
+  <footer class="footer has-navbar-fixed-bottom">
+    <div class="content ">
+      <p class="has-text-centered">&copy;
+        Created by Brandon Castillo.</p>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js' )}}"></script>
+  <script src="{{ url_for('static', filename='js/articles.js' )}}"></script>
+</body>
+
 </html>
-
-
-
-
-
-
-

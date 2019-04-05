@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Faith</title>
-    <!-- <link rel="stylesheet" href="../css/mystyles.css"> -->
-    {% assets "scss_all" %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mystyles.css') }}">
-    {% endassets %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-  </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Faith</title>
+  <!-- <link rel="stylesheet" href="../css/mystyles.css"> -->
+  {% assets "scss_all" %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mystyles.css') }}">
+  {% endassets %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
 {% block content %}
-<!-- particles.js container --> 
+<!-- particles.js container -->
 <div id="particles-js"></div>
-<!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+<!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
 <!-- https://codepen.io/bob6664569/pen/rOzmve -->
 
 <section class="hero is-small is-fullwidth">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-          <img src="{{ url_for('static', filename='hero.png') }}">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <img src="{{ url_for('static', filename='hero.png') }}">
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="columns has-text-centered">
+    <div class="column has-text-centered">
+      <div class="has-text-centered button-landing ">
+        <a href="{{ url_for('login') }}" class="button is-medium" title="login">Login</a>
+        <a href="{{ url_for('signup') }}" class="button is-medium" title="register">Sign Up</a>
       </div>
     </div>
-  </section>
-  
-<div class="container">
-    <div class="columns has-text-centered">
-        <div class="column has-text-centered">
-            <div class="has-text-centered button-landing ">
-   <a href="{{ url_for('login') }}" class="button is-medium" title="login">Login</a>
-   <a href="{{ url_for('signup') }}" class="button is-medium" title="register">Sign Up</a>
-            </div> 
-        </div>
-    </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

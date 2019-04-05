@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   $.ajax({ method: 'GET',
-            url: 'https://newsapi.org/v2/everything?' +  'sources=medical-news-today&' +'apiKey=46efe27f785143e59c8de8bd684a9a06',
+            url: 'https://newsapi.org/v2/top-headlines?' + 'sources=medical-news-today&' +'apiKey=46efe27f785143e59c8de8bd684a9a06',
           success: function(response){
       for (var i = 0; i < response.articles.length; i++) {
         let author = response.articles[i].author;
@@ -11,7 +11,7 @@ $(document).ready(function(){
         let content = response.articles[i].content;
         $('.api-container').append(`
         <div class="columns">
-        <div class="column is-two-third">
+        <div class="column is-two-thirds">
         <h1 class="title">${title}</h1>
         <h3 class="author">${author}</h3>
         <h3><a href="${url}">${url}</a></h3>
@@ -20,7 +20,6 @@ $(document).ready(function(){
         </div>
         </div>
         `);
-        }
-        
+        }      
       }});
   });

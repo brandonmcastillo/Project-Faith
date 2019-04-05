@@ -10,19 +10,20 @@
   <form method="POST" action="{{ url_for('add_post') }}">
     {{ form.hidden_tag() }}
     <p>
-    {% for field in form if field.widget.input_type != 'hidden' %}
+      {% for field in form if field.widget.input_type != 'hidden' %}
       {{ render_field(field) }}
-    {% endfor %}
-  </p>
+      {% endfor %}
+    </p>
 
-    <button type="submit" class="button is-primary">Create</button><a href="{{ url_for('posts') }}" class="button is-light">Cancel</a>
+    <button type="submit" class="button is-primary">Create</button><a href="{{ url_for('posts') }}"
+      class="button is-light">Cancel</a>
   </form>
 </div>
 
-{% with messages = get_flashed_messages(with_categories=True) %} 
-          {% if messages %} 
-          {% for category, message in messages %}
-          <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
-          {% endfor %} {% endif %} {% endwith %}
+{% with messages = get_flashed_messages(with_categories=True) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
+{% endfor %} {% endif %} {% endwith %}
 
 {% endblock %}

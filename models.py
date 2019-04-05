@@ -1,10 +1,10 @@
 import os
-from flask import jsonify
-from flask_login import UserMixin
-from flask_bcrypt import generate_password_hash
 import datetime
+from flask import jsonify
+from flask_bcrypt import generate_password_hash
+from flask_login import UserMixin
 from peewee import *
-# Sets DATABASE variable for development
+
 DATABASE = SqliteDatabase('faith.db')
 
 class User(UserMixin, Model):
@@ -15,7 +15,7 @@ class User(UserMixin, Model):
     class Meta:
         database = DATABASE
         db_table = 'user'
-    # Create User Seed Data
+
     @classmethod
     def create_user(cls, username, name, email, password):
         try:
@@ -49,7 +49,7 @@ class Post(Model):
         database = DATABASE
         db_table = 'post'
         order_by = ('-timestamp',)
-    # To Create Post Seed Data
+
     @classmethod
     def create_post(cls, title, category, content, user):
         try:
@@ -61,7 +61,6 @@ class Post(Model):
         except IntegrityError:
             raise ValueError("Create Post Error! Oh no!")
             
-
 class Reply(Model):
     user = ForeignKeyField(User, backref="user")
     post = ForeignKeyField(Post, backref="posts")
@@ -82,7 +81,6 @@ class ReplyThread(Model):
         database = DATABASE
         db_table = 'reply_thread'
         order_by = ('-timestamp',)
-
 
 def initialize():
     DATABASE.connect()

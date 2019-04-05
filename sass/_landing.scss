@@ -1,25 +1,24 @@
-
 /* ---- reset ---- */
 body {
-    margin: 0;
-    background-color: $background;
-  }
-  
-  canvas {
-    display: block;
-    vertical-align: bottom;
-  }
-  
-  /* ---- particles.js container ---- */
-  #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
+  margin: 0;
+  background-color: $background;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
 .button-landing {
-    position: relative;
-    z-index: 2;
-    color: $maincolor;
+  position: relative;
+  z-index: 2;
+  color: $maincolor;
 }

@@ -56,7 +56,6 @@ class LoginForm(Form):
         'Password',
         validators=[DataRequired()]
         )
-
 class EditUserForm(Form):
     name = StringField('Name')
     email = StringField('Email')
@@ -73,20 +72,17 @@ class EditUserForm(Form):
         ])
 
 class CreatePostForm(Form):
-    title = StringField('title')
-    category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse')])
-    content = StringField('content')
+    title = StringField('title', validators=[DataRequired()])
+    category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse') ])
+    content = StringField('content', validators=[DataRequired()])
 
 class EditPostForm(Form):
-    title = StringField('title')
+    title = StringField('title', validators=[DataRequired()])
     category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse')])
-    content = TextAreaField('content')
-    
+    content = TextAreaField('content', validators=[DataRequired()])
 
 class CreateReplyForm(Form):
-    content = StringField('content')
+    content = StringField('content', validators=[DataRequired()])
 
 class EditReplyForm(Form):
-    content = StringField('content')
-    
-    
+    content = StringField('content', validators=[DataRequired()])

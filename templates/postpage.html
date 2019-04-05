@@ -2,19 +2,19 @@
 
 {% block content %}
 <div class="container">
-        <div class="columns">
-            <div class="column is-two-thirds ">
-<div class="box">
+  <div class="columns">
+    <div class="column is-two-thirds ">
+      <div class="box">
         <article class="media">
           <div class="media-content">
             <div class="content">
-                <a class="post-title" href={{url_for('thispost', postid=post.id)}}>{{ post.title }}</a>
+              <a class="post-title" href={{url_for('thispost', postid=post.id)}}>{{ post.title }}</a>
               <p>
-                    By: {{ post.user.username}}
+                By: {{ post.user.username}}
                 <br>
                 {{ post.content }}
                 <br>
-                Category: {{ post.category }} | {{ post.timestamp}}
+                Category: {{ post.category }} | {{ post.timestamp.strftime('%m-%d-%Y')}}
               </p>
             </div>
             <nav class="level is-mobile">
@@ -30,100 +30,103 @@
         </article>
       </div>
     </div>
-      <div class="column is-one-third">
-          {% if current_user.id != post.user.id %}
-          <a href="{{ url_for('reply_post', postid=post.id)}}" class="button is-light is-medium">Reply</a>
-          {% endif %}
+    <div class="column is-one-third">
+      {% if current_user.id != post.user.id %}
+      <a href="{{ url_for('reply_post', postid=post.id)}}" class="button is-light is-medium">Reply</a>
+      {% endif %}
 
-          {% if current_user.id == post.user.id %}
+      {% if current_user.id == post.user.id %}
       <div>
-          <a href="{{ url_for('edit_post', postid=post.id)}}" class="button is-light is-small">Edit my question</a>
-          <a href="{{ url_for('delete_post', postid=post.id) }}" class="button is-danger is-small">Delete</a>
+        <a href="{{ url_for('edit_post', postid=post.id)}}" class="button is-light is-small">Edit my question</a>
+        <a href="{{ url_for('delete_post', postid=post.id) }}" class="button is-danger is-small">Delete</a>
       </div>
-    
-      
-            {% endif %}
-      </div>
-      </div>
+
+
+      {% endif %}
     </div>
+  </div>
+</div>
 
-  <div class="container">
-    <div class="columns">
-      <div class="column is-three-fifths ">
+<div class="container">
+  <div class="columns">
+    <div class="column is-three-fifths ">
 
-   
- 
+
+
 
       {% for reply in replies %}
       <div class="box">
-          <article class="media">
-            <div class="media-left">
-               
-                {{ reply.user.username}}
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                    {{ reply.content }}
-                  <br>  
-                  {{ reply.timestamp }}
-                </p>
-                {% if current_user.id == reply.user.id %}
-                <a href="{{ url_for('create_reply_to_reply', postid=post.id, replyid=reply.id)}}" class="button is-light is-small">Reply</a>
-                {% endif %}
-                {% if current_user.id == reply.user.id %}
-            <div>
-                <a href="{{ url_for('edit_reply_post', postid=post.id, replyid=reply.id)}}" class="button is-light is-small">Edit my comment</a>
-                <a href="{{ url_for('delete_reply_post', postid=post.id, replyid=reply.id) }}" class="button is-danger is-small">Delete my comment</a>
-            </div>
-            <h3 class="has-text-centered">
+        <article class="media">
+          <div class="media-left">
 
-             Comments:<br>
-             
-            {% for comment in reply.comments %}
-
-            {{ comment.content }}
-            {{comment.user.username}}
-
-
-            <br>
-          
-            {% endfor %} 
-            
-            </h3>
-         
-      
-      
-            {% endif %}
+            {{ reply.user.username}}
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                {{ reply.content }}
+                <br>
+                {{ reply.timestamp.strftime('%m-%d-%Y')}}
+              </p>
+              {% if current_user.id == reply.user.id %}
+              <a href="{{ url_for('create_reply_to_reply', postid=post.id, replyid=reply.id)}}"
+                class="button is-light is-small">Reply</a>
+              {% endif %}
+              {% if current_user.id == reply.user.id %}
+              <div>
+                <a href="{{ url_for('edit_reply_post', postid=post.id, replyid=reply.id)}}"
+                  class="button is-light is-small">Edit my comment</a>
+                <a href="{{ url_for('delete_reply_post', postid=post.id, replyid=reply.id) }}"
+                  class="button is-danger is-small">Delete my comment</a>
               </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="reply">
-                    <span class="icon is-small">
-                      <i class="fas fa-reply" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="retweet">
-                    <span class="icon is-small">
-                      <i class="fas fa-retweet" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="like">
-                    <span class="icon is-small">
-                      <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              </nav>
+              <h3 class="has-text-centered">
+
+                Comments:<br>
+
+                {% for comment in reply.comments %}
+
+                {{ comment.content }}
+                {{comment.user.username}}
+
+
+                <br>
+
+                {% endfor %}
+
+              </h3>
+
+
+
+              {% endif %}
             </div>
-          </article>
-        </div>
-        <br>
-        {% endfor %}   
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" aria-label="reply">
+                  <span class="icon is-small">
+                    <i class="fas fa-reply" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="retweet">
+                  <span class="icon is-small">
+                    <i class="fas fa-retweet" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="like">
+                  <span class="icon is-small">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </article>
       </div>
-      </div>
-      </div>
-      
-                 
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}

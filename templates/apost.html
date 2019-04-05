@@ -1,27 +1,25 @@
-
-
 <div class="box">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-                <a class="post-title" href={{url_for('thispost', postid=post.id)}}>{{ post.title }}</a>
-              <p>
-                    By: {{ post.user.username}}
-                <br>
-                {{ post.content }}
-                <br>
-                Category: {{ post.category }} | {{ post.timestamp}}
-              </p>
-            </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item" aria-label="like">
-                  <span class="icon is-small">
-                    <i class="fas fa-heart" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </div>
-            </nav>
-          </div>
-        </article>
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <a class="post-title" href={{url_for('thispost', postid=post.id)}}>{{ post.title }}</a>
+        <p>
+          By: {{ post.user.username}}
+          <br>
+          {{ post.content }}
+          <br>
+          Category: {{ post.category }} | {{ post.timestamp.strftime('%m-%d-%Y')}}
+        </p>
       </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item" aria-label="like">
+            <span class="icon is-small">
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>

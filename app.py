@@ -3,15 +3,13 @@ from flask import Flask, g, request
 from flask import render_template, flash, redirect, url_for, session, escape, request
 from flask_bcrypt import check_password_hash
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
-from werkzeug.urls import url_parse
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
+from werkzeug.urls import url_parse
 import models
 import forms
 from flask_assets import Environment, Bundle
-from newsapi.newsapi_client import NewsApiClient
 import json
-import requests
 
 app = Flask(__name__, instance_relative_config=True)
 app.secret_key = 'kattdakattdakatt'
@@ -48,11 +46,12 @@ def index():
     return render_template('landing.html')
 
 @app.route('/main')
-@login_required
+
 def main():
     return render_template('main.html')
 
 @app.route('/articles')
+@login_required
 def articles():
     return render_template('articles.html')
 
@@ -107,6 +106,7 @@ def posts(postid=None):
     return render_template('community.html')
 
 @app.route('/post/<postid>', methods=['GET','POST'])
+@login_required
 def thispost(postid=None):
     if postid != None and request.method == 'GET':
         print('in if')
@@ -162,8 +162,8 @@ def delete_post(postid=None):
         return redirect(url_for('profile', username=user.username))
     return redirect(url_for('edit-post', postid=postid))
 
-
 @app.route('/post/<postid>/reply', methods=['GET','POST'])
+@login_required
 def reply_post(postid=None):
     form = forms.CreateReplyForm()
     if postid != None and request.method == 'POST':
@@ -178,6 +178,7 @@ def reply_post(postid=None):
     return render_template('reply-form.html', form=form, postid=postid)
 
 @app.route('/post/<postid>/edit-reply/<replyid>', methods=['GET', 'POST'])
+@login_required
 def edit_reply_post(postid=None, replyid=None):
     form = forms.EditReplyForm()
     reply = models.Reply.select().where(models.Reply.id == replyid).get()
@@ -190,6 +191,7 @@ def edit_reply_post(postid=None, replyid=None):
     return render_template('edit-comment.html', form=form, postid=postid, replies=reply)
 
 @app.route('/post/<postid>/delete-reply/<replyid>', methods=['GET', 'DELETE'])
+@login_required
 def delete_reply_post(postid=None, replyid=None):
     if replyid != None:
         delete_reply = models.Reply.delete().where(models.Reply.id == replyid)
@@ -198,6 +200,7 @@ def delete_reply_post(postid=None, replyid=None):
         return redirect(url_for('thispost',  postid=post.id))
 
 @app.route('/post/<postid>/reply/id/<replyid>/reply', methods=['GET','POST'])
+@login_required
 def create_reply_to_reply(postid=None, replyid=None):
     form = forms.CreateReplyForm()
     reply = models.Reply.select().where(models.Reply.id == replyid).get()
@@ -211,8 +214,6 @@ def create_reply_to_reply(postid=None, replyid=None):
                 content=form.content.data)
             return redirect(url_for('thispost', postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
-
-
 
 @app.route('/profile/<username>', methods=['GET'])
 @login_required
@@ -237,9 +238,6 @@ def edit_profile():
         flash('Your profile has been updated.', 'success')
         return redirect(url_for('profile', username=user.username))
     return render_template('edit-profile.html', form=form, user=user)
-
-
-    
 
 if __name__ == '__main__':
     models.initialize()

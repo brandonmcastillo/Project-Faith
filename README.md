@@ -5,4 +5,4 @@ The users of Faith are individuals who are seeking advice or motivation and want
 
 Technologies
 HTML, CSS, Bulma with SASS.
-Python, Flask, Peewee and Sqlite.
+Python, Flask, Peewee and Sqlite. Switching to Postgress later.
