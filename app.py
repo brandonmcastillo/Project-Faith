@@ -215,6 +215,22 @@ def create_reply_to_reply(postid=None, replyid=None):
             return redirect(url_for('thispost', postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
 
+@app.route('/post/<postid>/reply/id/<replyid>/edit-reply', methods=['GET', 'POST'])
+@login_required
+def edit_reply_to_reply(postid=None, replyid=None):
+    form = forms.EditReplyForm()
+    post = models.Post.select().where(models.Post.id == postid).get()
+    reply = models.Reply.select().where(models.Reply.id == replyid).get()
+    replythread = models.ReplyThread.select().where(models.ReplyThread.id == replyid).get()
+    user = g.user._get_current_object()
+    if form.validate_on_submit():
+        replythread.content = form.content.data
+        replythread.save() 
+        return redirect(url_for('thispost',  user=user, postid=post.id))
+    return render_template('edit-comment.html', form=form, postid=postid, replies=reply)
+
+
+
 @app.route('/profile/<username>', methods=['GET'])
 @login_required
 def profile(username=None):
