@@ -217,8 +217,6 @@ def create_reply_to_reply(postid=None, replyid=None):
 
 
 
-
-
 @app.route('/profile/<username>', methods=['GET'])
 @login_required
 def profile(username=None):
