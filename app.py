@@ -199,7 +199,7 @@ def delete_reply_post(postid=None, replyid=None):
         delete_reply.execute()
         return redirect(url_for('thispost',  postid=post.id))
 
-@app.route('/post/<postid>/reply/id/<replyid>/reply', methods=['GET','POST'])
+@app.route('/post/<postid>/reply/<replyid>/reply', methods=['GET','POST'])
 @login_required
 def create_reply_to_reply(postid=None, replyid=None):
     form = forms.CreateReplyForm()
@@ -215,7 +215,7 @@ def create_reply_to_reply(postid=None, replyid=None):
             return redirect(url_for('thispost', postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
 
-@app.route('/post/<postid>/reply/id/<replyid>/edit-reply/<subcommentid>', methods=['GET','POST'])
+@app.route('/post/<postid>/reply/<replyid>/edit-reply/<subcommentid>', methods=['GET','POST'])
 @login_required
 def edit_reply_to_reply(postid=None, replyid=None, subcommentid=None):
     form = forms.EditReplyForm()
@@ -228,6 +228,16 @@ def edit_reply_to_reply(postid=None, replyid=None, subcommentid=None):
         subcommentid.save() 
         return redirect(url_for('thispost',  user=user, postid=post.id))
     return render_template('edit-subcomment.html', form=form, postid=postid, replies=reply, subcommentid=subcommentid)
+
+@app.route('/post/<postid>/reply/<replyid>/delete-reply/<subcommentid>', methods=['GET', 'DELETE'])
+@login_required
+def delete_reply_to_reply(postid=None, replyid=None, subcommentid=None):
+    if subcommentid != None:
+        delete_this_reply = models.ReplyThread.delete().where(models.ReplyThread.id == subcommentid)
+        post = models.Post.select().where(models.Post.id == postid).get()
+        reply = models.Reply.select().where(models.Reply.id == replyid).get()
+        delete_this_reply.execute()
+        return redirect(url_for('thispost',  postid=post.id))
 
 
 
