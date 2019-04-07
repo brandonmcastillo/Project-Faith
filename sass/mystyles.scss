@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Lato:300|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Lato:300|Roboto|Montserrat');
 
 
 // Set your brand colors
@@ -40,21 +40,25 @@ $maincolor: #899ACE;
 $accent:#777B95;
 $secondaccent: #75747B;
 $background: #2A2A41;
-
+$box-color: rgba(255, 255, 255, 0.295);
 
 $paragraph: 'Lato-300',sans-serif;
 $headerfont: 'Roboto',sans-serif;
 
+@font-face{
+    font-family: faith;
+    src: url(/static/Playlist-Script.otf);
+    }
+
 $box-background-color: $secondaccent;
 $box-color: $text;
+
 
 .post-title {
     font-size: 2em;
 }
 
-h1 {
-    color: white;
-}
+
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/utilities/_all.sass";
@@ -73,5 +77,6 @@ h1 {
 @import "./sass/global.scss";
 @import "./sass/landing.scss";
 @import "./sass/signup.scss";
+@import "./sass/login.scss";
 @import "./sass/main.scss";
 @import "./sass/articles.scss";

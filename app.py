@@ -239,10 +239,6 @@ def delete_reply_to_reply(postid=None, replyid=None, subcommentid=None):
         delete_this_reply.execute()
         return redirect(url_for('thispost',  postid=post.id))
 
-
-
-
-
 @app.route('/profile/<username>', methods=['GET'])
 @login_required
 def profile(username=None):

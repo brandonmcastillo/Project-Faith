@@ -22,3 +22,47 @@ canvas {
   z-index: 2;
   color: $maincolor;
 }
+// https://codepen.io/echoghi/pen/dMzaPb
+@keyframes particleAnimation
+{
+    from {
+        left: -100px;
+    }
+    to {
+        left: calc( 100% + 100px );
+    }
+}
+
+
+.p{
+  position:fixed;
+  left:0px;
+  top:50px;
+  width:2px;
+  height:2px;
+  background-color:white;
+  position:fixed;
+  animation-name:particleAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.p::before{
+  position:absolute;
+  display:block;
+  content:"";
+  width:100px;
+  right:1px;
+  top:0px;
+  height:1px;
+}
+.p-1{
+  animation-duration:6s;
+}
+.p-2{
+  animation-duration:8s;
+  top:60%;
+}
+.p-3{
+  animation-duration:10s;
+  top:90%;
+}

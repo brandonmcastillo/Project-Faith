@@ -15,29 +15,37 @@
 {% from "macros.html" import render_field %}
 
 {% block content %}
+<div id="particles-js"></div>
 <div class="container has-text-centered">
   <div class="columns">
     <div class="column is-half signup">
-      <form method="POST" action="{{ url_for('signup') }}" class="field" enctype="multipart/form-data">
-        <h1>Register for Faith</h1>
+      <div class="box-signup"></div>
+      <div class="signup-glass"></div>
+      <form method="POST" action="{{ url_for('signup') }}" class="field signupform" enctype="multipart/form-data">
+
         {{ form.hidden_tag() }}
         {% for field in form if field.widget.input_type != 'hidden' %}
         {{ render_field(field) }}
         {% endfor %}
-        <button type="submit" class="button is-dark">Enter!</button><a href="{{ url_for('index') }}"
-          class="button">Cancel</a>
+        <button type="submit" class="button signup-buttons is-primary">Sign Up</button><a href="{{ url_for('index') }}"
+          class="button signup-buttons is-info">Cancel</a>
       </form>
     </div>
-  <p>uehduefhu</p>
 
-{% endblock %}
-{% with messages = get_flashed_messages(with_categories=True) %}
-{% if messages %}
-{% for category, message in messages %}
-<div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
-{% endfor %} {% endif %} {% endwith %}
-<div class="column is-half">
- 
+    {% endblock %}
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
+    {% endfor %} {% endif %} {% endwith %}
+    <div class="column is-half">
+      <div class="signup-right">
+        <h1 class="title is-1 welcome">Welcome!</h1>
+        <h1 class="title is-3 already">Already have an account?</h1>
+        <a href="{{ url_for('login') }}" class="button login-signup-button is-medium" title="login">Login</a>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>

@@ -15,22 +15,41 @@
 {% from "macros.html" import render_field %}
 
 {% block content %}
-<div class="has-text-centered">
-  <form method="POST" action="">
-    {{ form.hidden_tag() }}
-    <p>
+<div id="particles-js"></div>
+<div class="container has-text-centered">
+  <div class="columns">
+    <div class="column is-half signup">
+        <div class="box-signup"></div>
+        <div class="login-left">
+          <h1 class="title is-1 welcomeback">Log In!</h1>
+          <h1 class="title is-3 already">Don't have an account?</h1>
+          <a href="{{ url_for('signup') }}" class="button login-signup-button  is-medium" title="login">Sign Up</a>
+        </div>
+      </div>
+  
+
+  
+    <div class="column is-half">
+      <div class="login-box"></div>
+      
+    <form method="POST" action="{{ url_for('login') }}" class="field loginform" enctype="multipart/form-data">
+
+      {{ form.hidden_tag() }}
       {% for field in form if field.widget.input_type != 'hidden' %}
       {{ render_field(field) }}
       {% endfor %}
-    </p>
-
-    <button type="submit" class="button is-primary">Log In</button><a href="{{ url_for('index') }}"
-      class="button is-light">Cancel</a>
-  </form>
-</div>
-{% endblock %}
+      {% endblock %}
 {% with messages = get_flashed_messages(with_categories=True) %}
 {% if messages %}
 {% for category, message in messages %}
 <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
 {% endfor %} {% endif %} {% endwith %}
+      <button type="submit" class="button signup-buttons is-primary">Login</button>
+    </form>
+    
+  </div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>

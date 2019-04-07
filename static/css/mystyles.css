@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:300|Roboto");
+@import url("https://fonts.googleapis.com/css?family=Lato:300|Roboto|Montserrat");
+@font-face {
+  font-family: faith;
+  src: url(/static/Playlist-Script.otf); }
+
 .post-title {
   font-size: 2em; }
-
-h1 {
-  color: white; }
 
 @keyframes spinAround {
   from {
@@ -4897,10 +4898,19 @@ a.navbar-item,
 body {
   background: #2A2A41;
   min-height: 100vh;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  background-attachment: fixed; }
 
-.label {
-  color: white; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif; }
+
+p {
+  font-family: "Lato-300", sans-serif; }
 
 /* ---- reset ---- */
 body {
@@ -4922,6 +4932,153 @@ canvas {
   position: relative;
   z-index: 2;
   color: #899ACE; }
+
+@keyframes particleAnimation {
+  from {
+    left: -100px; }
+  to {
+    left: calc( 100% + 100px); } }
+
+.p {
+  position: fixed;
+  left: 0px;
+  top: 50px;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  position: fixed;
+  animation-name: particleAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; }
+
+.p::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100px;
+  right: 1px;
+  top: 0px;
+  height: 1px; }
+
+.p-1 {
+  animation-duration: 6s; }
+
+.p-2 {
+  animation-duration: 8s;
+  top: 60%; }
+
+.p-3 {
+  animation-duration: 10s;
+  top: 90%; }
+
+.signupform {
+  position: relative;
+  z-index: 1;
+  color: black;
+  top: 109px;
+  left: 0px;
+  padding: 66px; }
+
+.signup-glass {
+  background-color: rgba(255, 255, 255, 0.295);
+  position: absolute;
+  z-index: 1;
+  color: black;
+  top: 120px;
+  padding: 244px;
+  padding-bottom: 255px; }
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
+.box-signup {
+  height: 500px;
+  width: 1000px;
+  position: absolute;
+  top: 120px;
+  background-color: #899ACE;
+  z-index: 0; }
+
+.input {
+  border: 1px inset white;
+  padding: 20px;
+  margin: 10px; }
+
+.create-text {
+  color: black; }
+
+.login-signup-button {
+  background-color: transparent;
+  color: white; }
+
+.signup-buttons {
+  margin-left: 30px;
+  margin-top: 20px; }
+
+.signup-right {
+  padding-top: 180px;
+  z-index: 1;
+  position: relative; }
+
+.title.is-4.already {
+  color: #F1F2EF; }
+
+.title.is-1.welcome {
+  padding-bottom: 50px;
+  padding-top: 20px;
+  font-size: 7em;
+  border-bottom: 1px inset rgba(255, 255, 255, 0.295);
+  font-family: faith; }
+
+.loginform {
+  position: relative;
+  z-index: 2;
+  color: black;
+  padding: 160px;
+  width: 508px;
+  top: 100px; }
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.295);
+  position: absolute;
+  z-index: 1;
+  color: black;
+  top: 120px;
+  padding: 249px;
+  width: 508px; }
+
+.input {
+  border: 1px inset white;
+  padding: 20px;
+  margin: 10px; }
+
+.create-text {
+  color: black; }
+
+.login-signup-button {
+  background-color: transparent;
+  color: white; }
+
+.signup-buttons {
+  margin-left: 30px;
+  margin-top: 20px; }
+
+.login-left {
+  padding-top: 180px;
+  z-index: 1;
+  position: relative; }
+
+.title.is-4.already {
+  color: #F1F2EF; }
+
+.title.is-1.welcomeback {
+  padding-bottom: 60px;
+  font-size: 8em;
+  border-bottom: 1px inset rgba(255, 255, 255, 0.295);
+  font-family: faith; }
 
 .title {
   font-size: 20px;
