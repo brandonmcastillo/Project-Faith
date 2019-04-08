@@ -22,7 +22,6 @@
       <div class="box-signup"></div>
       <div class="signup-glass"></div>
       <form method="POST" action="{{ url_for('signup') }}" class="field signupform" enctype="multipart/form-data">
-
         {{ form.hidden_tag() }}
         {% for field in form if field.widget.input_type != 'hidden' %}
         {{ render_field(field) }}
@@ -31,7 +30,6 @@
           class="button signup-buttons is-info">Cancel</a>
       </form>
     </div>
-
     {% endblock %}
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
@@ -40,7 +38,6 @@
     {% endfor %} {% endif %} {% endwith %}
     <div class="column is-half">
       <div class="signup-right">
-        <h1 class="title is-1 welcome">Welcome!</h1>
         <h1 class="title is-3 already">Already have an account?</h1>
         <a href="{{ url_for('login') }}" class="button login-signup-button is-medium" title="login">Login</a>
       </div>

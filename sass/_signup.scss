@@ -18,15 +18,6 @@
 
 }
 
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  
-
 .box-signup {
     height: 500px;
     width: 1000px;
@@ -60,7 +51,7 @@
 
 // Right Side
 .signup-right {
-    padding-top: 180px;
+    padding-top: 300px;
     z-index: 1;
     position: relative;
     }
@@ -69,11 +60,19 @@
     color: $text;
 }
 
-.title.is-1.welcome {
-    padding-bottom: 50px;
-    padding-top: 20px;
-    font-size: 7em;
-    border-bottom: 1px inset rgba(255, 255, 255, 0.295);
-    font-family: faith;
-}
+// .title.is-1.welcome {
+//     padding-bottom: 50px;
+//     padding-top: 20px;
+//     font-size: 5em;
+//     border-bottom: 1px inset rgba(255, 255, 255, 0.295);
+//     font-family: 'Montserrat';
+//     text-align: center;
+// }
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
 

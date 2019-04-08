@@ -17,8 +17,6 @@
     width: 508px;
 }
 
-
-
 .input {
     border: 1px inset white;
     padding: 20px;
@@ -42,7 +40,7 @@
 
 // left Side
 .login-left {
-    padding-top: 180px;
+    padding-top: 290px;
     z-index: 1;
     position: relative;
     }
@@ -51,10 +49,10 @@
     color: $text;
 }
 
-.title.is-1.welcomeback {
-    padding-bottom: 60px;
-    font-size: 8em;
-    border-bottom: 1px inset rgba(255, 255, 255, 0.295);
-    font-family: faith;
-}
+// .title.is-1.welcomeback {
+//     padding-bottom: 60px;
+//     font-size: 8em;
+//     border-bottom: 1px inset rgba(255, 255, 255, 0.295);
+//     font-family: faith;
+// }
 
