@@ -1,0 +1,135 @@
+.navbar-header {
+    font-family: faith;
+    font-size: 40px;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-item {
+    color: $text;
+}
+
+.main-img {
+    width: 50%;
+    height: 100%;
+    justify-content: row;
+    display: block;
+ }
+
+ .about-bttn {
+     background-color: $info;
+     color: $text;
+     border: none;
+ }
+
+
+ .column-main {
+     display: flex;
+     padding: 0;
+ }
+
+ .centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+ .greeting {
+     font-size: 6em;
+     font-family: faith, 'sans-serif';
+     color: white;
+     width: 100%;
+     margin: 0 auto;
+    max-width: 600px;
+ }
+
+ .greeting2 {
+     padding-top: 200px;
+     font-size: 3em;
+ }
+
+
+ @media screen and (max-width: 1200px) {
+    .greeting {
+      font-size: 4em;
+    }
+    #about {
+        padding: 20px;
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+        font-size:100%;
+    }
+  
+  }
+
+  @media screen and (max-width: 800px) {
+    .greeting {
+      font-size: 2em;
+    }
+    #about {
+        padding: 30px!important;
+    }
+    p, h1, h2, h3, h4, h5, h6 {
+        font-size:100%;
+    }
+  }
+
+  #about {
+      padding: 300px;
+  }
+
+  .mental-img-div{
+    padding: 0 100px 100px;
+  }
+.what-is-div {
+    background-color: $texttwo;
+    border-left: 1px outset $maincolor;
+    color: $text;
+}
+
+.explore-div {
+    padding-top: 50px;
+}
+
+.what-is-title {
+    color: white;
+    font-size: 5em;
+}
+.bottom-links-img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.bottom-links-img:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+.articles-link, .community-link{
+    font-size: 4em;
+    font-family: 'Roboto';
+    position: relative;
+    bottom: 250px;
+    padding-bottom: 2px;
+    color: $white;
+    background: none;
+}
+
+.bottom-div {
+    text-align: center;
+    padding: 0;
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 1px solid white;
+}
+
+.explore-title {
+    padding-bottom: 50px;
+    font-family: 'Montserrat';
+}

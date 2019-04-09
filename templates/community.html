@@ -1,15 +1,45 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<section class="hero is-link is-medium has-text-centered">
-  <div class="hero-body">
-    <div class="container">
-      <p class="title">
-        Community
-      </p>
+<nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ url_for('main') }}">
+        <h1 class="navbar-header">Faith</h1>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-  </div>
-</section>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        {% if current_user.is_anonymous %}
+        <!-- If user is not logged in, show Login/Signup button -->
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="{{ url_for('login') }}" class="button " title="login">Login</a>
+            <a href="{{ url_for('signup') }}" class="button" title="register">Sign Up</a>
+          </div>
+        </div>
+
+        {% else %}
+        <!-- If User is logged in, display links -->
+
+        <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
+        <a href="{{ url_for('posts') }}" class="navbar-item">Community</a>
+        <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
+
+      </div>
+      <div class="navbar-end">
+        
+        <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
+      </div>
+      {% endif %}
+
+    </div>
+  </nav>
 <div class="container">
   <div class="columns">
     <div class="column is-two-thirds">

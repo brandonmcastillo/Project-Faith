@@ -2,69 +2,89 @@
 
 {% block content %}
 
-<section class="hero is-link is-fullheight-with-navbar has-text-centered">
-  <div class="hero-body">
-    <div class="container">
-      <p class="title">
-        Fullheight hero with navbar
-      </p>
-      <h1 class="main-scroll-link">About</h1>
-      <a href="#about">
-        <p>&#x2193;</p>
-      </a>
+<div class="container-fluid">
+  <div class="columns">
+    <div class="column column-main">
+      <img class="main-img" src="{{ url_for('static', filename='fam1.jpeg') }}">
+      <div class="centered has-text-centered">
+        <h1 class=" greeting has-text-centered">
+          Welcome to Faith
+        </h1>
+        <a href="#about">
+          <p class="about-arrow">&#x2193;</p>
+        </a>
+        </a>
+      </div>
+      <img class="main-img" src="{{ url_for('static', filename='happy2.jpeg') }}">
     </div>
   </div>
-</section>
+</div>
+<div class="container-fluid second-row">
+  <div class="columns">
+    <div class="column column-main">
+      <img class="main-img" src="{{ url_for('static', filename='fam2.jpeg') }}">
+      <img class="main-img" src="{{ url_for('static', filename='fam3.jpeg') }}">
+    </div>
+  </div>
+</div>
 
-<div class="container is-fullwidth is-fullheight " id="about">
-  <div class="columns">
+
+
+
+
+<div class="container-fluid " id="about">
+  <div class="columns what-is-div">
     <div class="column">
-      <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to
-        emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool
-        for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or
-        layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words
-        and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's
-        not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it
-        actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin,
-        these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are
-        digraphs not to be found in the original.</p>
+      <h1 class="what-is-title">What is Faith?</h1>
+      <p> According to nami.org, approximately 1 in 5 adults in the U.S. —43.8 million, or 18.5%— experience mental
+        illness in a given year. Faith was created in order to raise awareness on mental health. Faith allows users to
+        vent, support and spread information based on mental health, illness or any troubles that you be going through.
+        Browse articles that are updated daily - or join the community and help others. We value individuals information
+        so all comments will remain anonymous. Faith is a safe place to express yourself and together we can help each
+        other one by one. We ask that you remain active and continue sharing with the community. Please show respect
+        when replying to others. We thank you for using Faith. </p>
     </div>
   </div>
-  <div class="columns">
-    <div class="column">
-      <h1 class="main-scroll-link">Explore</h1>
-      <a href="#about">
-        <p>&#x2193;</p>
+</div>
+
+
+<div class="container-fluid mental-img-div">
+  <div class="columns ">
+    <div class="column is-half bottom-div">
+
+      <img src="{{ url_for('static', filename='mental1.png') }}">
+
       </a>
     </div>
-  </div>
-</div>
-<div class="container is-fullwidth is-fullheight">
-  <div class="columns is-gapless">
-    <div class="column is-fullwidth ">
-      <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to
-        emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool
-        for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or
-        layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words
-        and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's
-        not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it
-        actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin,
-        these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are
-        digraphs not to be found in the original.</p>
-    </div>
-    <div class="column">
-      <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to
-        emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool
-        for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or
-        layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words
-        and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's
-        not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it
-        actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin,
-        these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are
-        digraphs not to be found in the original.</p>
+    <div class="column is-half bottom-div">
+      <img src="{{ url_for('static', filename='mental2.png') }}">
     </div>
   </div>
 </div>
+</div>
+
+<div class="container explore-div">
+  <div class="columns">
+    <div class="column has-text-centered">
+      <h1 class="title is-1 explore-title">Explore</h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="columns">
+    <div class="column is-half bottom-div">
+      <a href="{{ url_for ('articles') }}">
+        <img class="bottom-links-img" src="{{ url_for('static', filename='articles-main.jpeg') }}">
+      </a>
+      <h1 class="articles-link has-text-centered"><u>ARTICLES</u></h1>
+    </div>
+    <div class="column is-half bottom-div">
+      <a href="{{ url_for('posts') }}">
+        <img class="bottom-links-img" src="{{ url_for('static', filename='fam4.jpeg') }}">
+      </a>
+      <h1 class="community-link has-text-centered"><u>COMMUNITY</u></h1>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
