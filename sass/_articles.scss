@@ -1,4 +1,30 @@
-.title {
-    font-size: 20px;
-    color: white;
+.article-title-intro {
+    font-size: 50px;
+    color: $text;
 }
+
+.api-container {
+    padding-top: 20px;
+}
+
+.article-author {
+    color: $maincolor;
+}
+
+.article-title , .article-time, .article-body {
+    color: $text;
+}
+
+.article-box, .article-hero  {
+    background-color: $background;
+}
+
+.article-box {
+    border: 1px inset $maincolor;
+}
+
+.subtitle {
+    color: rgb(152, 172, 230);
+}
+
+

@@ -12,14 +12,12 @@
   {% endassets %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
-
-<body>
+<body class="article-body">
   <nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ url_for('main') }}">
         <h1 class="navbar-header">Faith</h1>
       </a>
-
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -36,28 +34,34 @@
             <a href="{{ url_for('signup') }}" class="button" title="register">Sign Up</a>
           </div>
         </div>
-
         {% else %}
         <!-- If User is logged in, display links -->
-
         <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
         <a href="{{ url_for('posts') }}" class="navbar-item">Community</a>
         <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
-
       </div>
       <div class="navbar-end">
         <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
       </div>
       {% endif %}
-
     </div>
   </nav>
+  <section class="hero article-hero is-small">
+    <img src=" {{ url_for('static', filename='book2.jpg') }}">
+    <div class="hero-body">
+      <div class="container-fluid">
+        <h1 class="article-title-intro has-text-centered">
+          ARTICLES
+        </h1>
+        <h2 class="subtitle has-text-centered">
+          Updated Daily via Medical News Today
+        </h2>
+      </div>
+    </div>
+  </section>
   <div class="container api-container">
-
+    <!-- Articles.js appends here -->
   </div>
-
-
-
   <footer class="footer has-navbar-fixed-bottom">
     <div class="content ">
       <p class="has-text-centered">&copy;
