@@ -1,9 +1,9 @@
-<div class="box">
+<div class="box post-box">
   <article class="media">
     <div class="media-content">
       <div class="content">
-        <a class="post-title" href={{url_for('thispost', postid=post.id)}}>{{ post.title }}</a>
-        <p>
+        <a class="post-title" href={{url_for('thispost', postid=post.id)}}><bold>{{ post.title }}</bold></a>
+        <p class="post-content">
           By: {{ post.user.username}}
           <br>
           {{ post.content }}
