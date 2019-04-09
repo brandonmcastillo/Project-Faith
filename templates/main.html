@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 <div class="container-fluid">
   <div class="columns">
     <div class="column column-main">
@@ -27,33 +26,25 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 <div class="container-fluid " id="about">
   <div class="columns what-is-div">
     <div class="column">
       <h1 class="what-is-title">What is Faith?</h1>
       <p> According to nami.org, approximately 1 in 5 adults in the U.S. —43.8 million, or 18.5%— experience mental
         illness in a given year. Faith was created in order to raise awareness on mental health. Faith allows users to
-        vent, support and spread information based on mental health, illness or any troubles that you be going through.
-        Browse articles that are updated daily - or join the community and help others. We value individuals information
+        vent, support and spread information based on mental health, illness or any troubles that you or a loved one may
+        be going through.
+        Browse articles that are updated daily - or add your voice and join the community. We value your information
         so all comments will remain anonymous. Faith is a safe place to express yourself and together we can help each
         other one by one. We ask that you remain active and continue sharing with the community. Please show respect
         when replying to others. We thank you for using Faith. </p>
     </div>
   </div>
 </div>
-
-
 <div class="container-fluid mental-img-div">
   <div class="columns ">
     <div class="column is-half bottom-div">
-
       <img src="{{ url_for('static', filename='mental1.png') }}">
-
       </a>
     </div>
     <div class="column is-half bottom-div">
@@ -62,11 +53,15 @@
   </div>
 </div>
 </div>
-
 <div class="container explore-div">
-  <div class="columns">
-    <div class="column has-text-centered">
-      <h1 class="title is-1 explore-title">Explore</h1>
+  <div class="columns what-is-div2">
+    <div class="column has-text-right">
+      <h1 class="title is-1 explore-title">We are here to help </h1>
+      <p> Mental health is not something to be taken lightly. Whether it revolves around depression, anxiety, post
+        traumatic stress, relationships, general health or any other illness, we feel that it's important to communicate with others so that you
+        can recover and discover more about yourself. Our goal is to give you a platform where individuals do not
+        have to be afraid and can comfortably speak up. If you or a loved one are experiencing difficult times, please
+        do not be afraid to seek for professional help.</p>
     </div>
   </div>
 </div>
@@ -86,5 +81,4 @@
     </div>
   </div>
 </div>
-
 {% endblock %}
