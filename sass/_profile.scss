@@ -1,0 +1,64 @@
+// Contains Profile.html and apost.html css
+.profile-username {
+    font-size: 4em;
+}
+
+.profile-div {
+    padding-top: 100px;
+}
+.card {
+    background-color:$background;
+    border: 2px inset $maincolor;
+    border-radius: 10px;
+}
+.card-header, .card-header-title {
+    color: $text;
+}
+
+.card-content {
+    color: $text;
+}
+
+.profile-item {
+    color: $primary;
+}
+
+.profile-username-header {
+    position: absolute;
+    font-size: 5em;
+    color: $text;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: $family-sans-serif;
+}
+
+@media screen and (max-width: 1200px) {
+    .profile-username-header {
+        font-size: 100%;
+        font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .profile-username-header {
+        font-size: 100%;
+        font-size: 2em;
+        top: 20%;
+    }
+}
+
+// apost.html css
+.post-box {
+    background-color: $maincolor;
+}
+
+.post-title {
+    color: $text;
+    font-size: 25px;
+}
+
+.post-content {
+    color: $text;
+    font-family: $family-sans-serif;
+}
