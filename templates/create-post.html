@@ -6,8 +6,9 @@
 {% from "macros.html" import render_field %}
 
 
-<div class="has-text-centered">
-  <form method="POST" action="{{ url_for('add_post') }}">
+<div class="has-text-centered form-div">
+  <h1 class="title is-1 has-text-centered">Ask a question</h1>
+  <form class="form-page animated fadeIn" method="POST" action="{{ url_for('add_post') }}">
     {{ form.hidden_tag() }}
     <p>
       {% for field in form if field.widget.input_type != 'hidden' %}
@@ -25,5 +26,4 @@
 {% for category, message in messages %}
 <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
 {% endfor %} {% endif %} {% endwith %}
-
 {% endblock %}
