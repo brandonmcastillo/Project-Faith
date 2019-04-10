@@ -48,7 +48,7 @@ class Post(Model):
     class Meta:
         database = DATABASE
         db_table = 'post'
-        order_by = ('-timestamp',)
+        order_by = ('+timestamp',)
 
     @classmethod
     def create_post(cls, title, category, content, user):
@@ -69,7 +69,7 @@ class Reply(Model):
     class Meta:
         database = DATABASE
         db_table = 'reply'
-        order_by = ('-timestamp',)
+        order_by = ('+timestamp',)
 
 class ReplyThread(Model):
     user = ForeignKeyField(User, backref="replies")
@@ -80,7 +80,7 @@ class ReplyThread(Model):
     class Meta:
         database = DATABASE
         db_table = 'reply_thread'
-        order_by = ('-timestamp',)
+        order_by = ('+timestamp',)
 
 def initialize():
     DATABASE.connect()

@@ -14,11 +14,11 @@ p {
 }
 
 a {
-    color: $maincolor;
+    color: white;
 }
 a:hover, .nav-link
 {
-    color: white;
+    color: $maincolor;
 }
 
 .title {
