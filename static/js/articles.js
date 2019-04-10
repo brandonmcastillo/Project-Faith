@@ -10,7 +10,7 @@ $(document).ready(function(){
         let published = response.articles[i].publishedAt;
         let content = response.articles[i].content;
         $('.api-container').append(`
-        <div class="box article-box is-one-third">
+        <div class="box article-box animated flipInY">
         <article class="media">   
           <div class="media-content">
             <div class="content">         
