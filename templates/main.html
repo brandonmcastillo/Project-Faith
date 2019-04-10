@@ -4,32 +4,28 @@
 <div class="container-fluid">
   <div class="columns">
     <div class="column column-main">
-      <img class="main-img" src="{{ url_for('static', filename='fam1.jpeg') }}">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='fam1.jpeg') }}">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='happy2.jpeg') }}">
       <div class="centered has-text-centered">
-        <h1 class=" greeting has-text-centered">
-          Welcome to Faith
-        </h1>
-        <a href="#about">
-          <p class="about-arrow">&#x2193;</p>
-        </a>
-        </a>
-      </div>
-      <img class="main-img" src="{{ url_for('static', filename='happy2.jpeg') }}">
+          <h1 class=" greeting has-text-centered">
+            Welcome to Faith
+          </h1>
+        </div>
     </div>
   </div>
 </div>
 <div class="container-fluid second-row">
   <div class="columns">
     <div class="column column-main">
-      <img class="main-img" src="{{ url_for('static', filename='fam2.jpeg') }}">
-      <img class="main-img" src="{{ url_for('static', filename='fam3.jpeg') }}">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='fam2.jpeg') }}">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='fam3.jpeg') }}">
     </div>
   </div>
 </div>
-<div class="container-fluid " id="about">
+<div class="container-fluid" id="about">
   <div class="columns what-is-div">
     <div class="column">
-      <h1 class="what-is-title">What is Faith?</h1>
+      <h1 class="what-is-title animated fadeIn">What is Faith?</h1>
       <p> According to nami.org, approximately 1 in 5 adults in the U.S. —43.8 million, or 18.5%— experience mental
         illness in a given year. Faith was created in order to raise awareness on mental health. Faith allows users to
         vent, support and spread information based on mental health, illness or any troubles that you or a loved one may
@@ -41,33 +37,32 @@
     </div>
   </div>
 </div>
-<div class="container-fluid mental-img-div">
+<div class="container-fluid mental-img-div animated fadeIn" id="slide-container2">
   <div class="columns ">
     <div class="column is-half bottom-div">
       <img src="{{ url_for('static', filename='mental1.png') }}">
       </a>
     </div>
-    <div class="column is-half bottom-div">
+    <div class="column is-half bottom-div animated fadeIn">
       <img src="{{ url_for('static', filename='mental2.png') }}">
     </div>
   </div>
 </div>
-</div>
-<div class="container explore-div">
+<div class="container explore-div" id="slide-container3">
   <div class="columns what-is-div2">
     <div class="column has-text-right">
-      <h1 class="title is-1 explore-title">We are here to help </h1>
+      <h1 class="title is-1 explore-title animated fadeIn">We are here to help </h1>
       <p> Mental health is not something to be taken lightly. Whether it revolves around depression, anxiety, post
         traumatic stress, relationships, general health or any other illness, we feel that it's important to communicate with others so that you
         can recover and discover more about yourself. Our goal is to give you a platform where individuals do not
         have to be afraid and can comfortably speak up. If you or a loved one are experiencing difficult times, please
-        do not be afraid to seek for professional help.</p>
+        do not be afraid to seek for professional help outside of Faith.</p>
     </div>
   </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid animated fadeIn" id="slide-container4">
   <div class="columns">
-    <div class="column is-half bottom-div">
+    <div class="column is-half bottom-div ">
       <a href="{{ url_for ('articles') }}">
         <img class="bottom-links-img" src="{{ url_for('static', filename='articles-main.jpeg') }}">
       </a>
@@ -81,4 +76,6 @@
     </div>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/main.js' )}}"></script>
 {% endblock %}
