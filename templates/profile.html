@@ -27,7 +27,7 @@
 			<div class="card profile-card">
 				<header class="card-header">
 					<h1 class="card-header-title ">
-						Welcome to your profile!
+						Profile Info
 					</h1>
 					<a href="#" class="card-header-icon" aria-label="more options">
 						<span class="icon">
@@ -37,9 +37,8 @@
 				</header>
 				<div class="card-content">
 					<div class="content has-text-centered">
-						Email: {{ user.email }}
-						<br>
-						<a href="#">Username @{{ user.username }}</a>
+						<h1 class="title is-6">Email: {{ user.email }}</h1>
+						<h1 class="title is-6">Username @{{ user.username }}</h1>
 					</div>
 				</div>
 				<footer class="card-footer">
@@ -62,7 +61,7 @@
 		<div class="column profile-post-div">
 			<h1 class="has-text-centered questions-profile-title">Questions</h1>
 			<div class="profile-below-post-div has-text-centered">
-			{% for post in posts %}
+			{% for post in posts | sort(attribute='timestamp', reverse = True) %}
 			{% include 'apost.html' %}
 			{% endfor %}
 		</div>
@@ -72,5 +71,4 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='js/quotes.js' )}}"></script>
-
 {% endblock %}
