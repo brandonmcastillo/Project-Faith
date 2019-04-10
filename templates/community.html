@@ -1,55 +1,38 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{{ url_for('main') }}">
-        <h1 class="navbar-header">Faith</h1>
-      </a>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+  <div class="container-fluid com-container">
+      <div class="columns">
+        <div class="column column-main">
+          <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com3.jpg') }}">
+          <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com1.jpg') }}">
+        
+          <div class="centered has-text-centered">
+              <h1 class=" greeting has-text-centered animated fadeIn">
+                Community
+              </h1>
+            </div>
+        </div>
+      </div>
     </div>
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        {% if current_user.is_anonymous %}
-        <!-- If user is not logged in, show Login/Signup button -->
-        <div class="navbar-item">
-          <div class="buttons">
-            <a href="{{ url_for('login') }}" class="button " title="login">Login</a>
-            <a href="{{ url_for('signup') }}" class="button" title="register">Sign Up</a>
+    <div class="container-fluid com-container-two">
+        <div class="columns">
+          <div class="column column-main">
+            <img class="main-img animated fadeIn" src="{{ url_for('static', filename='community-main.jpeg') }}">
+            <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com2.jpg') }}">
           </div>
         </div>
-
-        {% else %}
-        <!-- If User is logged in, display links -->
-
-        <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
-        <a href="{{ url_for('posts') }}" class="navbar-item">Community</a>
-        <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
-
       </div>
-      <div class="navbar-end">
-        
-        <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
-      </div>
-      {% endif %}
-
-    </div>
-  </nav>
-<div class="container">
+<div class="container com-container-three">
   <div class="columns">
-    <div class="column is-two-thirds">
-      <h1 class="title is-1 has-text-centered">Questions Thread</h1>
+    <div class="column is-two-fifths">
       <h1 class="title is-3 has-text-centered">Recent Posts</h1>
       {% for post in posts %}
       {% include 'apost.html' %}
       {% endfor %}
     </div>
-    <div class="column is is-one-third">
+    <div class="column is-three-fifths has-text-centered">
       {% with messages = get_flashed_messages(with_categories=True) %}
       {% if messages %}
       {% for category, message in messages %}
@@ -57,9 +40,10 @@
       {% endfor %} {% endif %} {% endwith %}
       <p>Have anything on your mind? <br>Find others who may have similar issues and give or receive advice . Share
         experiences with your community and remember - always be positive! - Faith Team</p>
-      <button class="button is-medium"><a href={{url_for('add_post' )}}>Create question</a></button>
+      <button class="button is-medium create-question-button"><a href={{url_for('add_post' )}}>Create question</a></button>
     </div>
   </div>
 </div>
+
 
 {% endblock %}
