@@ -5,9 +5,10 @@
 <!-- Imports macro template for form rendering -->
 {% from "macros.html" import field_error %}
 
-
-<div class="has-text-centered">
-  <form method="POST" action="">
+<div class="container-fluid">
+<div class="has-text-centered form-div">
+    <h1 class="title is-1 has-text-centered">Edit your question</h1>
+  <form class="form-page animated fadeIn" method="POST" action="">
     {{ form.hidden_tag() }}
     <div class="form-input">
       {{ field_error(form.title) }}
@@ -33,7 +34,7 @@
       class="button is-light">Cancel</a>
   </form>
 </div>
-
+</div>
 
 
 {% endblock %}

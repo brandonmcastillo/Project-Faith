@@ -6,8 +6,9 @@
 {% from "macros.html" import field_error %}
 
 
-<div class="has-text-centered">
-  <form method="POST" action="">
+<div class="form-div has-text-centered">
+    <h1 class="title is-1 has-text-centered">Edit your reply!</h1>
+  <form id="reply-form" method="POST" action="" >
     {{ form.hidden_tag() }}
     <div class="form-input">
       {{ field_error(form.content) }}
