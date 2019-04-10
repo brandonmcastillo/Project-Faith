@@ -1,24 +1,38 @@
 .postpage-div {
     padding-top:150px;
+    padding-bottom: 150px;
+  
+}
+
+.title.communitypost {
+    font-family: $family-sans-serif;
 }
 
 .post-content-page, .post-content-title-page {
-    color: white;
+    color: $text;
 }
 
 .post-content-title-page {
     font-size: 2em;
+    
 }
 
 .postpage-box {
-    background-color: transparent;
-    border-left: 1px solid white;
-    border-bottom: 1px solid white;
+    background-color: $maincolor;
+    border: 1px solid white;
+    word-break:break-all;
+}
+
+.replypage-box {
+    background-color: $maincolor;
+    word-break:break-all; 
+    border: 1px solid white;
 }
 
 .subcomment {
-    padding: 10px;
-    border-left: 1px solid white;
+    word-break:break-all;
+    font-size: 16px;
     border-bottom: 1px solid white;
-    font-size: 14px;
+    border-left: 1px solid white;
+    background-color: $maincolor;
 }
