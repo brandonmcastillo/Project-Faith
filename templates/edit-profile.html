@@ -3,11 +3,11 @@
 
 
 {% block content %}
-<div class="container">
+<div class="container edit-profile-div">
   <div class="columns">
     <div class="column">
-      <h2>Update Profile</h2>
-      <form method="POST" action="">
+      <h2 class="title is-1 has-text-centered">Update Profile</h2>
+      <form method="POST" action="" class="edit-profile-form animated fadeIn">
         {{ form.hidden_tag() }}
         <div class="form-input">
 
@@ -31,9 +31,10 @@
           {{ form.password2(class="control", value=user.password2) }}
         </div>
 
-        <div class="has-text-centered">
-          <button type="submit" class="button">Save my changes</button><a
-            href="{{ url_for('profile', username=user.username) }}" class="button is-light">Cancel</a>
+        <div class="has-text-centered edit-buttons-div">
+          <button type="submit" class="button is-primary">Save</button>
+          <a
+            href="{{ url_for('profile', username=user.username) }}" class="button is-info">Cancel</a>
         </div>
       </form>
     </div>

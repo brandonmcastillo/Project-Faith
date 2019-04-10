@@ -3,17 +3,30 @@
     font-size: 4em;
 }
 
+.profile-hero {
+    padding-bottom: 200px;
+}
+
 .profile-div {
-    padding-top: 100px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+
 }
 .card {
     background-color:$background;
-    border: 2px inset $maincolor;
+    border: 2px outset $text;
     border-radius: 10px;
+    -webkit-box-shadow:0px 0px 54px 1px #ececec ;
+    -moz-box-shadow:0px 0px 54px 1px #ececec ;
+    box-shadow:0px 0px 54px 1px #ececec ;
 }
 .card-header, .card-header-title {
     color: $text;
+    text-align: center;
+    display: block;
+    font-size: 30px;
 }
+
 
 .card-content {
     color: $text;
@@ -31,12 +44,30 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: $family-sans-serif;
+
 }
 
 @media screen and (max-width: 1200px) {
     .profile-username-header {
         font-size: 100%;
         font-size: 4em;
+    }
+    .quote-container {
+        padding: 0px;
+    }
+    .profile-hero {
+        padding-bottom: 20px;
+    }
+    
+    .profile-div {
+        padding-top: 20px;
+    }
+    #quotetag, .post-title {
+        font-size: 100%;
+    }
+    .qotd-title {   
+        font-size: 100%;
+        padding: 5px;
     }
 }
 
@@ -46,19 +77,68 @@
         font-size: 2em;
         top: 20%;
     }
+    .quote-container {
+        padding: 0px;
+    }
+    .profile-hero {
+        padding-bottom: 20px;
+    }
+    
+    .profile-div {
+        padding-top: 20px;
+    }
+    .qotd-title , #quotetag{   
+        padding: 0;
+    }
+}
+
+.questions-profile-title {
+    font-family: faith;
+    font-size: 5em;
+    padding-bottom: 40px;
 }
 
 // apost.html css
 .post-box {
-    background-color: $maincolor;
+    background-color:transparent;
+    border: 3px double rgb(238, 238, 238);
+    border-radius: 10px;
+
+
 }
 
 .post-title {
-    color: $text;
+    color: white;
     font-size: 25px;
+    background-color: none;
 }
 
 .post-content {
     color: $text;
     font-family: $family-sans-serif;
 }
+
+// Quote of the day
+.qotd-title {
+    font-family: faith;
+    font-size: 5em;
+}
+
+.quote-container {
+    padding: 200px;
+    -webkit-box-shadow:0px 0px 50px 30px #8c8cd0 ;
+    -moz-box-shadow:0px 0px 50px 30px #8c8cd0 ;
+    box-shadow:0px 0px 50px 30px #8c8cd0 ;
+    border-radius: 10px;
+}
+
+#quotetag {
+    font-size: 18px;
+}
+
+.profile-below-post-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+

@@ -1,37 +1,52 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<section class="hero is-small">
-		<img class="#"" src="{{ url_for('static', filename='cloud.jpeg') }}">
-		<div>
-		<h1 class="profile-username-header has-text-centered">Hello, {{user.name}}!</h1></div>
-	  </section>
+<section class="hero is-small profile-hero">
+	<img class="#"" src=" {{ url_for('static', filename='cloud.jpeg') }}">
+	<div>
+		<h1 class="profile-username-header has-text-centered animated fadeIn">Hello, <u>{{user.name}}</u>!</h1>
+	</div>
+</section>
+<div class="container quote-container">
+	<div class="columns">
+		<div class="column is-fullwidth">
+				<div><h1 class="qotd-title has-text-centered animated fadeIn">Quote of the Day</h1></div>
+				<div><div id='quotetag' class='has-text-centered'>
+					<!-- Motivational quote generator -->
+				</div></div>
+				<br>
+				<div class="has-text-centered"> <button class='button is-primary'>New Quote</button></div>
+			
+			</div>
+		</div>
+	</div>
+</div>
 <div class="container profile-div">
 	<div class="columns">
-		<div class="column is-half">
-				<div class="card profile-card">
-						<header class="card-header">
-						  <p class="card-header-title">
-								Welcome to your profile!
-						  </p>
-						  <a href="#" class="card-header-icon" aria-label="more options">
-							<span class="icon">
-							  <i class="fas fa-angle-down" aria-hidden="true"></i>
-							</span>
-						  </a>
-						</header>
-						<div class="card-content">
-						  <div class="content">
-								Email: {{ user.email }}
-								<br>
-							<a href="#">Username @{{ user.username }}</a>				
-						  </div>
-						</div>
-						<footer class="card-footer">
-						  <a href="{{ url_for('edit_profile', username=current_user.username) }}" class="card-footer-item">Edit</a>
-						</footer>
-					  </div>
-
+		<div class="column">
+			<div class="card profile-card">
+				<header class="card-header">
+					<h1 class="card-header-title ">
+						Welcome to your profile!
+					</h1>
+					<a href="#" class="card-header-icon" aria-label="more options">
+						<span class="icon">
+							<i class="fas fa-angle-down" aria-hidden="true"></i>
+						</span>
+					</a>
+				</header>
+				<div class="card-content">
+					<div class="content has-text-centered">
+						Email: {{ user.email }}
+						<br>
+						<a href="#">Username @{{ user.username }}</a>
+					</div>
+				</div>
+				<footer class="card-footer">
+					<a href="{{ url_for('edit_profile', username=current_user.username) }}"
+						class="card-footer-item">Edit</a>
+				</footer>
+			</div>
 			{% with messages = get_flashed_messages(with_categories=True) %}
 			{% if messages %}
 			{% for category, message in messages %}
@@ -39,18 +54,23 @@
 			{% endfor %}
 			{% endif %}
 			{% endwith %}
-		
 		</div>
-		<div class="column is-half">
-				<h1 class="title is-2 has-text-centered">Questions</h1>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="columns">
+		<div class="column profile-post-div">
+			<h1 class="has-text-centered questions-profile-title">Questions</h1>
+			<div class="profile-below-post-div has-text-centered">
 			{% for post in posts %}
 			{% include 'apost.html' %}
 			{% endfor %}
 		</div>
+		</div>
 	</div>
 </div>
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/quotes.js' )}}"></script>
 
 {% endblock %}
