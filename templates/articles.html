@@ -12,6 +12,7 @@
   {% endassets %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
+
 <body class="article-body">
   <nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -49,25 +50,32 @@
   <section class="hero article-hero is-small">
     <img src=" {{ url_for('static', filename='book2.jpg') }}">
     <div class="hero-body">
+      </section>
       <div class="container-fluid">
+        <div class="columns">
+          <div class="column is-half">
         <h1 class="article-title-intro has-text-centered">
           ARTICLES
         </h1>
         <h2 class="subtitle has-text-centered">
           Updated Daily via Medical News Today
         </h2>
+        <p class="has-text-centered">
+            Feature updates coming soon
+        </p>
+      </div>
+  
+      <div class="column is-one-third api-container has-text-centered">
+        <!-- Articles.js appends here -->
       </div>
     </div>
-  </section>
-  <div class="container api-container">
-    <!-- Articles.js appends here -->
   </div>
   <footer class="footer has-navbar-fixed-bottom">
-    <div class="content ">
-      <p class="has-text-centered">&copy;
-        Created by Brandon Castillo.</p>
-    </div>
-  </footer>
+      <div class="content  has-text-right">
+        <p>
+          Created by Brandon Castillo</p>
+      </div>
+    </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="{{ url_for('static', filename='js/app.js' )}}"></script>
