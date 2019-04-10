@@ -1,25 +1,18 @@
-<div class="box post-box">
-  <article class="media">
-    <div class="media-content">
+<div class="card community-card profile-card has-text-centered">
+    <header class="card-header">
+        <a class="card-header-title " href={{url_for('thispost', postid=post.id)}}><bold>{{ post.title }}</bold></a>
+      <a href="#" class="card-header-icon" aria-label="more options">
+        <span class="icon">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </a>
+    </header>
+    <div class="card-content">
       <div class="content">
-        <a class="post-title" href={{url_for('thispost', postid=post.id)}}><bold>{{ post.title }}</bold></a>
-        <p class="post-content">
-          By: {{ post.user.username}}
-          <br>
-          {{ post.content }}
-          <br>
-          Category: {{ post.category }} | {{ post.timestamp.strftime('%m-%d-%Y')}}
-        </p>
+          {{ post.content }}<br>
+        <a href="#">@ {{ post.user.username }}</a>
+        <br> 
+        <time>   Category: {{ post.category }} | {{ post.timestamp.strftime('%m-%d-%Y')}}</time>
       </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item" aria-label="like">
-            <span class="icon is-small">
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
-      </nav>
     </div>
-  </article>
-</div>
+  </div>

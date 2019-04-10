@@ -29,28 +29,25 @@
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        {% if current_user.is_anonymous %}
-        <!-- If user is not logged in, show Login/Signup button -->
-        <div class="navbar-item">
-          <div class="buttons">
-            <a href="{{ url_for('login') }}" class="button " title="login">Login</a>
-            <a href="{{ url_for('signup') }}" class="button" title="register">Sign Up</a>
-          </div>
-        </div>
-
-        {% else %}
+        {% if current_user %}
         <!-- If User is logged in, display links -->
 
         <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
         <a href="{{ url_for('posts') }}" class="navbar-item">Community</a>
         <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
-
       </div>
       <div class="navbar-end">
-        
+
         <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
+
+        {% else %}
+        <a href="{{ url_for('login') }}" class="navbar-item is-info " title="login">Login</a>
+        <a href="{{ url_for('signup') }}" class="navbar-item is-primary" title="register">Sign Up</a>
+
       </div>
-      {% endif %}
+    </div>
+
+    {% endif %}
 
     </div>
   </nav>
@@ -59,9 +56,9 @@
 
     {% endblock %}
   </main>
-  <footer class="footer">
-    <div class="content ">
-      <p class="has-text-centered">&copy;
+  <footer class="footer has-navbar-fixed-bottom">
+    <div class="content has-text-right">
+      <p>
         Created by Brandon Castillo</p>
     </div>
   </footer>
