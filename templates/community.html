@@ -2,48 +2,90 @@
 
 {% block content %}
 
-  <div class="container-fluid com-container">
-      <div class="columns">
-        <div class="column column-main">
-          <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com3.jpg') }}">
-          <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com1.jpg') }}">
-        
-          <div class="centered has-text-centered">
-              <h1 class=" greeting has-text-centered animated fadeIn">
-                Community
-              </h1>
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid com-container-two">
-        <div class="columns">
-          <div class="column column-main">
-            <img class="main-img animated fadeIn" src="{{ url_for('static', filename='community-main.jpeg') }}">
-            <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com2.jpg') }}">
-          </div>
-        </div>
-      </div>
-<div class="container com-container-three">
+<div class="container-fluid com-container">
   <div class="columns">
-    <div class="column is-two-fifths">
-      <h1 class="title is-3 has-text-centered">Recent Posts</h1>
-      {% for post in posts %}
-      {% include 'apost.html' %}
-      {% endfor %}
-    </div>
-    <div class="column is-three-fifths has-text-centered">
-      {% with messages = get_flashed_messages(with_categories=True) %}
-      {% if messages %}
-      {% for category, message in messages %}
-      <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
-      {% endfor %} {% endif %} {% endwith %}
-      <p>Have anything on your mind? <br>Find others who may have similar issues and give or receive advice . Share
-        experiences with your community and remember - always be positive! - Faith Team</p>
-      <button class="button is-medium create-question-button"><a href={{url_for('add_post' )}}>Create question</a></button>
+    <div class="column column-main">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com3.jpg') }}">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com1.jpg') }}">
+
+      <div class="centered has-text-centered">
+        <h1 class=" greeting has-text-centered animated fadeIn">
+          Community
+        </h1>
+      </div>
     </div>
   </div>
 </div>
+<div class="container-fluid com-container-two">
+  <div class="columns">
+    <div class="column column-main">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='community-main.jpeg') }}">
+      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com2.jpg') }}">
+    </div>
+  </div>
+</div>
+<div class="container com-container-three">
+  <div class="columns">
+    <div class="column is-half">
+      <div class="has-text-left">
+        <div class="rules-div-border">
+          <h1 class="title is-6">Welcome to the community!</h1>
+          <p class="welcome-com-text"> Have anything on your mind? <br>Vent, share and support the community <br>by
+            joining our forums. Please
+            maintain positivity and help others. <br>We rely on all users to help keep these discussion forums a safe
+            <br>place for people to share and view information.- Faith Team </p>
+        </div>
+      </div><br>
+      <div class="rules-div-border">
+      <div class="has-text-left">
+          <h2 class="title is-6">Rules</h2>
+        <ul class=" welcome-com-text">
+          <li>Be courteous and respectful</li>
+          <li>Share knowledge</li>
+          <li>Keep content safe</li>
+          <li>Respect other members of the Faith community</li>
+          <li>Maintain our supportive environment</li>
+          <li>Be thoughtful when responding </li>
+        </ul>
+      </div>
+</div>
+    </div>
+    <div class="column is-half has-text-left">
+      <h2 class="title is-3">Prohibited Content</h2>
+      <div class="has-text-center">
+        <ul class="ul-prohibit welcome-prohibit-text">
+          <li>Is spam</li>
+          <li>Is illegal</li>
+          <li>Is sexual or suggestive content involving minors</li>
+          <li>Promotes violence or drug use</li>
+          <li>Threatens, harasses, or bullies or encourages others</li>
+          <li>Is confidential or personal information</li>
+          <li>Impersonation of an individual </li>
+          <li>is racist, sexist, homophobic, sexually explicit, discriminatory or objectionable</li>
+          <li>Use Faith to solicit or gift transactions involving certain goods and services</li>
+        </ul>
+        <div class="recent-posts">
+          <h1 class="title is-3 has-text-left" style="display: inline">Recent Posts</h1> <div class="has-text-right"><button class="button is-medium  create-question-button"><a
+            href={{url_for('add_post' )}}>Create
+            question</a></button>
+            </div>
+          </div><br>
+          {% for post in posts | sort(attribute='timestamp', reverse = True) %}
+          {% include 'apost.html' %}
+          {% endfor %}
+          {% with messages = get_flashed_messages(with_categories=True) %}
+          {% if messages %}
+          {% for category, message in messages %}
+          <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
+          {% endfor %} {% endif %} {% endwith %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 {% endblock %}
