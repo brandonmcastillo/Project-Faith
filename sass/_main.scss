@@ -97,9 +97,9 @@
     padding: 300px;
 }
 
-.mental-img-div {
-    padding: 10px 100px 100px;
-}
+// .mental-img-div {
+//     padding: 10px 100px 100px;
+// }
 
 .what-is-div {
     background-color: $texttwo;
@@ -164,4 +164,17 @@ u {
 .explore-title {
     padding-bottom: 50px;
     font-family: 'Montserrat';
+}
+
+// Slide Down Styles
+#about , #slide-container2, #slide-container3, #slide-container4 {
+    display: none;
+
+}
+
+
+.arrow {
+    padding-top: 40px;
+    font-size: 20px;
+
 }

@@ -16,11 +16,21 @@ p {
 a {
     color: $maincolor;
 }
-a:hover
+a:hover, .nav-link
 {
-    color: $secondaccent;
+    color: white;
 }
 
 .title {
     color: $text;
+}
+
+footer {
+    background-color: transparent;
+    color: white;
+    text-align: right;
+    bottom: 0;
+    padding: 20px;
+    font-size: 12px;
+    font-family: $family-sans-serif;
 }

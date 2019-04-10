@@ -67,9 +67,15 @@ $headerfont: 'Roboto',sans-serif;
 @import "../node_modules/bulma/sass/grid/tiles.sass";
 // Import Sass Files
 @import "./sass/articles.scss";
+@import "./sass/community.scss";
 @import "./sass/global.scss";
 @import "./sass/landing.scss";
 @import "./sass/login.scss";
 @import "./sass/main.scss";
+@import "./sass/postpage.scss";
 @import "./sass/signup.scss";
 @import "./sass/profile.scss";
+@import "./sass/createpost.scss";
+@import "./sass/editprofile.scss";
+@import "./sass/replyform.scss";
+
