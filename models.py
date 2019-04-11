@@ -8,7 +8,7 @@ import os
 
 from playhouse.db_url import connect
 
-DATABASE = connect(os.environ.get('faith'))
+DATABASE = connect(os.environ.get('ec2-50-17-227-28.compute-1.amazonaws.com'))
 
 # DATABASE = SqliteDatabase('faith.db')
 # DATABASE = PostgresqlDatabase('faith')
