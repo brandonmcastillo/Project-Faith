@@ -5004,6 +5004,13 @@ a.navbar-item,
 .recent-posts {
   padding-top: 100px; }
 
+@media all and (max-width: 480px) {
+  .greeting {
+    display: none; }
+  #about, .explore-div {
+    padding: 50px;
+    margin-bottom: 20px; } }
+
 body {
   background: #2A2A41;
   min-height: 100vh;
@@ -5016,16 +5023,22 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  word-break: break-all; }
 
 p {
-  font-family: "Lato-300", sans-serif; }
+  font-family: "Lato-300", sans-serif;
+  word-break: break-all; }
 
 a {
   color: white; }
 
-a:hover, .nav-link {
+a:hover,
+.nav-link {
   color: #899ACE; }
+
+.navbar-burger {
+  color: #F1F2EF; }
 
 .title {
   color: #F1F2EF; }
@@ -5038,6 +5051,13 @@ footer {
   padding: 20px;
   font-size: 12px;
   font-family: "Lato", sans-serif; }
+
+.navbar-menu {
+  background: rgba(0, 0, 0, 0.527); }
+
+@media all and (min-width: 1083px) {
+  .navbar-menu {
+    background: transparent; } }
 
 /* ---- reset ---- */
 body {
@@ -5183,25 +5203,28 @@ canvas {
     height: 490px;
     width: 100%;
     top: 120px;
-    padding: 0; }
+    padding: -1;
+    z-index: 0; }
   .signup-glass {
     padding: 244px;
     width: 100%; }
   .login-left {
     padding-bottom: 100px; }
   .box-login {
-    height: 500px;
+    height: 1000px;
     width: 100%;
     top: 120px;
     background-color: #899ACE;
-    z-index: 0; }
+    z-index: 0;
+    position: absolute; }
   .title.is-3.already {
     font-size: 12px; }
   .loginform {
     position: relative;
     z-index: 1;
     color: black;
-    text-align: center; }
+    text-align: center;
+    width: 420px; }
   .particles-js-canvas-el {
     height: 100vmax !important;
     z-index: 0; } }
@@ -5251,36 +5274,22 @@ canvas {
   padding-top: 200px;
   font-size: 3em; }
 
-@media screen and (max-width: 1200px) {
-  .greeting {
-    font-size: 4em; }
-  #about {
-    padding: 20px; }
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 100%; } }
-
-@media screen and (max-width: 800px) {
-  .greeting {
-    font-size: 2em; }
-  #about {
-    padding: 30px !important; }
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 100%; } }
-
 #about {
   padding: 300px; }
+
+@media all and (max-width: 480px) {
+  .greeting {
+    display: none; }
+  #about, .explore-div {
+    padding: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin: auto; } }
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  #about, .explore-div {
+    padding: 90px;
+    margin-bottom: 20px; } }
 
 .what-is-div {
   background-color: #2A2A41;
@@ -5302,12 +5311,14 @@ canvas {
   color: white;
   font-size: 5em; }
 
-.bottom-links-img {
+.bottom-links-img,
+.bottom-links-img2 {
   -webkit-filter: grayscale(100%);
   /* Safari 6.0 - 9.0 */
   filter: grayscale(100%); }
 
-.bottom-links-img:hover {
+.bottom-links-img:hover,
+.bottom-links-img2:hover {
   -webkit-filter: grayscale(0%);
   /* Safari 6.0 - 9.0 */
   filter: grayscale(0%); }
@@ -5333,12 +5344,6 @@ u {
 .explore-title {
   padding-bottom: 50px;
   font-family: 'Montserrat'; }
-
-#about,
-#slide-container2,
-#slide-container3,
-#slide-container4 {
-  display: none; }
 
 .arrow {
   padding-top: 40px;
@@ -5558,6 +5563,13 @@ u {
   flex-wrap: wrap;
   word-break: break-all; }
 
+@media all and (max-width: 480px) {
+  .quote-container {
+    padding: 30px; }
+  .qotd-title {
+    font-size: 3em;
+    padding-bottom: 10px; } }
+
 .form-div {
   padding-top: 250px; }
 
@@ -5584,6 +5596,19 @@ u {
 .right-create-img {
   padding-top: 330px; }
 
+@media all and (max-width: 480px) {
+  .form-page,
+  .form-create-post-page {
+    width: 100%; }
+  .right-create-img {
+    padding-top: 5px; } }
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .form-div {
+    padding: 0px; }
+  .form-page {
+    width: 500px; } }
+
 .container.edit-profile-div {
   padding-top: 200px; }
 
@@ -5605,6 +5630,10 @@ u {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px; }
+
+@media all and (max-width: 480px) {
+  .edit-profile-form {
+    width: 100%; } }
 
 #reply-form {
   width: 50vw;

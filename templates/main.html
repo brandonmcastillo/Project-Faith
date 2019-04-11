@@ -22,11 +22,12 @@
     </div>
   </div>
 </div>
+
 <div class="container-fluid" id="about">
   <div class="columns what-is-div">
     <div class="column">
       <h1 class="what-is-title animated fadeIn">What is Faith?</h1>
-      <p> According to nami.org, approximately 1 in 5 adults in the U.S. —43.8 million, or 18.5%— experience mental
+      <p class="animated fadeIn"> According to nami.org, approximately 1 in 5 adults in the U.S. —43.8 million, or 18.5%— experience mental
         illness in a given year. Faith was created in order to raise awareness on mental health. Faith allows users to
         vent, support and spread information based on mental health, illness or any troubles that you or a loved one may
         be going through.
@@ -71,12 +72,13 @@
     </div>
     <div class="column is-half bottom-div">
       <a href="{{ url_for('posts') }}">
-        <img class="bottom-links-img" src="{{ url_for('static', filename='fam4.jpeg') }}">
+        <img class="bottom-links-img2" src="{{ url_for('static', filename='fam4.jpeg') }}">
       </a>
       <h1 class="community-link has-text-centered"><u>COMMUNITY</u></h1>
     </div>
   </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='js/main.js' )}}"></script>
 {% endblock %}
