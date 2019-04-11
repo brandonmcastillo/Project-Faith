@@ -4960,10 +4960,13 @@ a.navbar-item,
 .article-author {
   color: #899ACE; }
 
-.article-title, .article-time, .article-body {
+.article-title,
+.article-time,
+.article-body {
   color: #F1F2EF; }
 
-.article-box, .article-hero {
+.article-box,
+.article-hero {
   background-color: #2A2A41; }
 
 .article-box {
@@ -5264,7 +5267,10 @@ u {
   padding-bottom: 50px;
   font-family: 'Montserrat'; }
 
-#about, #slide-container2, #slide-container3, #slide-container4 {
+#about,
+#slide-container2,
+#slide-container3,
+#slide-container4 {
   display: none; }
 
 .arrow {
@@ -5278,7 +5284,8 @@ u {
 .title.communitypost {
   font-family: "Lato", sans-serif; }
 
-.post-content-page, .post-content-title-page {
+.post-content-page,
+.post-content-title-page {
   color: #F1F2EF; }
 
 .post-content-title-page {
@@ -5374,7 +5381,8 @@ u {
   -moz-box-shadow: 0px 0px 54px 1px #ececec;
   box-shadow: 0px 0px 54px 1px #ececec; }
 
-.card-header, .card-header-title {
+.card-header,
+.card-header-title {
   color: #F1F2EF;
   text-align: center;
   display: block;
@@ -5405,7 +5413,8 @@ u {
     padding-bottom: 20px; }
   .profile-div {
     padding-top: 20px; }
-  #quotetag, .post-title {
+  #quotetag,
+  .post-title {
     font-size: 100%; }
   .qotd-title {
     font-size: 100%;
@@ -5422,7 +5431,8 @@ u {
     padding-bottom: 20px; }
   .profile-div {
     padding-top: 20px; }
-  .qotd-title, #quotetag {
+  .qotd-title,
+  #quotetag {
     padding: 0; } }
 
 .questions-profile-title {

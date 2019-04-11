@@ -42,20 +42,21 @@ $secondaccent: #75747B;
 $background: #2A2A41;
 $box-color: rgba(255, 255, 255, 0.295);
 
-$paragraph: 'Lato-300',sans-serif;
-$headerfont: 'Roboto',sans-serif;
+$paragraph: 'Lato-300',
+sans-serif;
+$headerfont: 'Roboto',
+sans-serif;
 
-@font-face{
+@font-face {
     font-family: faith;
     src: url(/static/Playlist-Script.otf);
-    }
+}
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/elements/box.sass";
 @import "../node_modules/bulma/sass/elements/button.sass";
-
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/grid/columns.sass";
 @import "../node_modules/bulma/sass/elements/form.sass";
@@ -78,4 +79,3 @@ $headerfont: 'Roboto',sans-serif;
 @import "./sass/createpost.scss";
 @import "./sass/editprofile.scss";
 @import "./sass/replyform.scss";
-

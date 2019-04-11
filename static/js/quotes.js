@@ -10,8 +10,6 @@ function randomQuote() {
     });
   }
   
-
-  
   $(function() {
     randomQuote();
   });

@@ -25,14 +25,14 @@
     top: 120px;
     background-color: $maincolor;
     z-index: 0;
-    
+
 }
 
 .input {
     border: 1px inset white;
     padding: 20px;
     margin: 10px;
-    
+
 }
 
 .create-text {
@@ -54,7 +54,7 @@
     padding-top: 300px;
     z-index: 1;
     position: relative;
-    }
+}
 
 .title.is-4.already {
     color: $text;
@@ -74,5 +74,4 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-  }
-
+}

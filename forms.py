@@ -73,12 +73,12 @@ class EditUserForm(Form):
 
 class CreatePostForm(Form):
     title = StringField('title', validators=[DataRequired()])
-    category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse') ])
+    category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse'), ('Schizophrenia', 'Schizophrenia'), ('Dementia', 'Dementia'), ('Phobia', 'Phobia'), ('PTSD', 'PTSD'), ('OCD', 'OCD'), ('General Health', 'General Health')])
     content = StringField('content', validators=[DataRequired()])
 
 class EditPostForm(Form):
     title = StringField('title', validators=[DataRequired()])
-    category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse')])
+    category = SelectField('Category', choices=[('Anxiety', 'Anxiety'),('Mood', 'Mood'),('Eating Disorder', 'Eating Disorder'),('Substance Abuse', 'Substance Abuse'), ('Schizophrenia', 'Schizophrenia'), ('Dementia', 'Dementia'), ('Phobia', 'Phobia'), ('PTSD', 'PTSD'), ('OCD', 'OCD'), ('General Health', 'General Health')])
     content = TextAreaField('content', validators=[DataRequired()])
 
 class CreateReplyForm(Form):

@@ -1,17 +1,19 @@
 <div class="card community-card profile-card has-text-centered">
-    <header class="card-header">
-        <a class="card-header-title " href={{url_for('thispost', postid=post.id)}}><bold>{{ post.title }}</bold></a>
-      <a href="#" class="card-header-icon" aria-label="more options">
-        <span class="icon">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </a>
-    </header>
-    <div class="card-content">
-      <div class="content">
-        <a href="#">@ {{ post.user.username }}</a>
-        <br> 
-        <time>   Category: {{ post.category }} | {{ post.timestamp.strftime('%m-%d-%Y')}}</time>
-      </div>
+  <header class="card-header">
+    <a class="card-header-title " href={{url_for('thispost', postid=post.id)}}>
+      <bold>{{ post.title }}</bold>
+    </a>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <a href="#">@ {{ post.user.username }}</a>
+      <br>
+      <time> Category: {{ post.category }} | {{ post.timestamp.strftime('%m-%d-%Y')}}</time>
     </div>
   </div>
+</div>

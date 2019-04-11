@@ -8,33 +8,30 @@
 <div class="container">
   <div class="columns">
     <div class="column is-half">
-<div class="has-text-centered form-div">
-  <h1 class="title is-1 has-text-centered">Ask a question</h1>
-  <form class="form-create-post-page animated fadeIn" method="POST" action="{{ url_for('add_post') }}">
-    {{ form.hidden_tag() }}
-    <p>
-      {% for field in form if field.widget.input_type != 'hidden' %}
-      {{ render_field(field) }}
-      {% endfor %}
-    </p>
-
-    <button type="submit" class="button is-primary">Create</button><a href="{{ url_for('posts') }}"
-      class="button is-light">Cancel</a>
-  </form>
-</div>
-
-{% with messages = get_flashed_messages(with_categories=True) %}
-{% if messages %}
-{% for category, message in messages %}
-<div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
-{% endfor %} {% endif %} {% endwith %}
-</div>
-
-<div class="column is-half">
-  <div class="right-create-img">
-    <img class="animated fadeIn" src="{{ url_for('static', filename='hand2.jpeg') }}">
+      <div class="has-text-centered form-div">
+        <h1 class="title is-1 has-text-centered">Ask a question</h1>
+        <form class="form-create-post-page animated fadeIn" method="POST" action="{{ url_for('add_post') }}">
+          {{ form.hidden_tag() }}
+          <p>
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {{ render_field(field) }}
+            {% endfor %}
+          </p>
+          <button type="submit" class="button is-primary">Create</button><a href="{{ url_for('posts') }}"
+            class="button is-light">Cancel</a>
+        </form>
+      </div>
+      {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %}
     </div>
-</div>
-</div>
+    <div class="column is-half">
+      <div class="right-create-img">
+        <img class="animated fadeIn" src="{{ url_for('static', filename='hand2.jpeg') }}">
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

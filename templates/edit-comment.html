@@ -4,24 +4,19 @@
 
 <!-- Imports macro template for form rendering -->
 {% from "macros.html" import field_error %}
-
-
 <div class="form-div has-text-centered">
-    <h1 class="title is-1 has-text-centered">Edit your comment!</h1>
-  <form id="reply-form" method="POST" action="" >
-  <form method="POST" action="">
-    {{ form.hidden_tag() }}
-    <div class="form-input">
-      {{ field_error(form.content) }}
-
-      {{ form.content.label(class="label") }}
-      {{ form.content(class="control", value=replies.content, cols="35", rows="20") }}
-    </div>
-
-    <button type="submit" class="button is-primary">Update</button><a href="{{ url_for('thispost', postid=postid) }}"
-      class="button is-light">Cancel</a>
-  </form>
+  <h1 class="title is-1 has-text-centered">Edit your comment!</h1>
+  <form id="reply-form" method="POST" action="">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <div class="form-input">
+        {{ field_error(form.content) }}
+        {{ form.content.label(class="label") }}
+        {{ form.content(class="control", value=replies.content, cols="35", rows="20") }}
+      </div>
+      <button type="submit" class="button is-primary">Update</button><a href="{{ url_for('thispost', postid=postid) }}"
+        class="button is-light">Cancel</a>
+    </form>
 </div>
-
 
 {% endblock %}

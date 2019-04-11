@@ -46,7 +46,7 @@
     margin: 0 auto;
     max-width: 600px;
     text-shadow: 4px 3px 0px #7A7A7A;
-    
+
 }
 
 .greeting2 {
@@ -170,7 +170,10 @@ u {
 }
 
 // Slide Down Styles
-#about , #slide-container2, #slide-container3, #slide-container4 {
+#about,
+#slide-container2,
+#slide-container3,
+#slide-container4 {
     display: none;
 
 }

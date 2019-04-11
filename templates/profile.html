@@ -2,7 +2,7 @@
 
 {% block content %}
 <section class="hero is-small profile-hero">
-	<img class="#"" src=" {{ url_for('static', filename='cloud.jpeg') }}">
+	<img class="#" src=" {{ url_for('static', filename='cloud.jpeg') }}">
 	<div>
 		<h1 class="profile-username-header has-text-centered animated fadeIn">Hello, <u>{{user.name}}</u>!</h1>
 	</div>
@@ -10,16 +10,20 @@
 <div class="container quote-container">
 	<div class="columns">
 		<div class="column is-fullwidth">
-				<div><h1 class="qotd-title has-text-centered animated fadeIn">Quote of the Day</h1></div>
-				<div><div id='quotetag' class='has-text-centered'>
-					<!-- Motivational quote generator -->
-				</div></div>
-				<br>
-				<div class="has-text-centered"> <button class='button is-primary'>New Quote</button></div>
-			
+			<div>
+				<h1 class="qotd-title has-text-centered animated fadeIn">Quote of the Day</h1>
 			</div>
+			<div>
+				<div id='quotetag' class='has-text-centered'>
+					<!-- Motivational quote generator -->
+				</div>
+			</div>
+			<br>
+			<div class="has-text-centered"> <button class='button is-primary'>New Quote</button></div>
+
 		</div>
 	</div>
+</div>
 </div>
 <div class="container profile-div">
 	<div class="columns">
@@ -61,10 +65,10 @@
 		<div class="column profile-post-div">
 			<h1 class="has-text-centered questions-profile-title">Questions</h1>
 			<div class="profile-below-post-div has-text-centered">
-			{% for post in posts | sort(attribute='timestamp', reverse = True) %}
-			{% include 'apost.html' %}
-			{% endfor %}
-		</div>
+				{% for post in posts | sort(attribute='timestamp', reverse = True) %}
+				{% include 'apost.html' %}
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 </div>

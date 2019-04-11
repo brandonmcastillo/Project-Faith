@@ -7,7 +7,6 @@
     <div class="column column-main">
       <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com3.jpg') }}">
       <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com1.jpg') }}">
-
       <div class="centered has-text-centered">
         <h1 class=" greeting has-text-centered animated fadeIn">
           Community
@@ -37,23 +36,23 @@
         </div>
       </div><br>
       <div class="rules-div-border">
-      <div class="has-text-left">
+        <div class="has-text-left">
           <h2 class="title is-6">Rules</h2>
-        <ul class=" welcome-com-text">
-          <li>Be courteous and respectful</li>
-          <li>Share knowledge</li>
-          <li>Keep content safe</li>
-          <li>Respect other members of the Faith community</li>
-          <li>Maintain our supportive environment</li>
-          <li>Be thoughtful when responding </li>
-        </ul>
+          <ul class=" welcome-com-text">
+            <li>Be courteous and respectful</li>
+            <li>Share knowledge</li>
+            <li>Keep content safe</li>
+            <li>Respect other members of the Faith community</li>
+            <li>Maintain our supportive environment</li>
+            <li>Be thoughtful when responding </li>
+          </ul>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert has-text-left alert-{{ category }}">{{ message }}</div>
+        {% endfor %} {% endif %} {% endwith %}
       </div>
-      {% with messages = get_flashed_messages(with_categories=True) %}
-          {% if messages %}
-          {% for category, message in messages %}
-          <div class="alert has-text-left alert-{{ category }}">{{ message }}</div>
-          {% endfor %} {% endif %} {% endwith %}
-</div>
     </div>
     <div class="column is-half has-text-left">
       <h2 class="title is-3">Prohibited Content</h2>
@@ -70,19 +69,19 @@
           <li>Use Faith to solicit or gift transactions involving certain goods and services</li>
         </ul>
         <div class="recent-posts">
-          <h1 class="title is-3 has-text-left" style="display: inline">Recent Posts</h1> <div class="has-text-right"><button class="button is-medium  create-question-button"><a
-            href={{url_for('add_post' )}}>Create
-            question</a></button>
-            </div>
-          </div><br>
-          {% for post in posts | sort(attribute='timestamp', reverse = True) %}
-          {% include 'apost.html' %}
-          {% endfor %}
-          
-        </div>
+          <h1 class="title is-3 has-text-left" style="display: inline">Recent Posts</h1>
+          <div class="has-text-right"><button class="button is-medium  create-question-button"><a
+                href={{url_for('add_post' )}}>Create
+                question</a></button>
+          </div>
+        </div><br>
+        {% for post in posts | sort(attribute='timestamp', reverse = True) %}
+        {% include 'apost.html' %}
+        {% endfor %}
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

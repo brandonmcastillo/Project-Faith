@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="postpage-div"><h1 class="title communitypost is-1 has-text-centered">Community Post</h1></div>
+<div class="postpage-div">
+  <h1 class="title communitypost is-1 has-text-centered">Community Post</h1>
+</div>
 <div class="container">
   <div class="columns">
     <div class="column is-two-thirds ">
@@ -11,20 +13,17 @@
             <div class="content">
               <a class=" post-content-title-page" href={{url_for('thispost', postid=post.id)}}>{{ post.title }}</a>
               <p class="post-content-page">
-                  Category: {{ post.category }}  
+                Category: {{ post.category }}
                 <br>
                 {{ post.content }}
                 <br>
                 @{{ post.user.username}} | {{ post.timestamp.strftime('%m-%d-%Y')}}
               </p>
-             
               <div class="has-text-right">
-              <a href="{{ url_for('reply_post', postid=post.id)}}" class="button is-primary is-small">Reply</a>
+                <a href="{{ url_for('reply_post', postid=post.id)}}" class="button is-primary is-small">Reply</a>
                 <a href="{{ url_for('edit_post', postid=post.id)}}" class="button is-info is-small">Edit</a>
                 <a href="{{ url_for('delete_post', postid=post.id) }}" class="button is-danger is-small">Delete</a>
-              
               </div>
-              
             </div>
             <nav class="level is-mobile">
               <div class="level-left">
@@ -39,35 +38,33 @@
         </article>
       </div>
     </div>
-    </div>
   </div>
 </div>
-
+</div>
 <div class="container">
   <div class="columns">
     <div class="column is-three-fifths is-offset-1 ">
       {% for reply in replies | sort(attribute='timestamp', reverse = True) %}
       <div class="box replypage-box">
         <article class="media">
-          <div class="post-content-title-page" >
-              <h1 class="title is-6 has-text-left">Post</h1>
-             <p> {{ reply.content }}</p>
+          <div class="post-content-title-page">
+            <h1 class="title is-6 has-text-left">Post</h1>
+            <p> {{ reply.content }}</p>
           </div>
           <div class="media-content">
             <div class="content post-content-page">
-              
               <p>
                 {{ reply.timestamp.strftime('%m-%d-%Y')}}<br>
               </p>@{{ reply.user.username}}</p>
-              </p> <div class="has-text-right">
-              <a href="{{ url_for('create_reply_to_reply', postid=post.id, replyid=reply.id)}}"
-              class="button is-primary is-small">Reply</a>
-
-            {% if current_user.id == reply.user.id %}
-            <a href="{{ url_for('edit_reply_post', postid=post.id, replyid=reply.id)}}"
-              class="button is-info is-small">Edit</a>
-            <a href="{{ url_for('delete_reply_post', postid=post.id, replyid=reply.id) }}"
-              class="button is-danger is-small">Delete</a>
+              </p>
+              <div class="has-text-right">
+                <a href="{{ url_for('create_reply_to_reply', postid=post.id, replyid=reply.id)}}"
+                  class="button is-primary is-small">Reply</a>
+                {% if current_user.id == reply.user.id %}
+                <a href="{{ url_for('edit_reply_post', postid=post.id, replyid=reply.id)}}"
+                  class="button is-info is-small">Edit</a>
+                <a href="{{ url_for('delete_reply_post', postid=post.id, replyid=reply.id) }}"
+                  class="button is-danger is-small">Delete</a>
               </div>
               {% endif %}
             </div>
@@ -93,29 +90,26 @@
           </div>
         </article>
       </div>
-        {% for subcomment in reply.comments | sort(attribute='timestamp', reverse = True) %}
-      
-        <div class="column subcomment has-text-left is-offset-2">
-        <div><p>{{ subcomment.content }}</p></div>
-        <div class="has-text-right">
-            </p>@{{subcomment.user.username}}</p>
-            {{ subcomment.timestamp.strftime('%m-%d-%Y')}}<br>
-          </div>
-        <div class="has-text-right">
-        {% if current_user.id == subcomment.user.id %}
-        <a href="{{ url_for('edit_reply_to_reply', postid=post.id, replyid=reply.id, subcommentid=subcomment.id)}}"
-          class="button is-info is-small has-text-right">Edit</a>
-        <a href="{{ url_for('delete_reply_to_reply', postid=post.id, replyid=reply.id, subcommentid=subcomment.id) }}"
-          class="button is-danger is-small has-text-right">Delete</a><br>
-        
-        {% endif %}
+      {% for subcomment in reply.comments | sort(attribute='timestamp', reverse = True) %}
+      <div class="column subcomment has-text-left is-offset-2">
+        <div>
+          <p>{{ subcomment.content }}</p>
         </div>
-       
-       
+        <div class="has-text-right">
+          </p>@{{subcomment.user.username}}</p>
+          {{ subcomment.timestamp.strftime('%m-%d-%Y')}}<br>
+        </div>
+        <div class="has-text-right">
+          {% if current_user.id == subcomment.user.id %}
+          <a href="{{ url_for('edit_reply_to_reply', postid=post.id, replyid=reply.id, subcommentid=subcomment.id)}}"
+            class="button is-info is-small has-text-right">Edit</a>
+          <a href="{{ url_for('delete_reply_to_reply', postid=post.id, replyid=reply.id, subcommentid=subcomment.id) }}"
+            class="button is-danger is-small has-text-right">Delete</a><br>
+          {% endif %}
+        </div>
       </div>
       {% endfor %}<br>
-        {% endfor %}
-     
+      {% endfor %}
     </div>
   </div>
 </div>

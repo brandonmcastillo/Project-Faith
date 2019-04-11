@@ -20,7 +20,6 @@
       <a class="navbar-item" href="{{ url_for('main') }}">
         <h1 class="navbar-header">Faith</h1>
       </a>
-
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -31,24 +30,18 @@
       <div class="navbar-start">
         {% if current_user %}
         <!-- If User is logged in, display links -->
-
         <a href="{{ url_for ('articles') }}" class="navbar-item">Articles</a>
         <a href="{{ url_for('posts') }}" class="navbar-item">Community</a>
         <a href="{{ url_for('profile', username=current_user.username) }}" class="navbar-item">Profile</a>
       </div>
       <div class="navbar-end">
-
         <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
-
         {% else %}
         <a href="{{ url_for('login') }}" class="navbar-item is-info " title="login">Login</a>
         <a href="{{ url_for('signup') }}" class="navbar-item is-primary" title="register">Sign Up</a>
-
       </div>
     </div>
-
     {% endif %}
-
     </div>
   </nav>
   <main class="content">

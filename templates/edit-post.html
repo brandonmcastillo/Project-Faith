@@ -6,34 +6,29 @@
 {% from "macros.html" import field_error %}
 
 <div class="container-fluid">
-<div class="has-text-centered form-div">
+  <div class="has-text-centered form-div">
     <h1 class="title is-1 has-text-centered">Edit your question</h1>
-  <form class="form-page animated fadeIn" method="POST" action="">
-    {{ form.hidden_tag() }}
-    <div class="form-input">
-      {{ field_error(form.title) }}
-
-      {{ form.title.label(class="label") }}
-      {{ form.title(class="control", value=post.title) }}
-    </div>
-
-    <div class="form-input">
-      {{ field_error(form.category) }}
-
-      {{ form.category.label(class="label") }}
-      {{ form.category(class="control",  value=post.category) }}
-    </div>
-
-    <div class="form-input">
-      {{ field_error(form.content) }}
-
-      {{ form.content.label(class="label") }}
-      {{ form.content(class="control", value=post.content, cols="35", rows="20") }}
-    </div>
-    <button type="submit" class="button is-primary">Update</button><a href="{{ url_for('posts') }}"
-      class="button is-light">Cancel</a>
-  </form>
-</div>
+    <form class="form-page animated fadeIn" method="POST" action="">
+      {{ form.hidden_tag() }}
+      <div class="form-input">
+        {{ field_error(form.title) }}
+        {{ form.title.label(class="label") }}
+        {{ form.title(class="control", value=post.title) }}
+      </div>
+      <div class="form-input">
+        {{ field_error(form.category) }}
+        {{ form.category.label(class="label") }}
+        {{ form.category(class="control",  value=post.category) }}
+      </div>
+      <div class="form-input">
+        {{ field_error(form.content) }}
+        {{ form.content.label(class="label") }}
+        {{ form.content(class="control", value=post.content, cols="35", rows="20") }}
+      </div>
+      <button type="submit" class="button is-primary">Update</button><a href="{{ url_for('posts') }}"
+        class="button is-light">Cancel</a>
+    </form>
+  </div>
 </div>
 
 

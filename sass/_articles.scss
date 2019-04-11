@@ -11,13 +11,16 @@
     color: $maincolor;
 }
 
-.article-title , .article-time, .article-body {
+.article-title,
+.article-time,
+.article-body {
     color: $text;
 }
 
-.article-box, .article-hero  {
+.article-box,
+.article-hero {
     background-color: $background;
-    
+
 }
 
 .article-box {
@@ -27,5 +30,3 @@
 .subtitle {
     color: rgb(152, 172, 230);
 }
-
-
