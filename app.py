@@ -57,6 +57,7 @@ def main():
 def articles():
     return render_template('articles.html')
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = forms.LoginForm()
@@ -273,18 +274,19 @@ if 'ON_HEROKU' in os.environ:
 
 # if __name__ == '__main__':
 #     models.initialize()
-    # try:
-    #     models.User.create_user(
-    #     username='brandon',
-    #     name="brandon",
-    #     email="brandon@gmail.com",
-    #     password='password'
-    #     )
-    # except ValueError:
-    #     pass
+#     try:
+#         models.User.create_user(
+#         username='brandon',
+#         name="brandon",
+#         email="brandon@gmail.com",
+#         password='password'
+#         )
+#     except ValueError:
+#         pass
 
 # app.run(debug=DEBUG, port=PORT)
+
 if __name__ == '__main__':
         models.initialize() 
-        port = int(os.environ.get('PORT', 33507)) 
+        port = int(os.environ.get('PORT', 8000)) 
         app.run(host='0.0.0.0', port=port)

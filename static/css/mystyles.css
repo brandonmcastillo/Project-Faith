@@ -5113,7 +5113,7 @@ canvas {
   color: black;
   top: 120px;
   padding: 249px;
-  width: 508px; }
+  width: 505px; }
 
 .input {
   border: 1px inset white;
@@ -5121,7 +5121,8 @@ canvas {
   margin: 10px; }
 
 .create-text {
-  color: black; }
+  color: black;
+  word-break: break-all; }
 
 .login-signup-button {
   background-color: transparent;
@@ -5131,13 +5132,79 @@ canvas {
   margin-left: 30px;
   margin-top: 20px; }
 
+.box-login {
+  height: 500px;
+  width: 1000px;
+  position: absolute;
+  top: 120px;
+  background-color: #899ACE;
+  z-index: 0; }
+
 .login-left {
   padding-top: 290px;
   z-index: 1;
   position: relative; }
 
 .title.is-4.already {
-  color: #F1F2EF; }
+  color: #F1F2EF;
+  word-break: break-all; }
+
+@media screen and (max-width: 600px) {
+  .login-box {
+    height: 490px;
+    width: 100%;
+    top: 120px;
+    padding: 0; }
+  .signup-glass {
+    padding: 244px;
+    width: 100%; }
+  .login-left {
+    padding-bottom: 100px; }
+  .box-login {
+    height: 500px;
+    width: 100%;
+    top: 120px;
+    background-color: #899ACE;
+    z-index: 0; }
+  .title.is-3.already {
+    font-size: 12px; }
+  .loginform {
+    position: relative;
+    z-index: 1;
+    color: black;
+    text-align: center;
+    width: 420px; }
+  .particles-js-canvas-el {
+    height: 100vmax !important;
+    z-index: 0; } }
+
+@media screen and (max-width: 768px) {
+  .login-box {
+    height: 490px;
+    width: 100%;
+    top: 120px;
+    padding: 0; }
+  .signup-glass {
+    padding: 244px;
+    width: 100%; }
+  .login-left {
+    padding-bottom: 100px; }
+  .box-login {
+    height: 500px;
+    width: 100%;
+    top: 120px;
+    background-color: #899ACE;
+    z-index: 0; }
+  .title.is-3.already {
+    font-size: 12px; }
+  .loginform {
+    position: relative;
+    z-index: 1;
+    color: black;
+    text-align: center; }
+  .particles-js-canvas-el {
+    height: 100vmax !important;
+    z-index: 0; } }
 
 .navbar-header {
   font-family: faith;
@@ -5339,7 +5406,8 @@ u {
   margin: 10px; }
 
 .create-text {
-  color: black; }
+  color: black;
+  word-break: break-all; }
 
 .login-signup-button {
   background-color: transparent;
@@ -5355,13 +5423,29 @@ u {
   position: relative; }
 
 .title.is-4.already {
-  color: #F1F2EF; }
+  color: #F1F2EF;
+  word-break: break-all; }
 
 #particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1; }
+
+@media screen and (max-width: 600px) {
+  .box-signup {
+    height: 490px;
+    width: 100%;
+    top: 120px;
+    background-color: #899ACE;
+    z-index: 0; }
+  .signup-glass {
+    padding: 244px;
+    padding-right: 165px;
+    width: 100%; }
+  .signup-right {
+    padding-top: 150px;
+    padding-bottom: 100px; } }
 
 .profile-username {
   font-size: 4em; }
