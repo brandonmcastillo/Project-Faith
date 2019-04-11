@@ -35,3 +35,13 @@
 .recent-posts {
     padding-top: 100px;
 }
+
+@media all and (max-width: 480px) {
+        .greeting{
+        display:none;
+    }
+    #about, .explore-div{
+        padding: 50px;
+        margin-bottom: 20px;
+    }
+}
