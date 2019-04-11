@@ -263,6 +263,12 @@ def edit_profile():
         return redirect(url_for('profile', username=user.username))
     return render_template('edit-profile.html', form=form, user=user)
 
+
+
+if 'ON_HEROKU' in os.environ:
+    print('hitting ')
+    models.initialize()
+
 if __name__ == '__main__':
     models.initialize()
     try:

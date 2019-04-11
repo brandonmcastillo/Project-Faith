@@ -1,11 +1,16 @@
-import os
+
 import datetime
 from flask import jsonify
 from flask_bcrypt import generate_password_hash
 from flask_login import UserMixin
 from peewee import *
+import os
 
-DATABASE = SqliteDatabase('faith.db')
+from playhouse.db_url import connect
+
+DATABASE = connect(os.environ.get('DATABASE_URL'))
+
+# DATABASE = SqliteDatabase('faith.db')
 
 class User(UserMixin, Model):
     username = CharField(unique=True)
