@@ -8,10 +8,10 @@ import os
 
 from playhouse.db_url import connect
 
-DATABASE = connect(os.environ.get('ec2-50-17-227-28.compute-1.amazonaws.com'))
+DATABASE = connect(os.environ.get('DATABASE_URL'))
 
 # DATABASE = SqliteDatabase('faith.db')
-# DATABASE = PostgresqlDatabase('faith')
+DATABASE = PostgresqlDatabase('faith')
 
 class User(UserMixin, Model):
     username = CharField(unique=True)
