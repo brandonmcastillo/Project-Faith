@@ -283,8 +283,9 @@ if 'ON_HEROKU' in os.environ:
     # except ValueError:
     #     pass
 
-# app.run(debug=DEBUG, port=PORT)
+app.run(debug=DEBUG, port=PORT)
 if __name__ == '__main__':
+    models.initialize()
         import os  
-        port = int(os.environ.get('PORT', 8000)) 
+        port = int(os.environ.get('PORT', 33507)) 
         app.run(host='0.0.0.0', port=port)
