@@ -37,6 +37,7 @@
 
 .create-text {
     color: black;
+    word-break: break-all;
 }
 
 .login-signup-button {
@@ -58,6 +59,7 @@
 
 .title.is-4.already {
     color: $text;
+    word-break: break-all;
 }
 
 // .title.is-1.welcome {
@@ -75,3 +77,29 @@
     height: 100%;
     z-index: 1;
 }
+
+// Mobile 
+@media screen and (max-width: 600px) {
+    .box-signup {
+        height: 490px;
+        width: 100%;
+        top: 120px;
+        background-color: $maincolor;
+        z-index: 0;
+    }
+
+    .signup-glass {
+        padding: 244px;
+        padding-right: 165px;
+        width: 100%;
+    }
+
+    .signup-right {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+
+
+}
+
+@media only screen and (min-width: 600px) {}
