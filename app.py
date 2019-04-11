@@ -16,8 +16,8 @@ app.secret_key = 'kattdakattdakatt'
 assets = Environment(app)
 assets.init_app(app)
 
-DEBUG = True
-PORT = 8000
+# DEBUG = True
+# PORT = 8000
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -286,4 +286,4 @@ if __name__ == '__main__':
     # except ValueError:
     #     pass
 
-app.run(debug=DEBUG, port=PORT)
+app.run()
