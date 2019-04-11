@@ -1,5 +1,5 @@
 import os
-from flask import Flask, g, request, send_from_directory
+from flask import Flask, g, request
 from flask import render_template, flash, redirect, url_for, session, escape, request
 from flask_bcrypt import check_password_hash
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
@@ -16,8 +16,8 @@ app.secret_key = 'kattdakattdakatt'
 assets = Environment(app)
 assets.init_app(app)
 
-# DEBUG = True
-# PORT = 8000
+DEBUG = True
+PORT = 8000
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -41,10 +41,7 @@ def after_request(response):
   g.db.close()
   return response
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/png')
+
 
 @app.route('/')
 def index():
@@ -286,4 +283,4 @@ if __name__ == '__main__':
     # except ValueError:
     #     pass
 
-app.run()
+app.run(debug=DEBUG, port=PORT)

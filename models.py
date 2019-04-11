@@ -1,10 +1,10 @@
-
+import os
 import datetime
 from flask import jsonify
 from flask_bcrypt import generate_password_hash
 from flask_login import UserMixin
 from peewee import *
-import os
+
 
 from playhouse.db_url import connect
 
