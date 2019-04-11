@@ -286,5 +286,5 @@ if 'ON_HEROKU' in os.environ:
 # app.run(debug=DEBUG, port=PORT)
 if __name__ == '__main__':
         models.initialize() 
-        port = int(os.environ.get('PORT', 33507)) 
-        app.run(host='0.0.0.0', port=port)
+        # port = int(os.environ.get('PORT', 33507)) 
+        # app.run(host='0.0.0.0', port=port)
