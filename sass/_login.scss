@@ -67,81 +67,87 @@
         width: 100%;
         top: 120px;
         padding: 0;
-       
-}
-.signup-glass {
-    padding: 244px;
-    width: 100%;
-}
-.login-left{
 
-padding-bottom: 100px;
-}
+    }
 
-.box-login {
-    height: 500px;
-    width: 100%;
-    top: 120px;
-    background-color: $maincolor;
-    z-index: 0;
-}
+    .signup-glass {
+        padding: 244px;
+        width: 100%;
+    }
 
-.title.is-3.already {
-    font-size: 12px;
-}
+    .login-left {
 
-.loginform{
-    position: relative;
-    z-index: 1;
-    color: black;
-    text-align: center;
-    width: 420px;
-}
-.particles-js-canvas-el {
-    height: 100vmax !important;
-    z-index: 0;
+        padding-bottom: 100px;
+    }
+
+    .box-login {
+        height: 500px;
+        width: 100%;
+        top: 120px;
+        background-color: $maincolor;
+        z-index: 0;
+    }
+
+    .title.is-3.already {
+        font-size: 12px;
+    }
+
+    .loginform {
+        position: relative;
+        z-index: 1;
+        color: black;
+        text-align: center;
+        width: 420px;
+    }
+
+    .particles-js-canvas-el {
+        height: 100vmax !important;
+        z-index: 0;
     }
 
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     .login-box {
         height: 490px;
         width: 100%;
         top: 120px;
-        padding: 0;
-       
-}
-.signup-glass {
-    padding: 244px;
-    width: 100%;
-}
-.login-left{
+        padding: -1;
+        z-index: 0;
+    }
 
-padding-bottom: 100px;
-}
+    .signup-glass {
+        padding: 244px;
+        width: 100%;
+    }
 
-.box-login {
-    height: 500px;
-    width: 100%;
-    top: 120px;
-    background-color: $maincolor;
-    z-index: 0;
-}
+    .login-left {
+        padding-bottom: 100px;
+    }
 
-.title.is-3.already {
-    font-size: 12px;
-}
+    .box-login {
+        height: 1000px;
+        width: 100%;
+        top: 120px;
+        background-color: $maincolor;
+        z-index: 0;
+        position: absolute;
+    }
 
-.loginform{
-    position: relative;
-    z-index: 1;
-    color: black;
-    text-align: center;
-    
-}
-.particles-js-canvas-el {
-    height: 100vmax !important;
-    z-index: 0;
+    .title.is-3.already {
+        font-size: 12px;
+    }
+
+    .loginform {
+        position: relative;
+        z-index: 1;
+        color: black;
+        text-align: center;
+        width: 420px;
+    }
+
+    .particles-js-canvas-el {
+        height: 100vmax !important;
+        z-index: 0;
     }
 }
