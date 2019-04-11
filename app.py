@@ -271,8 +271,8 @@ if 'ON_HEROKU' in os.environ:
     print('hitting ')
     models.initialize()
 
-if __name__ == '__main__':
-    models.initialize()
+# if __name__ == '__main__':
+#     models.initialize()
     # try:
     #     models.User.create_user(
     #     username='brandon',
@@ -283,4 +283,8 @@ if __name__ == '__main__':
     # except ValueError:
     #     pass
 
-app.run(debug=DEBUG, port=PORT)
+# app.run(debug=DEBUG, port=PORT)
+if __name__ == '__main__':
+        import os  
+        port = int(os.environ.get('PORT', 8000)) 
+        app.run(host='0.0.0.0', port=port)
