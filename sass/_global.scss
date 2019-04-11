@@ -5,20 +5,33 @@ body {
     background-attachment: fixed;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: $headerfont;
+    word-break: break-all;
 }
 
 p {
     font-family: $paragraph;
+    word-break: break-all;
 }
 
 a {
     color: white;
 }
-a:hover, .nav-link
-{
+
+a:hover,
+.nav-link {
     color: $maincolor;
+}
+
+
+.navbar-burger {
+    color: $text;
 }
 
 .title {
@@ -33,4 +46,15 @@ footer {
     padding: 20px;
     font-size: 12px;
     font-family: $family-sans-serif;
+}
+
+.navbar-menu {
+    background: rgba(0, 0, 0, 0.527);
+}
+
+@media all and (min-width: 1083px) {
+
+    .navbar-menu {
+        background: transparent;
+    }
 }
