@@ -10,8 +10,9 @@ from playhouse.db_url import connect
 
 DATABASE = connect(os.environ.get('DATABASE_URL'))
 
+
 # DATABASE = SqliteDatabase('faith.db')
-DATABASE = PostgresqlDatabase('faith')
+# DATABASE = PostgresqlDatabase('faith')
 
 class User(UserMixin, Model):
     username = CharField(unique=True)
