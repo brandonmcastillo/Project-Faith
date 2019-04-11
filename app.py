@@ -276,14 +276,14 @@ if 'ON_HEROKU' in os.environ:
 
 if __name__ == '__main__':
     models.initialize()
-    try:
-        models.User.create_user(
-        username='brandon',
-        name="brandon",
-        email="brandon@gmail.com",
-        password='password'
-        )
-    except ValueError:
-        pass
+    # try:
+    #     models.User.create_user(
+    #     username='brandon',
+    #     name="brandon",
+    #     email="brandon@gmail.com",
+    #     password='password'
+    #     )
+    # except ValueError:
+    #     pass
 
 app.run(debug=DEBUG, port=PORT)
