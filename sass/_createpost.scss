@@ -29,3 +29,28 @@
 .right-create-img {
     padding-top: 330px;
 }
+
+@media all and (max-width: 480px) {
+
+    .form-page,
+    .form-create-post-page {
+        width: 100%;
+    }
+
+    .right-create-img {
+        padding-top: 5px;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+
+    .form-div {
+        padding: 0px;
+
+    }
+
+    .form-page {
+        width: 500px;
+    }
+
+}
