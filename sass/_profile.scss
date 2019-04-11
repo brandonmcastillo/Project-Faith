@@ -154,3 +154,14 @@
     flex-wrap: wrap;
     word-break: break-all;
 }
+
+
+@media all and (max-width: 480px) {
+    .quote-container {
+        padding: 30px;
+    }
+    .qotd-title {
+        font-size: 3em;
+        padding-bottom: 10px;
+    }
+}

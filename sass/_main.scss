@@ -47,62 +47,44 @@
     max-width: 600px;
     text-shadow: 4px 3px 0px #7A7A7A;
 
+
 }
 
 .greeting2 {
     padding-top: 200px;
     font-size: 3em;
-}
 
-
-@media screen and (max-width: 1200px) {
-    .greeting {
-        font-size: 4em;
-    }
-
-    #about {
-        padding: 20px;
-    }
-
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-size: 100%;
-    }
-
-}
-
-@media screen and (max-width: 800px) {
-    .greeting {
-        font-size: 2em;
-    }
-
-    #about {
-        padding: 30px !important;
-    }
-
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-size: 100%;
-    }
 }
 
 #about {
     padding: 300px;
 }
 
-// .mental-img-div {
-//     padding: 10px 100px 100px;
-// }
+
+
+@media all and (max-width: 480px) {
+    .greeting {
+        display: none;
+    }
+
+    #about,
+    .explore-div {
+        padding: 50px;
+        margin-bottom: 20px;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+
+    #about,
+    .explore-div {
+        padding: 90px;
+        margin-bottom: 20px;
+    }
+
+}
 
 .what-is-div {
     background-color: $texttwo;
@@ -130,17 +112,21 @@
     font-size: 5em;
 }
 
-.bottom-links-img {
+.bottom-links-img,
+.bottom-links-img2 {
     -webkit-filter: grayscale(100%);
     /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
 
-.bottom-links-img:hover {
+.bottom-links-img:hover,
+.bottom-links-img2:hover {
     -webkit-filter: grayscale(0%);
     /* Safari 6.0 - 9.0 */
     filter: grayscale(0%);
 }
+
+
 
 .articles-link,
 .community-link {
@@ -170,17 +156,15 @@ u {
 }
 
 // Slide Down Styles
-#about,
-#slide-container2,
-#slide-container3,
-#slide-container4 {
-    display: none;
-
-}
-
+// #about,
+// #slide-container2,
+// #slide-container3,
+// #slide-container4 {
+//     display: none;
+// }
+// JS File Bug(Fixing later)
 
 .arrow {
     padding-top: 40px;
     font-size: 20px;
-
 }
