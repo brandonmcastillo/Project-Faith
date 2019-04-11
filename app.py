@@ -1,5 +1,5 @@
 import os
-from flask import Flask, g, request
+from flask import Flask, g, request, send_from_directory
 from flask import render_template, flash, redirect, url_for, session, escape, request
 from flask_bcrypt import check_password_hash
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
