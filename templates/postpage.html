@@ -21,8 +21,10 @@
               </p>
               <div class="has-text-right">
                 <a href="{{ url_for('reply_post', postid=post.id)}}" class="button is-primary is-small">Reply</a>
+                 {% if current_user.id == post.user.id %}
                 <a href="{{ url_for('edit_post', postid=post.id)}}" class="button is-info is-small">Edit</a>
                 <a href="{{ url_for('delete_post', postid=post.id) }}" class="button is-danger is-small">Delete</a>
+                {%endif%}
               </div>
             </div>
             <nav class="level is-mobile">
@@ -48,7 +50,7 @@
       <div class="box replypage-box">
         <article class="media">
           <div class="post-content-title-page">
-            <h1 class="title is-6 has-text-left">Post</h1>
+            <h1 class="title is-6 has-text-left">Comment</h1>
             <p> {{ reply.content }}</p>
           </div>
           <div class="media-content">

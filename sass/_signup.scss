@@ -1,97 +1,107 @@
 .signupform {
-    position: relative;
-    z-index: 1;
-    color: black;
-    top: 109px;
-    left: 0px;
-    padding: 66px;
+	position: relative;
+	z-index: 1;
+	color: black;
+	top: 109px;
+	text-align: center;
+	padding: 66px;
+	width: 80%;
+	left: 60px;
 }
 
 .signup-glass {
-    background-color: rgba(255, 255, 255, 0.295);
-    position: absolute;
-    z-index: 1;
-    color: black;
-    top: 120px;
-    padding: 244px;
-    padding-bottom: 255px;
-
+	background-color: rgba(255, 255, 255, 0.295);
+	position: absolute;
+	z-index: 1;
+	color: black;
+	top: 120px;
+	padding: 244px;
+	padding-bottom: 255px;
 }
 
 .box-signup {
-    height: 500px;
-    width: 1000px;
-    position: absolute;
-    top: 120px;
-    background-color: $maincolor;
-    z-index: 0;
-
+	height: 500px;
+	width: 100%;
+	position: absolute;
+	top: 120px;
+	background-color: $maincolor;
+	z-index: 0;
 }
 
 .input {
-    border: 1px inset white;
-    padding: 20px;
-    margin: 10px;
-
+	border: 1px inset white;
+	padding: 20px;
+	margin: 10px;
 }
 
 .create-text {
-    color: black;
-    word-break: break-all;
+	color: black;
+	word-break: break-all;
 }
 
 .login-signup-button {
-    background-color: transparent;
-    color: white;
+	background-color: transparent;
+	color: white;
 }
 
 .signup-buttons {
-    margin-left: 30px;
-    margin-top: 20px;
+	margin-left: 30px;
+	margin-top: 20px;
 }
 
 // Right Side
 .signup-right {
-    padding-top: 300px;
-    z-index: 1;
-    position: relative;
+	padding-top: 300px;
+	z-index: 1;
+	position: relative;
 }
 
 .title.is-4.already {
-    color: $text;
-    word-break: break-all;
+	color: $text;
+	word-break: break-all;
 }
-
 
 #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
 }
 
-// Mobile 
-@media screen and (max-width: 600px) {
-    .box-signup {
-        height: 490px;
-        width: 100%;
-        top: 120px;
-        background-color: $maincolor;
-        z-index: 0;
-    }
+// Mobile
+@media only screen and (max-width: 450px) {
+	.signup-glass {
+		padding-right: 0px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.box-signup {
+		height: 490px;
+		width: 100%;
+		top: 120px;
+		background-color: $maincolor;
+		z-index: 0;
+	}
 
-    .signup-glass {
-        padding: 244px;
-        padding-right: 165px;
-        width: 100%;
-    }
+	.signup-glass {
+		padding: 244px;
+		width: 100%;
+	}
 
-    .signup-right {
-        padding-top: 150px;
-        padding-bottom: 100px;
-    }
-
-
+	.signup-right {
+		padding-top: 150px;
+		padding-bottom: 100px;
+	}
 }
 
-@media only screen and (min-width: 600px) {}
+@media only screen and (max-width: 1000px) {
+	.signup-glass {
+		padding-right: 500px;
+	}
+}
+
+@media only screen and (min-width: 1600px) {
+	.signup-glass {
+		padding-right: 500px;
+	}
+}

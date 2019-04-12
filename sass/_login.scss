@@ -1,153 +1,152 @@
 .loginform {
-    position: relative;
-    z-index: 2;
-    color: black;
-    padding: 160px;
-    width: 508px;
-    top: 100px;
+	position: relative;
+	z-index: 2;
+	color: black;
+	padding: 160px;
+	width: 100%;
+	top: 100px;
 }
 
 .login-box {
-    background-color: rgba(255, 255, 255, 0.295);
-    position: absolute;
-    z-index: 1;
-    color: black;
-    top: 120px;
-    padding: 249px;
-    width: 505px;
+	background-color: rgba(255, 255, 255, 0.295);
+	position: absolute;
+	z-index: 1;
+	color: black;
+	top: 120px;
+	padding: 249px;
+	padding-right: 0px;
+	width: 49.2%;
 }
 
 .input {
-    border: 1px inset white;
-    padding: 20px;
-    margin: 10px;
-
+	border: 1px inset white;
+	padding: 20px;
+	margin: 10px;
 }
 
 .create-text {
-    color: black;
-    word-break: break-all;
+	color: black;
+	word-break: break-all;
 }
 
 .login-signup-button {
-    background-color: transparent;
-    color: white;
+	background-color: transparent;
+	color: white;
 }
 
 .signup-buttons {
-    margin-left: 30px;
-    margin-top: 20px;
+	margin-left: 30px;
+	margin-top: 20px;
 }
 
 .box-login {
-    height: 500px;
-    width: 1000px;
-    position: absolute;
-    top: 120px;
-    background-color: $maincolor;
-    z-index: 0;
-
+	height: 500px;
+	width: 100%;
+	position: absolute;
+	top: 120px;
+	background-color: $maincolor;
+	z-index: 0;
 }
 
 // left Side
 .login-left {
-    padding-top: 290px;
-    z-index: 1;
-    position: relative;
+	padding-top: 290px;
+	z-index: 1;
+	position: relative;
 }
 
 .title.is-4.already {
-    color: $text;
-    word-break: break-all;
+	color: $text;
+	word-break: break-all;
 }
 
 @media screen and (max-width: 600px) {
-    .login-box {
-        height: 490px;
-        width: 100%;
-        top: 120px;
-        padding: 0;
+	.login-box {
+		height: 490px;
+		width: 100%;
+		top: 120px;
+		padding: 0;
+	}
 
-    }
+	.signup-glass {
+		padding: 244px;
+		width: 100%;
+	}
 
-    .signup-glass {
-        padding: 244px;
-        width: 100%;
-    }
+	.login-left {
+		padding-bottom: 100px;
+	}
 
-    .login-left {
+	.box-login {
+		height: 500px;
+		width: 100%;
+		top: 120px;
+		background-color: $maincolor;
+		z-index: 0;
+	}
 
-        padding-bottom: 100px;
-    }
+	.title.is-3.already {
+		font-size: 12px;
+	}
 
-    .box-login {
-        height: 500px;
-        width: 100%;
-        top: 120px;
-        background-color: $maincolor;
-        z-index: 0;
-    }
+	.loginform {
+		position: relative;
+		z-index: 1;
+		color: black;
+		text-align: center;
+		width: 420px;
+	}
 
-    .title.is-3.already {
-        font-size: 12px;
-    }
-
-    .loginform {
-        position: relative;
-        z-index: 1;
-        color: black;
-        text-align: center;
-        width: 420px;
-    }
-
-    .particles-js-canvas-el {
-        height: 100vmax !important;
-        z-index: 0;
-    }
-
+	.particles-js-canvas-el {
+		height: 100vmax !important;
+		z-index: 0;
+	}
 }
 
 @media screen and (max-width: 768px) {
-    .login-box {
-        height: 490px;
-        width: 100%;
-        top: 120px;
-        padding: -1;
-        z-index: 0;
-    }
+	.login-box {
+		height: 490px;
+		width: 100%;
+		top: 120px;
+		padding: -1;
+		z-index: 0;
+	}
 
-    .signup-glass {
-        padding: 244px;
-        width: 100%;
-    }
+	.signup-glass {
+		padding: 244px;
+		width: 100%;
+	}
 
-    .login-left {
-        padding-bottom: 100px;
-    }
+	.login-left {
+		padding-bottom: 100px;
+	}
 
-    .box-login {
-        height: 1000px;
-        width: 100%;
-        top: 120px;
-        background-color: $maincolor;
-        z-index: 0;
-        position: absolute;
-    }
+	.box-login {
+		height: 1000px;
+		width: 100%;
+		top: 120px;
+		background-color: $maincolor;
+		z-index: 0;
+		position: absolute;
+	}
 
-    .title.is-3.already {
-        font-size: 12px;
-    }
+	.title.is-3.already {
+		font-size: 12px;
+	}
 
-    .loginform {
-        position: relative;
-        z-index: 1;
-        color: black;
-        text-align: center;
-        width: 420px;
-    }
+	.loginform {
+		position: relative;
+		z-index: 1;
+		color: black;
+		text-align: center;
+		width: 420px;
+	}
 
-    .particles-js-canvas-el {
-        height: 100vmax !important;
-        z-index: 0;
-    }
+	.particles-js-canvas-el {
+		height: 100vmax !important;
+		z-index: 0;
+	}
+}
+
+@media all and (max-width: 1000px) {
 }
