@@ -272,6 +272,7 @@ if 'ON_HEROKU' in os.environ:
     print('hitting ')
     models.initialize()
 
+# Used for Sqlite
 # if __name__ == '__main__':
 #     models.initialize()
 #     try:
@@ -286,6 +287,7 @@ if 'ON_HEROKU' in os.environ:
 
 # app.run(debug=DEBUG, port=PORT)
 
+# Used for Heroku
 if __name__ == '__main__':
         models.initialize() 
         port = int(os.environ.get('PORT', 8000)) 

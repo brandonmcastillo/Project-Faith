@@ -11,8 +11,9 @@ The users of Faith are individuals who are seeking advice or motivation and want
 
 
 ## Links
-<a href="https://faith-community.herokuapp.com/">Faith (Heroku Version) <br>
-<a href="https://github.com/brandonmcastillo/Project-Faith">Github Repo</a> Note: May contain bugs due to heroku</a>
+<a href="https://faith-community.herokuapp.com/">Faith (Heroku Version) </a> Note: May contain bugs due to heroku. I suggest running on local machine. (instructions below)  
+<br>
+<a href="https://github.com/brandonmcastillo/Project-Faith">Github Repo</a> 
 <br>
 <a href="https://trello.com/b/qzbvwKuk/faith">Trello Board</a>
 
@@ -56,6 +57,7 @@ Wireframes are linked in trello board link above. Users will be able to sign up/
 - Open a new terminal (CMD+T) and run 'pip3 install virtualenv' followed by 'virtualenv .env -p python3'
 - Run 'source .env/bin/activate' in the same terminal to activate environment
 - Run pip install -r requirements.txt to install depenendcies
+- To switch from Heroku to Sqlite, comment in line 276-288 in app.py and line 15 in models.py. Comment out other code to switch it.
 - Run 'python3 app.py' to run application
 - Open browser and go to http://127.0.0.1:8000 to run on local machine
 
