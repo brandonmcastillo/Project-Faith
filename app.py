@@ -48,7 +48,7 @@ def index():
     return render_template('landing.html')
 
 @app.route('/main')
-
+@login_required
 def main():
     return render_template('main.html')
 

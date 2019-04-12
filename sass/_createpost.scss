@@ -1,6 +1,5 @@
 .form-div {
     padding-top: 250px;
-
 }
 
 // Other forms as well
@@ -43,14 +42,17 @@
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-
     .form-div {
         padding: 0px;
-
     }
 
     .form-page {
         width: 500px;
     }
+}
 
+@media all and (min-width: 1200px) {
+    .handin {
+        height: 325px;
+    }
 }

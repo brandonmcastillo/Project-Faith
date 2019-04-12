@@ -5123,7 +5123,7 @@ canvas {
   z-index: 2;
   color: black;
   padding: 160px;
-  width: 508px;
+  width: 100%;
   top: 100px; }
 
 .login-box {
@@ -5133,7 +5133,8 @@ canvas {
   color: black;
   top: 120px;
   padding: 249px;
-  width: 505px; }
+  padding-right: 0px;
+  width: 49.2%; }
 
 .input {
   border: 1px inset white;
@@ -5154,7 +5155,7 @@ canvas {
 
 .box-login {
   height: 500px;
-  width: 1000px;
+  width: 100%;
   position: absolute;
   top: 120px;
   background-color: #899ACE;
@@ -5385,8 +5386,10 @@ u {
   z-index: 1;
   color: black;
   top: 109px;
-  left: 0px;
-  padding: 66px; }
+  text-align: center;
+  padding: 66px;
+  width: 80%;
+  left: 60px; }
 
 .signup-glass {
   background-color: rgba(255, 255, 255, 0.295);
@@ -5399,7 +5402,7 @@ u {
 
 .box-signup {
   height: 500px;
-  width: 1000px;
+  width: 100%;
   position: absolute;
   top: 120px;
   background-color: #899ACE;
@@ -5437,7 +5440,11 @@ u {
   height: 100%;
   z-index: 1; }
 
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 450px) {
+  .signup-glass {
+    padding-right: 0px; } }
+
+@media screen and (max-width: 768px) {
   .box-signup {
     height: 490px;
     width: 100%;
@@ -5446,11 +5453,18 @@ u {
     z-index: 0; }
   .signup-glass {
     padding: 244px;
-    padding-right: 165px;
     width: 100%; }
   .signup-right {
     padding-top: 150px;
     padding-bottom: 100px; } }
+
+@media only screen and (max-width: 1000px) {
+  .signup-glass {
+    padding-right: 500px; } }
+
+@media only screen and (min-width: 1600px) {
+  .signup-glass {
+    padding-right: 500px; } }
 
 .profile-username {
   font-size: 4em; }
@@ -5608,6 +5622,10 @@ u {
     padding: 0px; }
   .form-page {
     width: 500px; } }
+
+@media all and (min-width: 1200px) {
+  .handin {
+    height: 325px; } }
 
 .container.edit-profile-div {
   padding-top: 200px; }

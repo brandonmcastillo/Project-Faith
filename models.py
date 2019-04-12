@@ -15,11 +15,13 @@ DATABASE = connect(os.environ.get('DATABASE_URL'))
 # Postgres db activate
 # DATABASE = PostgresqlDatabase('faith')
 
+
 class User(UserMixin, Model):
     username = CharField(unique=True)
     name = CharField()
     email = CharField(unique=True)
     password = CharField(max_length=100)
+
     class Meta:
         database = DATABASE
         db_table = 'user'
@@ -28,10 +30,10 @@ class User(UserMixin, Model):
     def create_user(cls, username, name, email, password):
         try:
             cls.create(
-                username = username,
-                name = name,
-                email = email,
-                password = generate_password_hash(password))
+                username=username,
+                name=name,
+                email=email,
+                password=generate_password_hash(password))
         except IntegrityError:
             raise ValueError("create error")
 
@@ -39,16 +41,17 @@ class User(UserMixin, Model):
     def edit_user(cls, username, email, password, location):
         try:
             cls.create(
-                username = username,
-                email = email,
-                name = name,
-                password = generate_password_hash(password))
+                username=username,
+                email=email,
+                name=name,
+                password=generate_password_hash(password))
         except IntegrityError:
             raise ValueError("create error")
 
+
 class Post(Model):
     title = CharField(max_length=100)
-    category = CharField(max_length = 30)
+    category = CharField(max_length=30)
     content = TextField()
     timestamp = DateTimeField(default=datetime.datetime.now())
     user = ForeignKeyField(User, backref="posts")
@@ -62,22 +65,25 @@ class Post(Model):
     def create_post(cls, title, category, content, user):
         try:
             cls.create(
-                title = title,
-                category = category,
-                content = content,
-                user = user)
+                title=title,
+                category=category,
+                content=content,
+                user=user)
         except IntegrityError:
             raise ValueError("Create Post Error! Oh no!")
-            
+
+
 class Reply(Model):
     user = ForeignKeyField(User, backref="user")
     post = ForeignKeyField(Post, backref="posts")
     content = TextField()
     timestamp = DateTimeField(default=datetime.datetime.now())
+
     class Meta:
         database = DATABASE
         db_table = 'reply'
         order_by = ('+timestamp',)
+
 
 class ReplyThread(Model):
     user = ForeignKeyField(User, backref="replies")
@@ -89,6 +95,7 @@ class ReplyThread(Model):
         database = DATABASE
         db_table = 'reply_thread'
         order_by = ('+timestamp',)
+
 
 def initialize():
     DATABASE.connect()
