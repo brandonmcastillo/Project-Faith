@@ -1,14 +1,23 @@
 # Project-Faith
 
-## Links
-<a href="https://faith-community.herokuapp.com/">Faith (Heroku Version) <br>
-<a href="https://github.com/brandonmcastillo/Project-Faith">Github Repo</a>
-<a href="https://trello.com/b/qzbvwKuk/faith">Trello Board</a>
-Note: May contain bugs due to heroku</a>
-
 ## Summary
 Faith is a mental health community application created by Brandon Castillo where individuals can browse articles about mental health and ask questions while receiving input from other users in the community.
 The users of Faith are individuals who are seeking advice or motivation and want to learn or talk about mental health issues they, a friend or family member may have.
+
+## Screenshots
+![](assets/Landing.png)
+![](assets/Main.png)
+![](assets/Profile.png)
+
+
+## Links
+<a href="https://faith-community.herokuapp.com/">Faith (Heroku Version) <br>
+<a href="https://github.com/brandonmcastillo/Project-Faith">Github Repo</a> Note: May contain bugs due to heroku</a>
+<br>
+<a href="https://trello.com/b/qzbvwKuk/faith">Trello Board</a>
+
+
+
 
 ## Technologies Used
 Languages
@@ -35,7 +44,7 @@ Wireframes are linked in trello board link above. Users will be able to sign up/
 - jQuery scroll down on main page does not work on mobile
 - Heroku sometimes crashes the app when deleting
 
-##Future Features
+## Future Features
 - Upvoting a post or comment
 - Personal Journal 
 
