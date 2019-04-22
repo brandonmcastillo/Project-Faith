@@ -1,7 +1,7 @@
 # Project-Faith
 
 ## Summary
-Faith is a mental health community app created by Brandon Castillowhere users can browse articles or ask questions while receiving input from other users in the community. The users of Faith are individuals who are seeking advice or motivation and want to learn or talk about mental health issues they, a friend or family member may have. The application was created using a Flask stack involving HTML, SASS, Bulma.io, Python, Flask, Peewee and SQLite which has migrated to Postgres.
+Faith is a mental health community application created by Brandon Castillo where users can browse articles or ask questions and receive advice from other users in the community. The users of Faith are individuals who are seeking advice or motivation and want to learn or talk about mental health issues they, a friend or family member may have.The application was created using a Flask stack involving HTML, SASS, Bulma.io, Python, Flask, Peewee and SQLite which has migrated to Postgres.
 
 ## Screenshots
 ![](assets/Landing.png)
