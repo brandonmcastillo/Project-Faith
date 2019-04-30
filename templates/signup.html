@@ -30,12 +30,6 @@
           class="button signup-buttons is-info">Cancel</a>
       </form>
     </div>
-    {% endblock %}
-    {% with messages = get_flashed_messages(with_categories=True) %}
-    {% if messages %}
-    {% for category, message in messages %}
-    <div class="alert has-text-centered alert-{{ category }}">{{ message }}</div>
-    {% endfor %} {% endif %} {% endwith %}
     <div class="column is-half">
       <div class="signup-right">
         <h1 class="title is-3 already">Already have an account?</h1>

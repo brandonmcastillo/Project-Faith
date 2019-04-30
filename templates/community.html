@@ -23,6 +23,11 @@
     <div class="column is-half">
       <div class="has-text-left">
         <div class="rules-div-border">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert has-text-left alert-{{ category }}">{{ message }}</div>
+            {% endfor %} {% endif %} {% endwith %}
           <h1 class="title is-6 ">Welcome to the community!</h1>
           <p class="welcome-com-text"> Have anything on your mind? <br>Vent, share and support the community <br>by
             joining our forums. Please
@@ -42,11 +47,7 @@
             <li>Be thoughtful when responding </li>
           </ul>
         </div>
-        {% with messages = get_flashed_messages(with_categories=True) %}
-        {% if messages %}
-        {% for category, message in messages %}
-        <div class="alert has-text-left alert-{{ category }}">{{ message }}</div>
-        {% endfor %} {% endif %} {% endwith %}
+
       </div>
     </div>
     <div class="column is-half has-text-left">
