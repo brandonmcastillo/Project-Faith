@@ -7,11 +7,6 @@
     <div class="column column-main">
       <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com3.jpg') }}">
       <img class="main-img animated fadeIn" src="{{ url_for('static', filename='com1.jpg') }}">
-      <div class="centered has-text-centered">
-        <h1 class=" greeting has-text-centered animated fadeIn">
-          Community
-        </h1>
-      </div>
     </div>
   </div>
 </div>
@@ -68,6 +63,13 @@
           <li>is racist, sexist, homophobic, sexually explicit, discriminatory or objectionable</li>
           <li>Use Faith to solicit or gift transactions involving certain goods and services</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="container">
+      <div class="columns">
+        <div class="column">
         <div class="recent-posts">
           <h1 class="title is-3 has-text-left" style="display: inline">Recent Posts</h1>
           <div class="has-text-right"><button class="button is-medium  create-question-button"><a
@@ -79,10 +81,10 @@
         {% include 'apost.html' %}
         {% endfor %}
       </div>
-    </div>
+    
   </div>
 </div>
-</div>
+
 
 
 
