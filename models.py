@@ -9,9 +9,9 @@ from peewee import *
 from playhouse.db_url import connect
 
 # Heroku connection
-# DATABASE = connect(os.environ.get('DATABASE_URL'))
+DATABASE = connect(os.environ.get('DATABASE_URL'))
 # Sqlite db activate
-DATABASE = SqliteDatabase('faith.db')
+# DATABASE = SqliteDatabase('faith.db')
 # Postgres db activate
 # DATABASE = PostgresqlDatabase('faith')
 

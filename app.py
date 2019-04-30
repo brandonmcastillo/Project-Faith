@@ -274,22 +274,22 @@ if 'ON_HEROKU' in os.environ:
     models.initialize()
 
 # Used for Sqlite or Postgres
-if __name__ == '__main__':
-    models.initialize()
-    try:
-        models.User.create_user(
-        username='brandon',
-        name="brandon",
-        email="brandon@gmail.com",
-        password='password'
-        )
-    except ValueError:
-        pass
+# if __name__ == '__main__':
+#     models.initialize()
+#     try:
+#         models.User.create_user(
+#         username='brandon',
+#         name="brandon",
+#         email="brandon@gmail.com",
+#         password='password'
+#         )
+#     except ValueError:
+#         pass
 
-app.run(debug=DEBUG, port=PORT)
+# app.run(debug=DEBUG, port=PORT)
 
 # Used for Heroku
-# if __name__ == '__main__':
-#         models.initialize() 
-#         port = int(os.environ.get('PORT', 8000)) 
-#         app.run(host='0.0.0.0', port=port)
+if __name__ == '__main__':
+        models.initialize() 
+        port = int(os.environ.get('PORT', 8000)) 
+        app.run(host='0.0.0.0', port=port)
