@@ -4,15 +4,6 @@
 Email: demo@gmail.com<br>
 Password: 123
 
-## Summary
-Faith is a mental health community application created by Brandon Castillo where users can browse articles or ask questions and receive advice from other users in the community. The users of Faith are individuals who are seeking advice or motivation and want to learn or talk about mental health issues they, a friend or family member may have.The application was created using a Flask stack involving HTML, SASS, Bulma.io, Python, Flask, Peewee and SQLite which has migrated to Postgres.
-
-## Screenshots
-![](assets/Landing.png)
-![](assets/Main.png)
-![](assets/Profile.png)
-
-
 ## Links
 <a href="https://faith-community.herokuapp.com/">Faith (Heroku Version) </a> Note: May contain bugs due to heroku. I suggest running on local machine. (instructions below)  
 <br>
@@ -20,8 +11,13 @@ Faith is a mental health community application created by Brandon Castillo where
 <br>
 <a href="https://trello.com/b/qzbvwKuk/faith">Trello Board</a>
 
+## Summary
+Faith is a mental health community application created by Brandon Castillo where users can browse articles or ask questions and receive advice from other users in the community. The users of Faith are individuals who are seeking advice or motivation and want to learn or talk about mental health issues they, a friend or family member may have.The application was created using a Flask stack involving HTML, SASS, Bulma.io, Python, Flask, Peewee and SQLite which has migrated to Postgres.
 
-
+## Screenshots
+![](assets/Landing.png)
+![](assets/Main.png)
+![](assets/Profile.png)
 
 ## Technologies Used
 Languages
