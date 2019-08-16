@@ -24,19 +24,20 @@
 
 .card-header,
 .card-header-title {
-    color: $text;
+    color: sofiapro, sans-serif;
     text-align: center;
     display: block;
     font-size: 30px;
+    color: white;
 }
 
 
 .card-content {
-    color: $text;
+    color: sofiapro, sans-serif;
 }
 
 .profile-item {
-    color: $primary;
+    color: sofiapro, sans-serif;
 }
 
 .profile-username-header {
@@ -46,7 +47,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: $family-sans-serif;
+    font-family: sofiapro, sans-serif;
 
 }
 
@@ -105,7 +106,7 @@
 }
 
 .questions-profile-title {
-    font-family: faith;
+    font-family: sofiapro;
     font-size: 5em;
     padding-bottom: 40px;
 }

@@ -4,20 +4,20 @@
 <div class="container-fluid">
   <div class="columns">
     <div class="column column-main">
-      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='fam1.jpeg') }}">
-      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='happy2.jpeg') }}">
+      <img class="main-img animated fadeIn" alt="hero-image-one" src="{{ url_for('static', filename='fam1.jpeg') }}">
+      <img class="main-img animated fadeIn" alt="hero-image-two" src="{{ url_for('static', filename='happy2.jpeg') }}">
     </div>
   </div>
 </div>
 <div class="container-fluid second-row">
   <div class="columns">
     <div class="column column-main">
-      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='fam2.jpeg') }}">
-      <img class="main-img animated fadeIn" src="{{ url_for('static', filename='fam3.jpeg') }}">
+      <img class="main-img animated fadeIn" alt="hero-image-three" src="{{ url_for('static', filename='fam2.jpeg') }}">
+      <img class="main-img animated fadeIn" alt="hero-image-four" src="{{ url_for('static', filename='fam3.jpeg') }}">
     </div>
   </div>
 </div>
-
+<h1 class='centered greeting animated fadeOut'>Welcome to Faith</h1>
 <div class="container-fluid" id="about">
   <div class="columns what-is-div">
     <div class="column">
@@ -63,13 +63,13 @@
       <a href="{{ url_for ('articles') }}">
         <img class="bottom-links-img" src="{{ url_for('static', filename='articles-main.jpeg') }}">
       </a>
-      <h1 class="articles-link has-text-centered"><u>ARTICLES</u></h1>
+      <h1 class="articles-link has-text-centered">ARTICLES</h1>
     </div>
     <div class="column is-half bottom-div">
       <a href="{{ url_for('posts') }}">
         <img class="bottom-links-img2" src="{{ url_for('static', filename='fam4.jpeg') }}">
       </a>
-      <h1 class="community-link has-text-centered"><u>COMMUNITY</u></h1>
+      <h1 class="community-link has-text-centered">COMMUNITY</h1>
     </div>
   </div>
 </div>

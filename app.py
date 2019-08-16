@@ -41,7 +41,6 @@ def after_request(response):
   g.db.close()
   return response
 
-
 # Landing Page
 @app.route('/')
 def index():
@@ -52,6 +51,7 @@ def index():
 @login_required
 def main():
     return render_template('main.html')
+
 # Articles Section
 @app.route('/articles')
 @login_required
@@ -99,6 +99,7 @@ def signup():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
 # Get All Posts
 @app.route('/community', methods=['GET'])
 @app.route('/community/<postid>', methods=['GET', 'POST'])
@@ -108,12 +109,12 @@ def posts(postid=None):
         posts = models.Post.select().limit(10)
         return render_template('community.html', posts=posts)
     return render_template('community.html')
+
 # Get One Post 
 @app.route('/post/<postid>', methods=['GET','POST'])
 @login_required
 def thispost(postid=None):
     if postid != None and request.method == 'GET':
-        print('in if')
         post = models.Post.select().where(models.Post.id == postid).get()
         user = g.user._get_current_object()
         replies = models.Reply.select().where(models.Reply.post_id == postid)
@@ -140,6 +141,7 @@ def add_post():
         return redirect(url_for('thispost', postid=post.id))
     else:
         return render_template('create-post.html', form=form, user=user)
+
 # Edit a post with this ID
 @app.route('/edit-post/<postid>', methods=['GET', 'POST'])
 @login_required
@@ -155,6 +157,7 @@ def edit_post(postid = None):
     form.category.default = post.category
     form.process()
     return render_template('edit-post.html', form=form, post=post)
+
 # Delete a post with this ID
 @app.route('/delete-post/<postid>', methods=['GET','DELETE'])
 @login_required
@@ -165,6 +168,7 @@ def delete_post(postid=None):
         delete_post.execute()
         return redirect(url_for('profile', username=user.username))
     return redirect(url_for('edit-post', postid=postid))
+
 # Reply to this Post with corresponding ID
 @app.route('/post/<postid>/reply', methods=['GET','POST'])
 @login_required
@@ -180,6 +184,7 @@ def reply_post(postid=None):
             content = models.Reply.get(models.Reply.content == form.content.data)
             return redirect(url_for('thispost', user=user, postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
+
 # Reply to this Post with corresponding ID by grabbing ReplyID
 @app.route('/post/<postid>/edit-reply/<replyid>', methods=['GET', 'POST'])
 @login_required
@@ -193,7 +198,8 @@ def edit_reply_post(postid=None, replyid=None):
         reply.save() 
         return redirect(url_for('thispost',  user=user, postid=post.id))
     return render_template('edit-comment.html', form=form, postid=postid, replies=reply)
-#Delete this reply corresponding this this Post ID
+
+#Delete this reply corresponding to this Post ID
 @app.route('/post/<postid>/delete-reply/<replyid>', methods=['GET', 'DELETE'])
 @login_required
 def delete_reply_post(postid=None, replyid=None):
@@ -201,7 +207,8 @@ def delete_reply_post(postid=None, replyid=None):
         delete_reply = models.Reply.delete().where(models.Reply.id == replyid)
         post = models.Post.select().where(models.Post.id == postid).get()
         delete_reply.execute()
-        return redirect(url_for('thispost',  postid=post.id))
+        return redirect(url_for('thispost', postid=post.id))
+    
 #Reply to another reply within that post
 @app.route('/post/<postid>/reply/<replyid>/reply', methods=['GET','POST'])
 @login_required
@@ -218,6 +225,7 @@ def create_reply_to_reply(postid=None, replyid=None):
                 content=form.content.data)
             return redirect(url_for('thispost', postid=post.id))
     return render_template('reply-form.html', form=form, postid=postid)
+
 #Edit this Reply to another reply within that post
 @app.route('/post/<postid>/reply/<replyid>/edit-reply/<subcommentid>', methods=['GET','POST'])
 @login_required
@@ -232,6 +240,7 @@ def edit_reply_to_reply(postid=None, replyid=None, subcommentid=None):
         subcommentid.save() 
         return redirect(url_for('thispost',  user=user, postid=post.id))
     return render_template('edit-subcomment.html', form=form, postid=postid, replies=reply, subcommentid=subcommentid)
+
 #Delete this Reply to another reply within that post
 @app.route('/post/<postid>/reply/<replyid>/delete-reply/<subcommentid>', methods=['GET', 'DELETE'])
 @login_required
@@ -243,6 +252,7 @@ def delete_reply_to_reply(postid=None, replyid=None, subcommentid=None):
         delete_this_reply.execute()
         return redirect(url_for('thispost',  postid=post.id))
 
+# Get Profile Info
 @app.route('/profile/<username>', methods=['GET'])
 @login_required
 def profile(username=None):
@@ -274,22 +284,22 @@ if 'ON_HEROKU' in os.environ:
     models.initialize()
 
 # Used for Sqlite or Postgres
-# if __name__ == '__main__':
-#     models.initialize()
-#     try:
-#         models.User.create_user(
-#         username='brandon',
-#         name="brandon",
-#         email="brandon@gmail.com",
-#         password='password'
-#         )
-#     except ValueError:
-#         pass
+if __name__ == '__main__':
+    models.initialize()
+    try:
+        models.User.create_user(
+        username='brandon',
+        name="brandon",
+        email="brandon@gmail.com",
+        password='password'
+        )
+    except ValueError:
+        pass
 
-# app.run(debug=DEBUG, port=PORT)
+app.run(debug=DEBUG, port=PORT)
 
 # Used for Heroku
-if __name__ == '__main__':
-        models.initialize() 
-        port = int(os.environ.get('PORT', 8000)) 
-        app.run(host='0.0.0.0', port=port)
+# if __name__ == '__main__':
+#         models.initialize() 
+#         port = int(os.environ.get('PORT', 8000)) 
+#         app.run(host='0.0.0.0', port=port)

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Faith</title>
+  <title>Faith | Mental Health Community</title>
   {% assets "scss_all" %}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/mystyles.css') }}">
   {% endassets %}
@@ -32,11 +32,13 @@
     </div>
     <div class="column is-half">
       <div class="signup-right">
-        <h1 class="title is-3 already">Already have an account?</h1>
+        <h1 class="title is-3 already">Already registered?</h1>
         <a href="{{ url_for('login') }}" class="button login-signup-button is-medium" title="login">Login</a>
       </div>
     </div>
   </div>
 </div>
+{% endblock %}
+
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>

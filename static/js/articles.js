@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   $.ajax({ method: 'GET',
-            url: 'https://newsapi.org/v2/top-headlines?' + 'sources=medical-news-today&' +'apiKey=46efe27f785143e59c8de8bd684a9a06',
+            url: 'https://newsapi.org/v2/everything?' + 'sources=medical-news-today&' +'apiKey=46efe27f785143e59c8de8bd684a9a06',
           success: function(response){
       for (var i = 0; i < response.articles.length; i++) {
         let author = response.articles[i].author;

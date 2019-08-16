@@ -4,7 +4,7 @@
 }
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0.027);
+    background-color: transparent;
 }
 
 .navbar-item {
@@ -33,21 +33,18 @@
 .centered {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
     z-index: 3;
 }
 
 .greeting {
-    font-size: 6em;
-    font-family: faith, 'sans-serif';
+    font-size: 4em;
+    font-family: sofiapro, 'sans-serif';
     color: white;
     width: 100%;
     margin: 0 auto;
     max-width: 600px;
-    text-shadow: 4px 3px 0px #7A7A7A;
-
-
 }
 
 .greeting2 {
@@ -110,6 +107,7 @@
 .what-is-title {
     color: white;
     font-size: 5em;
+    font-family: sofiapro, sans-serif;
 }
 
 .bottom-links-img,
@@ -131,12 +129,11 @@
 .articles-link,
 .community-link {
     font-size: 4em;
-    font-family: 'Roboto';
+    font-family: 'sofiapro';
     position: relative;
-    bottom: 250px;
+    top: -300px;
     padding-bottom: 2px;
     color: $white;
-    background: none;
 }
 
 
@@ -145,14 +142,9 @@
     padding: 0;
 }
 
-u {
-    text-decoration: none;
-    border-bottom: 1px solid white;
-}
-
 .explore-title {
     padding-bottom: 50px;
-    font-family: 'Montserrat';
+    font-family: 'sofiapro';
 }
 
 // Slide Down Styles

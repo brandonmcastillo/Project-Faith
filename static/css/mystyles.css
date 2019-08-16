@@ -3,6 +3,10 @@
   font-family: faith;
   src: url(/static/Playlist-Script.otf); }
 
+@font-face {
+  font-family: sofiapro;
+  src: url(/static/sofiapro-light.otf); }
+
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -196,7 +200,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Lato", sans-serif; }
+  font-family: "sofiapro", sans-serif; }
 
 code,
 pre {
@@ -670,13 +674,13 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   font-weight: 700 !important; }
 
 .is-family-primary {
-  font-family: "Lato", sans-serif !important; }
+  font-family: "sofiapro", sans-serif !important; }
 
 .is-family-secondary {
-  font-family: "Lato", sans-serif !important; }
+  font-family: "sofiapro", sans-serif !important; }
 
 .is-family-sans-serif {
-  font-family: "Lato", sans-serif !important; }
+  font-family: "sofiapro", sans-serif !important; }
 
 .is-family-monospace {
   font-family: monospace !important; }
@@ -4992,11 +4996,7 @@ a.navbar-item,
   list-style-type: disc; }
 
 .welcome-com-text {
-  font-size: 12px; }
-
-.rules-div-border {
-  border-left: 1px inset white;
-  padding-left: 10px; }
+  font-size: 14px; }
 
 .welcome-prohibit-text {
   font-size: 14px; }
@@ -5050,7 +5050,7 @@ footer {
   bottom: 0;
   padding: 20px;
   font-size: 12px;
-  font-family: "Lato", sans-serif; }
+  font-family: "sofiapro", sans-serif; }
 
 .navbar-menu {
   background: rgba(0, 0, 0, 0.527); }
@@ -5078,7 +5078,8 @@ canvas {
 .button-landing {
   position: relative;
   z-index: 2;
-  color: #899ACE; }
+  color: #899ACE;
+  top: -60px; }
 
 @keyframes particleAnimation {
   from {
@@ -5134,7 +5135,7 @@ canvas {
   top: 120px;
   padding: 249px;
   padding-right: 0px;
-  width: 49.2%; }
+  width: 48.8%; }
 
 .input {
   border: 1px inset white;
@@ -5235,7 +5236,7 @@ canvas {
   font-size: 40px; }
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.027); }
+  background-color: transparent; }
 
 .navbar-item {
   color: #F1F2EF; }
@@ -5258,18 +5259,17 @@ canvas {
 .centered {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 55%;
   transform: translate(-50%, -50%);
   z-index: 3; }
 
 .greeting {
-  font-size: 6em;
-  font-family: faith, 'sans-serif';
+  font-size: 4em;
+  font-family: sofiapro, 'sans-serif';
   color: white;
   width: 100%;
   margin: 0 auto;
-  max-width: 600px;
-  text-shadow: 4px 3px 0px #7A7A7A; }
+  max-width: 600px; }
 
 .greeting2 {
   padding-top: 200px;
@@ -5310,7 +5310,8 @@ canvas {
 
 .what-is-title {
   color: white;
-  font-size: 5em; }
+  font-size: 5em;
+  font-family: sofiapro, sans-serif; }
 
 .bottom-links-img,
 .bottom-links-img2 {
@@ -5327,24 +5328,19 @@ canvas {
 .articles-link,
 .community-link {
   font-size: 4em;
-  font-family: 'Roboto';
+  font-family: 'sofiapro';
   position: relative;
-  bottom: 250px;
+  top: -300px;
   padding-bottom: 2px;
-  color: white;
-  background: none; }
+  color: white; }
 
 .bottom-div {
   text-align: center;
   padding: 0; }
 
-u {
-  text-decoration: none;
-  border-bottom: 1px solid white; }
-
 .explore-title {
   padding-bottom: 50px;
-  font-family: 'Montserrat'; }
+  font-family: 'sofiapro'; }
 
 .arrow {
   padding-top: 40px;
@@ -5355,7 +5351,7 @@ u {
   padding-bottom: 150px; }
 
 .title.communitypost {
-  font-family: "Lato", sans-serif; }
+  font-family: "sofiapro", sans-serif; }
 
 .post-content-page,
 .post-content-title-page {
@@ -5369,6 +5365,9 @@ u {
   border: 1px solid white;
   word-break: break-all;
   margin-bottom: -12px; }
+
+.post-reply-content {
+  font-size: 18px; }
 
 .replypage-box {
   background-color: #899ACE;
@@ -5412,7 +5411,7 @@ u {
   z-index: 0; }
 
 .input {
-  border: 1px inset white;
+  border: 3px inset white;
   padding: 20px;
   margin: 10px; }
 
@@ -5489,16 +5488,17 @@ u {
 
 .card-header,
 .card-header-title {
-  color: #F1F2EF;
+  color: sofiapro, sans-serif;
   text-align: center;
   display: block;
-  font-size: 30px; }
+  font-size: 30px;
+  color: white; }
 
 .card-content {
-  color: #F1F2EF; }
+  color: sofiapro, sans-serif; }
 
 .profile-item {
-  color: #899ACE; }
+  color: sofiapro, sans-serif; }
 
 .profile-username-header {
   position: absolute;
@@ -5507,7 +5507,7 @@ u {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: "Lato", sans-serif; }
+  font-family: sofiapro, sans-serif; }
 
 @media screen and (max-width: 1200px) {
   .profile-username-header {
@@ -5542,7 +5542,7 @@ u {
     padding: 0; } }
 
 .questions-profile-title {
-  font-family: faith;
+  font-family: sofiapro;
   font-size: 5em;
   padding-bottom: 40px; }
 
@@ -5558,7 +5558,7 @@ u {
 
 .post-content {
   color: #F1F2EF;
-  font-family: "Lato", sans-serif; }
+  font-family: "sofiapro", sans-serif; }
 
 .qotd-title {
   font-family: faith;
@@ -5611,7 +5611,8 @@ u {
   color: black; }
 
 .right-create-img {
-  padding-top: 330px; }
+  padding-top: 330px;
+  padding-left: 100px; }
 
 @media all and (max-width: 480px) {
   .form-page,
@@ -5628,7 +5629,9 @@ u {
 
 @media all and (min-width: 1200px) {
   .handin {
-    height: 325px; } }
+    height: 325px;
+    display: flex;
+    left: 200px; } }
 
 .container.edit-profile-div {
   padding-top: 200px; }

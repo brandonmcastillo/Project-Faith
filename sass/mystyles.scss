@@ -3,6 +3,16 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Lato:300|Roboto|Montserrat');
 
+@font-face {
+    font-family: faith;
+    src: url(/static/Playlist-Script.otf);
+}
+
+@font-face {
+    font-family: sofiapro;
+    src: url(/static/sofiapro-light.otf);
+}
+
 
 // Set your brand colors
 $purple: #8A4D76;
@@ -12,7 +22,7 @@ $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 
 // Update Bulma's global variables
-$family-sans-serif: "Lato",
+$family-sans-serif: "sofiapro",
 sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
@@ -47,10 +57,6 @@ sans-serif;
 $headerfont: 'Roboto',
 sans-serif;
 
-@font-face {
-    font-family: faith;
-    src: url(/static/Playlist-Script.otf);
-}
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/utilities/_all.sass";

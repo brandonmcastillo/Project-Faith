@@ -27,6 +27,7 @@
 
 .right-create-img {
     padding-top: 330px;
+    padding-left: 100px;
 }
 
 @media all and (max-width: 480px) {
@@ -54,5 +55,7 @@
 @media all and (min-width: 1200px) {
     .handin {
         height: 325px;
+        display: flex;
+        left: 200px;
     }
 }
